@@ -7,11 +7,14 @@ __pycache__/
 venv/
 env/
 
-# Large Raw Data Archives & Temp Files
+# Large Raw Archives & Extracted Duplicates
 data/raw/usgs_mrds/mrds-tab.zip
+data/raw_extracted/
 scratch/
 scratch_research.py
 setup_dirs.py
+inspect_mrds_cols.py
+New folder/
 
 # IDE & System
 .vscode/
