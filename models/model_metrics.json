@@ -1,19 +1,21 @@
 {
-  "best_model": "Advanced VGG19 Deep Prospectivity Network (50 Epochs + Label Smoothing + Cosine Annealing)",
-  "architecture": "5 VGG Conv Blocks (64, 128, 256, 512, 512) + Multi-Scale Feature Expansion + Dropout",
-  "validation_roc_auc": 1.0,
-  "validation_pr_auc": 1.0,
-  "test_roc_auc": 1.0,
-  "test_pr_auc": 1.0,
+  "best_model": "Model C \u2014 Multimodal Fusion Network (VGG19 Patches + Tabular Groups A-D)",
+  "architecture": "Multimodal Fusion (ImageNet VGG19 CNN Embedding \u2295 Groups A-D Vector)",
+  "inputs_groups": "Group A (Spectral) + Group B (Geological) + Group C (Terrain) + Group D (Environmental: LST, SM, Rain)",
+  "model_a_test_pr_auc": 1.0,
+  "model_b_test_pr_auc": 0.9258,
+  "model_c_test_pr_auc": 0.9548,
+  "test_roc_auc": 0.9944,
+  "test_pr_auc": 0.9548,
   "test_f1_score": 0.9231,
   "test_precision": 1.0,
   "test_recall": 0.8571,
   "top_5_features": [
+    "swir_alteration_index",
     "clay_carbonate_index",
-    "b11_swir1",
-    "b2_blue",
-    "slope_deg",
-    "dist_to_fault_km"
+    "dist_to_fault_km",
+    "lst",
+    "rainfall"
   ],
   "spatial_split_strategy": "1.0-degree Spatial Block Holdout (Zero Spatial Leakage)"
 }

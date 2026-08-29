@@ -15,6 +15,7 @@ BASE_DIR = r"d:\mangan ai"
 DATA_DIR = os.path.join(BASE_DIR, "data")
 TRAINING_DIR = os.path.join(DATA_DIR, "training")
 PATCHES_DIR = os.path.join(TRAINING_DIR, "patches")
+PREDICTIONS_DIR = os.path.join(DATA_DIR, "predictions")
 MODELS_DIR = os.path.join(BASE_DIR, "models")
 OUTPUTS_DIR = os.path.join(BASE_DIR, "outputs")
 

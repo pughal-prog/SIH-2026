@@ -1,0 +1,4 @@
+Model,Inputs,Spatial CV PR-AUC,Spatial CV ROC-AUC,Test PR-AUC,Test ROC-AUC,Test F1-Score,Test Precision,Test Recall,Balanced Accuracy
+Model A — Tabular Baseline (Random Forest),Groups A+B+C+D Flat Vector,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+Model B — Pure CNN Branch (VGG19),128x128x6 Multi-Spectral Patches,0.9958,0.9965,0.9258,0.987,0.6364,0.4667,1.0,0.9481
+Model C — Multimodal Fusion Network,Patches + Tabular Groups A–D Vector,1.0,1.0,0.9548,0.9944,0.9231,1.0,0.8571,0.9286
