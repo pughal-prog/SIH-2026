@@ -13,8 +13,8 @@
   <!-- Leaflet GIS CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-  <!-- Custom Design System CSS with Version Cache Busting -->
-  <link rel="stylesheet" href="styles.css?v=3.0">
+  <!-- Custom Design System CSS with Version Cache-Busting -->
+  <link rel="stylesheet" href="styles.css?v=4.0">
 </head>
 <body style="background-color: #ffffff !important; color: #0f172a !important;">
 
@@ -219,80 +219,80 @@
     </section>
 
     <!-- 2. EXPLORATION MAP VIEW -->
-    <section id="map-view" class="view-section" style="background-color: #f1f5f9 !important;">
-      <div id="gis-map" style="background-color: #f1f5f9 !important;"></div>
+    <section id="map-view" class="view-section" style="background-color: #090e1a !important;">
+      <div id="gis-map" style="background-color: #090e1a !important;"></div>
 
       <!-- Floating Controls Panel -->
-      <div class="gis-control-panel" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;">
-        <div class="panel-header" style="color: #4f46e5 !important;">
+      <div class="gis-control-panel" style="background: rgba(15, 23, 42, 0.92) !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; box-shadow: 0 20px 50px rgba(0,0,0,0.65) !important;">
+        <div class="panel-header" style="color: #06b6d4 !important;">
           <span>GIS Map Controls</span>
-          <span style="font-size: 11px; color: #64748b;">EPSG:4326</span>
+          <span style="font-size: 11px; color: #94a3b8;">EPSG:4326</span>
         </div>
 
-        <input type="text" id="search-gis" class="search-box" style="background: #f8fafc !important; color: #0f172a !important; border: 1px solid #e2e8f0 !important;" placeholder="Search District / Zone ID (e.g. MN-ZONE-024)...">
+        <input type="text" id="search-gis" class="search-box" style="background: rgba(255, 255, 255, 0.05) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.1) !important;" placeholder="Search District / Zone ID (e.g. MN-ZONE-024)...">
 
-        <div class="layer-item" style="color: #0f172a !important;">
+        <div class="layer-item" style="color: #f8fafc !important;">
           <span>Known Deposits (MRDS India)</span>
           <input type="checkbox" id="chk-occurrences" checked>
         </div>
-        <div class="layer-item" style="color: #0f172a !important;">
+        <div class="layer-item" style="color: #f8fafc !important;">
           <span>Priority Target Polygons</span>
           <input type="checkbox" id="chk-zones" checked>
         </div>
-        <div class="layer-item" style="color: #0f172a !important;">
+        <div class="layer-item" style="color: #f8fafc !important;">
           <span>Manganese Belts Boundary</span>
           <input type="checkbox" id="chk-belts" checked>
         </div>
 
         <div class="slider-group">
-          <label style="color: #475569 !important;">
+          <label style="color: #94a3b8 !important;">
             <span>Min Prospectivity Score Filter</span>
-            <b id="val-score-filter" style="color: #d97706 !important;">0.75</b>
+            <b id="val-score-filter" style="color: #ff6b00 !important;">0.75</b>
           </label>
           <input type="range" id="slider-score" class="range-input" min="0.0" max="1.0" step="0.05" value="0.75">
         </div>
       </div>
 
       <!-- Slide-in Zone Inspector Sidebar -->
-      <div id="zone-inspector" class="zone-inspector" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 15px 40px rgba(0,0,0,0.12) !important;">
+      <div id="zone-inspector" class="zone-inspector" style="background: rgba(15, 23, 42, 0.95) !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; box-shadow: 0 25px 60px rgba(0,0,0,0.75) !important;">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span class="score-tag" id="insp-id">MN-ZONE-024</span>
-          <button class="inspector-close" id="close-inspector">&times;</button>
+          <span class="score-tag" id="insp-id" style="background: rgba(255, 107, 0, 0.2) !important; color: #ff6b00 !important;">MN-ZONE-024</span>
+          <button class="inspector-close" id="close-inspector" style="color: #94a3b8 !important;">&times;</button>
         </div>
 
-        <div class="score-hero" style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(2, 132, 199, 0.08) 100%) !important; border: 1px solid rgba(79, 70, 229, 0.25) !important;">
+        <div class="score-hero" style="background: linear-gradient(135deg, rgba(255, 107, 0, 0.18) 0%, rgba(6, 182, 212, 0.18) 100%) !important; border: 1px solid rgba(255, 107, 0, 0.3) !important;">
           <div>
-            <div style="font-size: 12px; color: #475569;">Prospectivity Score</div>
-            <div class="score-num" id="insp-score" style="color: #4f46e5 !important;">0.87</div>
+            <div style="font-size: 12px; color: #94a3b8;">Prospectivity Score</div>
+            <div class="score-num" id="insp-score" style="color: #ff6b00 !important;">0.87</div>
           </div>
           <div style="text-align: right;">
-            <div style="font-size: 13px; font-weight: 700; color: #059669;" id="insp-conf">88.5% Confidence</div>
-            <div style="font-size: 11px; color: #64748b;">Multimodal Model C</div>
+            <div style="font-size: 13px; font-weight: 700; color: #10b981;" id="insp-conf">88.5% Confidence</div>
+            <div style="font-size: 11px; color: #94a3b8;">Multimodal Model C</div>
           </div>
         </div>
 
         <div class="spec-grid">
-          <div class="spec-card" style="background: #f8fafc !important; border: 1px solid #e2e8f0 !important;">
-            <div class="spec-val" id="insp-state" style="color: #4f46e5 !important;">Odisha</div>
-            <div class="spec-lbl" style="color: #64748b !important;">State</div>
+          <div class="spec-card" style="background: rgba(255,255,255,0.04) !important; border: 1px solid rgba(255,255,255,0.08) !important;">
+            <div class="spec-val" id="insp-state" style="color: #06b6d4 !important;">Odisha</div>
+            <div class="spec-lbl" style="color: #94a3b8 !important;">State</div>
           </div>
-          <div class="spec-card" style="background: #f8fafc !important; border: 1px solid #e2e8f0 !important;">
-            <div class="spec-val" id="insp-area" style="color: #4f46e5 !important;">28.5 km²</div>
-            <div class="spec-lbl" style="color: #64748b !important;">Zone Area</div>
+          <div class="spec-card" style="background: rgba(255,255,255,0.04) !important; border: 1px solid rgba(255,255,255,0.08) !important;">
+            <div class="spec-val" id="insp-area" style="color: #06b6d4 !important;">28.5 km²</div>
+            <div class="spec-lbl" style="color: #94a3b8 !important;">Zone Area</div>
           </div>
-          <div class="spec-card" style="background: #f8fafc !important; border: 1px solid #e2e8f0 !important;">
-            <div class="spec-val" id="insp-elev" style="color: #4f46e5 !important;">340 m</div>
-            <div class="spec-lbl" style="color: #64748b !important;">Elevation</div>
+          <div class="spec-card" style="background: rgba(255,255,255,0.04) !important; border: 1px solid rgba(255,255,255,0.08) !important;">
+            <div class="spec-val" id="insp-elev" style="color: #06b6d4 !important;">340 m</div>
+            <div class="spec-lbl" style="color: #94a3b8 !important;">Elevation</div>
           </div>
-          <div class="spec-card" style="background: #f8fafc !important; border: 1px solid #e2e8f0 !important;">
-            <div class="spec-val" id="insp-slope" style="color: #4f46e5 !important;">12.4°</div>
-            <div class="spec-lbl" style="color: #64748b !important;">Terrain Slope</div>
+          <div class="spec-card" style="background: rgba(255,255,255,0.04) !important; border: 1px solid rgba(255,255,255,0.08) !important;">
+            <div class="spec-val" id="insp-slope" style="color: #06b6d4 !important;">12.4°</div>
+            <div class="spec-lbl" style="color: #94a3b8 !important;">Terrain Slope</div>
           </div>
         </div>
 
-        <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 16px; border-radius: 12px;">
-          <div style="font-size: 12px; color: #4f46e5; font-weight: 700; margin-bottom: 8px;">Multimodal Feature Explanation (SHAP + Grad-CAM)</div>
-          <p style="font-size: 13px; color: #475569; line-height: 1.5;" id="insp-drivers">SWIR Alteration (B11/B12), Fault Proximity, Land Surface Temp (LST), Soil Moisture</p>
+        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 16px; border-radius: 12px;">
+          <div style="font-size: 12px; color: #06b6d4; font-weight: 700; margin-bottom: 8px;">Multimodal Feature Explanation (SHAP + Grad-CAM)</div>
+          <p style="font-size: 13px; color: #94a3b8; line-height: 1.5;" id="insp-drivers">SWIR Alteration (B11/B12), Fault Proximity, Land Surface Temp (LST), Soil Moisture</p>
         </div>
       </div>
     </section>
@@ -412,6 +412,6 @@
   <!-- Leaflet GIS JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <!-- Application JS with Version Cache Busting -->
-  <script src="app.js?v=3.0"></script>
+  <script src="app.js?v=4.0"></script>
 </body>
 </html>

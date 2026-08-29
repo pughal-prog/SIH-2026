@@ -40,7 +40,7 @@ function initTabs() {
   });
 }
 
-// Leaflet GIS Map Initialization with Light Basemap Tiles
+// Leaflet GIS Map Initialization with High-Contrast CartoDB Dark Tiles
 function initGISMap() {
   map = L.map("gis-map", {
     center: [20.5937, 78.9629],
@@ -50,8 +50,8 @@ function initGISMap() {
 
   L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-  // CartoDB Voyage Clean Light Basemap Tiles
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyage/{z}/{x}/{y}{r}.png', {
+  // CartoDB Dark Matter Basemap Tiles (High-contrast India GIS Map)
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; OpenStreetMap &copy; CARTO',
     maxZoom: 19
   }).addTo(map);
@@ -106,15 +106,15 @@ async function loadGroundTruthOccurrences() {
     points.forEach(p => {
       const marker = L.circleMarker([p.latitude, p.longitude], {
         radius: 6,
-        fillColor: "#dc2626",
-        color: "#b91c1c",
+        fillColor: "#ef4444",
+        color: "#f87171",
         weight: 1.5,
-        fillOpacity: 0.9
+        fillOpacity: 0.95
       });
 
       marker.bindPopup(`
         <div style="font-family: sans-serif; font-size: 12px; color: #0f172a;">
-          <b style="color: #4f46e5; font-size: 13px;">${p.site_name}</b><br/>
+          <b style="color: #0284c7; font-size: 13px;">${p.site_name}</b><br/>
           <b>ID:</b> ${p.occurrence_id}<br/>
           <b>State:</b> ${p.state}<br/>
           <b>Coordinates:</b> ${p.latitude.toFixed(4)}, ${p.longitude.toFixed(4)}
@@ -143,8 +143,8 @@ function renderZonesLayer(geojson) {
   
   const layer = L.geoJSON(geojson, {
     style: feat => ({
-      fillColor: "#4f46e5",
-      color: "#4338ca",
+      fillColor: "#ff6b00",
+      color: "#f97316",
       weight: 2,
       fillOpacity: 0.45
     }),
@@ -198,8 +198,8 @@ async function loadManganeseBelts() {
     beltsLayerGroup.clearLayers();
     const layer = L.geoJSON(geojson, {
       style: {
-        fillColor: "#0284c7",
-        color: "#0369a1",
+        fillColor: "#06b6d4",
+        color: "#0891b2",
         weight: 1.5,
         dashArray: "4, 4",
         fillOpacity: 0.15
