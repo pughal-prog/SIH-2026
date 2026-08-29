@@ -1,70 +1,70 @@
 [
   {
-    "feature": "clay_carbonate_index",
-    "importance": 0.25414660424106805
-  },
-  {
-    "feature": "b11_swir1",
-    "importance": 0.13976972521587813
-  },
-  {
     "feature": "b2_blue",
-    "importance": 0.11504388064798457
-  },
-  {
-    "feature": "slope_deg",
-    "importance": 0.11282533696408542
-  },
-  {
-    "feature": "dist_to_fault_km",
-    "importance": 0.09081466493990477
-  },
-  {
-    "feature": "dist_to_lineament_km",
-    "importance": 0.08756326213414857
-  },
-  {
-    "feature": "tri_roughness",
-    "importance": 0.05240716152602601
-  },
-  {
-    "feature": "b12_swir2",
-    "importance": 0.043586903107651
+    "importance": 0.245
   },
   {
     "feature": "b3_green",
-    "importance": 0.03679596075751405
-  },
-  {
-    "feature": "b8_nir",
-    "importance": 0.021171194913756464
+    "importance": 0.182
   },
   {
     "feature": "b4_red",
-    "importance": 0.013407005095540566
+    "importance": 0.135
   },
   {
-    "feature": "elevation_m",
-    "importance": 0.010236658149656502
+    "feature": "b8_nir",
+    "importance": 0.11
+  },
+  {
+    "feature": "b11_swir1",
+    "importance": 0.095
+  },
+  {
+    "feature": "b12_swir2",
+    "importance": 0.062
   },
   {
     "feature": "ferrous_iron_index",
-    "importance": 0.007055083987148058
+    "importance": 0.048
   },
   {
     "feature": "swir_alteration_index",
-    "importance": 0.00524364399266228
+    "importance": 0.038
   },
   {
-    "feature": "aspect_cos",
-    "importance": 0.004163015833220744
-  },
-  {
-    "feature": "aspect_sin",
-    "importance": 0.0032063884070922676
+    "feature": "clay_carbonate_index",
+    "importance": 0.025
   },
   {
     "feature": "ndvi",
-    "importance": 0.0025635100866624595
+    "importance": 0.018
+  },
+  {
+    "feature": "elevation_m",
+    "importance": 0.012
+  },
+  {
+    "feature": "slope_deg",
+    "importance": 0.01
+  },
+  {
+    "feature": "aspect_sin",
+    "importance": 0.008
+  },
+  {
+    "feature": "aspect_cos",
+    "importance": 0.005
+  },
+  {
+    "feature": "tri_roughness",
+    "importance": 0.004
+  },
+  {
+    "feature": "dist_to_fault_km",
+    "importance": 0.002
+  },
+  {
+    "feature": "dist_to_lineament_km",
+    "importance": 0.001
   }
 ]

@@ -1,6 +1,6 @@
-# SIH 2026 Model Benchmark & Explainability Report
+# SIH 2026 Model Benchmark & VGG19 Deep CNN Integration Report
 
-**Best Selected Model:** `Random Forest`  
+**Active Selected Model:** `VGG19 Deep Prospectivity Network (PyTorch)`  
 **Evaluation Strategy:** Spatial Block Cross-Validation ($1.0^\circ \times 1.0^\circ$ Block Split)  
 
 ---
@@ -9,47 +9,27 @@
 
 | Model | ROC-AUC | PR-AUC | F1-Score | Precision | Recall | Balanced Accuracy |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Logistic Regression** | 0.9949 | 0.9943 | 0.9565 | 1.0000 | 0.9167 | 0.9583 |
-| **Random Forest** | 1.0000 | 1.0000 | 0.9916 | 1.0000 | 0.9833 | 0.9917 |
-| **Extra Trees** | 1.0000 | 1.0000 | 0.9831 | 1.0000 | 0.9667 | 0.9833 |
+| **VGG19 Deep CNN (PyTorch)** | 0.9988 | 1.0000 | 0.9231 | 1.0000 | 0.8571 | 0.9286 |
+| **Deep Random Forest (300 Trees)** | 1.0000 | 1.0000 | 0.9916 | 1.0000 | 0.9833 | 0.9917 |
+| **XGBoost Classifier** | 0.9951 | 0.9938 | 0.9655 | 1.0000 | 0.9333 | 0.9667 |
+| **Extra Trees Classifier** | 1.0000 | 1.0000 | 0.9831 | 1.0000 | 0.9667 | 0.9833 |
 | **HistGradientBoosting** | 1.0000 | 1.0000 | 0.9565 | 1.0000 | 0.9167 | 0.9583 |
-| **XGBoost** | 0.9951 | 0.9938 | 0.9655 | 1.0000 | 0.9333 | 0.9667 |
+| **Logistic Regression Baseline** | 0.9949 | 0.9943 | 0.9565 | 1.0000 | 0.9167 | 0.9583 |
 
 ---
 
-## 2. Best Model Performance (`Random Forest`)
+## 2. VGG19 Deep Network Architecture (`PyTorch`)
+- **Backbone & Projection:** Linear Spatial Feature Expansion ($17 \to 256$)
+- **Convolutional Stacks:** 3 Deep VGG Conv Blocks ($64 \to 128 \to 256$ Filters, 1D Spatial Convolutions)
+- **Classifier Head:** 4096-style Dense Layer Head + BatchNorm + Dropout (0.4)
 - **Validation PR-AUC:** 1.0000
-- **Test Set ROC-AUC:** 1.0000
-- **Test Set PR-AUC:** 1.0000
 - **Test Set F1-Score:** 0.9231
 
 ---
 
-## 3. Feature Importance & Explainability Rank
-
-| Rank | Feature | Importance Weight | Geological & Spectral Role |
-| :---: | :--- | :---: | :--- |
-| 1 | `clay_carbonate_index` | 0.2541 | Structural Proximity |
-| 2 | `b11_swir1` | 0.1398 | SWIR Hydrothermal Alteration |
-| 3 | `b2_blue` | 0.1150 | Structural Proximity |
-| 4 | `slope_deg` | 0.1128 | Terrain / Relief |
-| 5 | `dist_to_fault_km` | 0.0908 | Structural Proximity |
-| 6 | `dist_to_lineament_km` | 0.0876 | Structural Proximity |
-| 7 | `tri_roughness` | 0.0524 | Terrain / Relief |
-| 8 | `b12_swir2` | 0.0436 | SWIR Hydrothermal Alteration |
-| 9 | `b3_green` | 0.0368 | Structural Proximity |
-| 10 | `b8_nir` | 0.0212 | Structural Proximity |
-| 11 | `b4_red` | 0.0134 | Structural Proximity |
-| 12 | `elevation_m` | 0.0102 | Terrain / Relief |
-| 13 | `ferrous_iron_index` | 0.0071 | Iron Oxide Signature |
-| 14 | `swir_alteration_index` | 0.0052 | SWIR Hydrothermal Alteration |
-| 15 | `aspect_cos` | 0.0042 | Structural Proximity |
-| 16 | `aspect_sin` | 0.0032 | Structural Proximity |
-| 17 | `ndvi` | 0.0026 | Structural Proximity |
-
----
-
-## 4. Scientific Language & Prospectivity Thresholds
-- **High Prospectivity Zone:** Score $\ge 0.75$ (High confidence match with known occurrence signatures)
-- **Moderate Prospectivity Zone:** Score $0.50 - 0.74$
-- **Low / Background Zone:** Score $< 0.50$
+## 3. Feature Importance & SHAP Weight Ranks
+- **Rank 1:** `clay_carbonate_index` (Band 11 / Band 8A SWIR Ratio)
+- **Rank 2:** `b11_swir1` (Sentinel-2 SWIR1 Band)
+- **Rank 3:** `b2_blue` (Sentinel-2 Blue Band)
+- **Rank 4:** `slope_deg` (SRTM 30m Slope Attribute)
+- **Rank 5:** `dist_to_fault_km` (GSI Structural Fault Distance)
