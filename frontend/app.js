@@ -40,7 +40,7 @@ function initTabs() {
   });
 }
 
-// Leaflet GIS Map Initialization
+// Leaflet GIS Map Initialization with Light Basemap Tiles
 function initGISMap() {
   map = L.map("gis-map", {
     center: [20.5937, 78.9629],
@@ -50,7 +50,8 @@ function initGISMap() {
 
   L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  // CartoDB Voyage Clean Light Basemap Tiles
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyage/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; OpenStreetMap &copy; CARTO',
     maxZoom: 19
   }).addTo(map);
@@ -104,16 +105,16 @@ async function loadGroundTruthOccurrences() {
     occurrenceLayerGroup.clearLayers();
     points.forEach(p => {
       const marker = L.circleMarker([p.latitude, p.longitude], {
-        radius: 5,
-        fillColor: "#ef4444",
-        color: "#f87171",
+        radius: 6,
+        fillColor: "#dc2626",
+        color: "#b91c1c",
         weight: 1.5,
-        fillOpacity: 0.85
+        fillOpacity: 0.9
       });
 
       marker.bindPopup(`
         <div style="font-family: sans-serif; font-size: 12px; color: #0f172a;">
-          <b style="color: #0284c7; font-size: 13px;">${p.site_name}</b><br/>
+          <b style="color: #4f46e5; font-size: 13px;">${p.site_name}</b><br/>
           <b>ID:</b> ${p.occurrence_id}<br/>
           <b>State:</b> ${p.state}<br/>
           <b>Coordinates:</b> ${p.latitude.toFixed(4)}, ${p.longitude.toFixed(4)}
@@ -142,10 +143,10 @@ function renderZonesLayer(geojson) {
   
   const layer = L.geoJSON(geojson, {
     style: feat => ({
-      fillColor: "#ff6b00",
-      color: "#f97316",
+      fillColor: "#4f46e5",
+      color: "#4338ca",
       weight: 2,
-      fillOpacity: 0.35
+      fillOpacity: 0.45
     }),
     onEachFeature: (feature, layer) => {
       layer.on("click", () => {
@@ -197,11 +198,11 @@ async function loadManganeseBelts() {
     beltsLayerGroup.clearLayers();
     const layer = L.geoJSON(geojson, {
       style: {
-        fillColor: "#06b6d4",
-        color: "#0891b2",
+        fillColor: "#0284c7",
+        color: "#0369a1",
         weight: 1.5,
         dashArray: "4, 4",
-        fillOpacity: 0.1
+        fillOpacity: 0.15
       }
     });
     beltsLayerGroup.addLayer(layer);
@@ -222,7 +223,7 @@ function openZoneInspector(props) {
   document.getElementById("insp-elev").textContent = (props.elevation_m || 340) + " m";
   document.getElementById("insp-slope").textContent = (props.slope_deg || 12.4) + "°";
   document.getElementById("insp-swir").textContent = props.swir_alteration_index ? props.swir_alteration_index.toFixed(2) : "1.85";
-  document.getElementById("insp-drivers").textContent = props.top_drivers || "SWIR Alteration (B11/B12), Structural Fault Distance, LST, Soil Moisture";
+  document.getElementById("insp-drivers").textContent = props.top_drivers || "SWIR Alteration (B11/B12), Fault Proximity, Land Surface Temp (LST), Soil Moisture";
 
   panel.classList.add("active");
 }
@@ -241,7 +242,6 @@ async function loadOverviewStats() {
   }
 }
 
-// Load Multimodal 3-Model Benchmark (Models A, B, C)
 async function loadMultimodalBenchmark() {
   try {
     const res = await fetch(`${API_BASE}/multimodal/benchmark`);
@@ -254,12 +254,12 @@ async function loadMultimodalBenchmark() {
     models.forEach((m, idx) => {
       const isWinner = m.Model.includes("Model C") || idx === 2;
       const row = document.createElement("tr");
-      if (isWinner) row.style.background = "rgba(6,182,212,0.1)";
+      if (isWinner) row.style.background = "rgba(79,70,229,0.06)";
       
       row.innerHTML = `
-        <td><b style="${isWinner ? 'color:var(--cyan-primary);' : ''}">${m.Model}</b></td>
+        <td><b style="${isWinner ? 'color:var(--indigo-primary);' : ''}">${m.Model}</b></td>
         <td><code>${m.Inputs}</code></td>
-        <td><b>${m['Spatial CV PR-AUC'] || m['Spatial CV PR-AUC'] || '1.0000'}</b></td>
+        <td><b>${m['Spatial CV PR-AUC'] || '1.0000'}</b></td>
         <td><b>${m['Test PR-AUC'] || '1.0000'}</b></td>
         <td><b>${m['Test ROC-AUC'] || '1.0000'}</b></td>
         <td><b style="color:var(--emerald-primary);">${m['Test F1-Score'] || '0.9850'}</b></td>
@@ -315,10 +315,10 @@ async function loadShortfallData() {
     (data.time_series || []).filter(s => s.year >= 2022).forEach(s => {
       const row = document.createElement("tr");
       row.innerHTML = `
-        <td><b>${s.year}</b> ${s.is_forecast ? '<span style="color:var(--cyan-primary); font-size:11px;">(Forecast)</span>' : ''}</td>
+        <td><b>${s.year}</b> ${s.is_forecast ? '<span style="color:var(--indigo-primary); font-size:11px;">(Forecast)</span>' : ''}</td>
         <td>${s.domestic_production_kt} kt</td>
         <td>${s.national_demand_kt} kt</td>
-        <td style="color:var(--orange-primary); font-weight:700;">${s.production_shortfall_kt} kt</td>
+        <td style="color:var(--amber-primary); font-weight:700;">${s.production_shortfall_kt} kt</td>
         <td><b style="color:var(--emerald-primary);">${s.import_dependency_percent}%</b></td>
       `;
       tbody.appendChild(row);
@@ -345,7 +345,7 @@ async function loadDataExplorer() {
         <td><code>${d.file_format}</code></td>
         <td>${d.record_count}</td>
         <td>${d.dataset_role}</td>
-        <td><span style="color:var(--cyan-primary); font-weight:600;">${d.manganese_relevance}</span></td>
+        <td><span style="color:var(--indigo-primary); font-weight:600;">${d.manganese_relevance}</span></td>
       `;
       tbody.appendChild(row);
     });
