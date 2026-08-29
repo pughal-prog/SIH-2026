@@ -337,15 +337,20 @@ async function loadDataExplorer() {
     if (!tbody) return;
     tbody.innerHTML = "";
 
-    datasets.slice(0, 15).forEach(d => {
+    datasets.forEach(d => {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td><code>${d.dataset_id}</code></td>
-        <td><b>${d.dataset_name}</b></td>
+        <td><b>${d.dataset_name}</b><br/><span style="font-size:11px; color:#64748b;">${d.filename}</span></td>
         <td><code>${d.file_format}</code></td>
-        <td>${d.record_count}</td>
+        <td><b>${d.record_count || 0}</b></td>
         <td>${d.dataset_role}</td>
         <td><span style="color:var(--indigo-primary); font-weight:600;">${d.manganese_relevance}</span></td>
+        <td>
+          <a href="${API_BASE}/datasets/download/${d.dataset_id}" target="_blank" class="nav-btn" style="padding:4px 10px; font-size:11px; text-decoration:none; display:inline-flex; align-items:center; gap:4px; background:rgba(79,70,229,0.08); border:1px solid rgba(79,70,229,0.3); color:#4f46e5; border-radius:6px;">
+            📥 Access File
+          </a>
+        </td>
       `;
       tbody.appendChild(row);
     });
