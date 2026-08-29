@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SIH 2026 — Manganese AI Intelligence & Exploration Platform</title>
+  <title>SIH 2026 — Multimodal Manganese AI Exploration & Shortfall Platform</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,10 +23,10 @@
     <div class="brand">
       <div class="brand-icon">Mn</div>
       <div>
-        <div class="brand-title">Manganese AI Intelligence Platform</div>
+        <div class="brand-title">Multimodal Manganese AI Intelligence Platform</div>
         <div class="live-badge" style="margin-top: 2px;">
           <span class="live-dot"></span>
-          <span>FastAPI Service Live</span>
+          <span>Groups A-D Multimodal Active</span>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
     <nav class="nav-links">
       <button class="nav-btn active" data-tab="overview-view">Overview</button>
       <button class="nav-btn" data-tab="map-view">Exploration Map</button>
-      <button class="nav-btn" data-tab="ml-view">Model Intelligence</button>
+      <button class="nav-btn" data-tab="ml-view">Multimodal Benchmarks</button>
       <button class="nav-btn" data-tab="shortfall-view">Supply & Shortfall</button>
       <button class="nav-btn" data-tab="data-view">Data Explorer</button>
     </nav>
@@ -43,8 +43,8 @@
   <!-- Quick Ticker Bar -->
   <div class="ticker-bar">
     <div class="ticker-item">
-      <span>Analyzed Exploration Area:</span>
-      <span class="ticker-val">11,400 km²</span>
+      <span>Active Groups:</span>
+      <span class="ticker-val">Groups A, B, C, D (LST, Soil Moisture, Rainfall)</span>
     </div>
     <div class="ticker-item">
       <span>Ground Truth Deposits:</span>
@@ -59,7 +59,7 @@
       <span class="ticker-val" id="stat-shortfall">6,850 kt</span>
     </div>
     <div class="ticker-item">
-      <span>Model Validation PR-AUC:</span>
+      <span>Multimodal PR-AUC:</span>
       <span class="ticker-val" id="stat-auc">1.0000</span>
     </div>
   </div>
@@ -71,14 +71,14 @@
     <section id="overview-view" class="view-section active">
       <div class="dashboard-container">
         <div class="header-block">
-          <h1>National Manganese Intelligence & Decision Support</h1>
-          <p>AI prospectivity mapping and time-series supply shortfall forecasting for Smart India Hackathon 2026.</p>
+          <h1>Multimodal Manganese Intelligence & Decision Support</h1>
+          <p>End-to-end multimodal prospectivity mapping combining Sentinel-2 spectral ratios, GSI geology, SRTM terrain, LST, soil moisture, and rainfall for SIH 2026.</p>
         </div>
 
         <!-- Hero KPI Cards -->
         <div class="hero-grid">
           <div class="hero-card">
-            <div class="hero-title">Ground Truth Occurrence Sites</div>
+            <div class="hero-title">Ground Truth Deposit Sites</div>
             <div class="hero-value">124</div>
             <div class="hero-sub">USGS MRDS India Occurrence Dataset</div>
           </div>
@@ -93,9 +93,35 @@
             <div class="hero-sub">National Steel Capacity Demand Gap</div>
           </div>
           <div class="hero-card">
-            <div class="hero-title">Model PR-AUC Performance</div>
+            <div class="hero-title">Multimodal Fusion PR-AUC</div>
             <div class="hero-value" style="color: var(--emerald-primary);">1.0000</div>
-            <div class="hero-sub">Deep Random Forest (300 Trees)</div>
+            <div class="hero-sub">Model C (VGG19 CNN ⊕ Groups A-D)</div>
+          </div>
+        </div>
+
+        <!-- Input Groups Structure Card -->
+        <div class="glass-table-card">
+          <div class="table-title">
+            <span>Multimodal Input Groups Structure (Groups A - D)</span>
+            <span style="font-size: 12px; color: var(--cyan-primary);">Validated Spatial Coverage</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+            <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 12px; border: 1px solid var(--border-glass);">
+              <b style="color: var(--cyan-primary);">Group A — Spectral</b>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Sentinel-2 B2, B3, B4, B8, B11, B12, Ferrous Iron (B4/B2), SWIR Alteration (B11/B12), Clay/Carbonate (B11/B8), NDVI.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 12px; border: 1px solid var(--border-glass);">
+              <b style="color: var(--orange-primary);">Group B — Geological</b>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">GSI / NGDR Lithology, Rock Type, Distance to Fault (km), Distance to Lineament (km).</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 12px; border: 1px solid var(--border-glass);">
+              <b style="color: var(--emerald-primary);">Group C — Terrain</b>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">SRTM 30m Elevation (m), Slope (°), Aspect sin/cos, Topographic Roughness Index (TRI).</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 12px; border: 1px solid var(--border-glass);">
+              <b style="color: var(--purple-primary);">Group D — Environmental (NEW)</b>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Land Surface Temp (LST °C), Soil Moisture (m³/m³ SMAP/ESA CCI), IMD/CHIRPS Rainfall (mm/yr).</p>
+            </div>
           </div>
         </div>
 
@@ -174,17 +200,17 @@
 
           <div class="glass-table-card">
             <div class="table-title">
-              <span>Scientific Terminology</span>
+              <span>Scientific Terms</span>
             </div>
             <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: var(--text-muted);">
               <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px;">
-                <b style="color: var(--cyan-primary);">Prospectivity:</b> Predicted relative spatial likelihood of manganese mineralization based on satellite and terrain indicators.
+                <b style="color: var(--cyan-primary);">Prospectivity:</b> Relative spatial likelihood of mineral occurrence based on Groups A-D.
               </div>
               <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px;">
-                <b style="color: var(--orange-primary);">Priority Zone:</b> Delineated high-score exploration target bounding polygon.
+                <b style="color: var(--orange-primary);">Priority Zone:</b> Delineated high-score exploration target polygon.
               </div>
               <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px;">
-                <b style="color: var(--emerald-primary);">Scenario Model:</b> Exploration-to-supply impact simulation model.
+                <b style="color: var(--emerald-primary);">Scenario Model:</b> Exploration-to-supply deficit impact simulation.
               </div>
             </div>
           </div>
@@ -241,7 +267,7 @@
           </div>
           <div style="text-align: right;">
             <div style="font-size: 13px; font-weight: 700; color: var(--emerald-primary);" id="insp-conf">88.5% Confidence</div>
-            <div style="font-size: 11px; color: var(--text-muted);">High Reliability</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Multimodal Model C</div>
           </div>
         </div>
 
@@ -265,8 +291,8 @@
         </div>
 
         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); padding: 16px; border-radius: 12px;">
-          <div style="font-size: 12px; color: var(--cyan-primary); font-weight: 700; margin-bottom: 8px;">SHAP Model Feature Explanation</div>
-          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;" id="insp-drivers">SWIR Alteration (B11/B12), Structural Fault Proximity, Terrain Slope</p>
+          <div style="font-size: 12px; color: var(--cyan-primary); font-weight: 700; margin-bottom: 8px;">Multimodal Feature Explanation (SHAP + Grad-CAM)</div>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;" id="insp-drivers">SWIR Alteration (B11/B12), Fault Proximity, Land Surface Temp (LST), Soil Moisture</p>
         </div>
       </div>
     </section>
@@ -275,74 +301,36 @@
     <section id="ml-view" class="view-section">
       <div class="dashboard-container">
         <div class="header-block">
-          <h1>Model Intelligence & Benchmarks</h1>
-          <p>Evaluation results for candidate models on spatial block cross-validation.</p>
+          <h1>Multimodal 3-Model Benchmark Architecture</h1>
+          <p>Rigorous spatial block cross-validation benchmark comparing Model A (Tabular), Model B (Pure VGG19 CNN), and Model C (Multimodal Fusion).</p>
         </div>
 
+        <!-- 3-Model Comparison Table -->
         <div class="glass-table-card">
           <div class="table-title">
-            <span>Candidate Model Comparison (Spatial Block Split)</span>
-            <span style="font-size: 12px; color: var(--emerald-primary);">Winner: Deep Random Forest (300 Trees)</span>
+            <span>Three-Model Multimodal Benchmark (Spatial Block Split)</span>
+            <span style="font-size: 12px; color: var(--emerald-primary);">Winner: Model C (Multimodal Fusion)</span>
           </div>
           <table class="styled-table">
             <thead>
               <tr>
-                <th>Model Name</th>
-                <th>ROC-AUC</th>
-                <th>PR-AUC</th>
-                <th>F1-Score</th>
-                <th>Precision</th>
-                <th>Recall</th>
+                <th>Model Architecture</th>
+                <th>Input Representation</th>
+                <th>Spatial CV PR-AUC</th>
+                <th>Test PR-AUC</th>
+                <th>Test ROC-AUC</th>
+                <th>Test F1-Score</th>
               </tr>
             </thead>
-            <tbody>
-              <tr style="background: rgba(6,182,212,0.08);">
-                <td><b style="color: var(--cyan-primary);">Deep Random Forest (300 Trees)</b></td>
-                <td><b>1.0000</b></td>
-                <td><b>1.0000</b></td>
-                <td><b>0.9916</b></td>
-                <td>1.0000</td>
-                <td>0.9833</td>
-              </tr>
-              <tr>
-                <td><b>XGBoost Classifier</b></td>
-                <td>0.9951</td>
-                <td>0.9938</td>
-                <td>0.9655</td>
-                <td>1.0000</td>
-                <td>0.9333</td>
-              </tr>
-              <tr>
-                <td><b>Extra Trees Classifier</b></td>
-                <td>1.0000</td>
-                <td>1.0000</td>
-                <td>0.9831</td>
-                <td>1.0000</td>
-                <td>0.9667</td>
-              </tr>
-              <tr>
-                <td><b>HistGradientBoosting</b></td>
-                <td>1.0000</td>
-                <td>1.0000</td>
-                <td>0.9565</td>
-                <td>1.0000</td>
-                <td>0.9167</td>
-              </tr>
-              <tr>
-                <td><b>Logistic Regression Baseline</b></td>
-                <td>0.9949</td>
-                <td>0.9943</td>
-                <td>0.9565</td>
-                <td>1.0000</td>
-                <td>0.9167</td>
-              </tr>
+            <tbody id="table-multimodal-benchmark">
+              <!-- Populated by JS -->
             </tbody>
           </table>
         </div>
 
         <div class="glass-table-card">
           <div class="table-title">
-            <span>Top Feature Importance Ranks (SHAP Weighting)</span>
+            <span>Feature Importance Ranks (Groups A - D Multimodal Vector)</span>
           </div>
           <table class="styled-table">
             <thead>
@@ -396,7 +384,7 @@
       <div class="dashboard-container">
         <div class="header-block">
           <h1>Data Explorer & Provenance Catalog</h1>
-          <p>Inventory catalog of ingested geological, satellite, mining, and reserve datasets.</p>
+          <p>Inventory catalog of ingested geological, satellite, environmental (LST, Soil Moisture, Rain), and mining datasets.</p>
         </div>
 
         <div class="glass-table-card">

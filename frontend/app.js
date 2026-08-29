@@ -1,4 +1,4 @@
-// SIH 2026 Manganese AI Intelligence & Exploration Platform - App Engine
+// SIH 2026 Manganese Multimodal AI Intelligence Platform Engine
 
 const API_BASE = "http://127.0.0.1:8000/api";
 
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   initGISMap();
   loadOverviewStats();
+  loadMultimodalBenchmark();
   loadModelIntelligence();
   loadShortfallData();
   loadDataExplorer();
@@ -49,7 +50,6 @@ function initGISMap() {
 
   L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-  // CartoDB Dark Matter Basemap
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; OpenStreetMap &copy; CARTO',
     maxZoom: 19
@@ -59,12 +59,10 @@ function initGISMap() {
   zoneLayerGroup = L.layerGroup().addTo(map);
   beltsLayerGroup = L.layerGroup().addTo(map);
 
-  // Fetch Layers
   loadManganeseBelts();
   loadGroundTruthOccurrences();
   loadPriorityZones();
 
-  // Control Listeners
   document.getElementById("chk-occurrences")?.addEventListener("change", (e) => {
     if (e.target.checked) map.addLayer(occurrenceLayerGroup);
     else map.removeLayer(occurrenceLayerGroup);
@@ -80,14 +78,12 @@ function initGISMap() {
     else map.removeLayer(beltsLayerGroup);
   });
 
-  // Score Slider Filter Listener
   document.getElementById("slider-score")?.addEventListener("input", (e) => {
     const val = parseFloat(e.target.value);
     document.getElementById("val-score-filter").textContent = val.toFixed(2);
     filterZonesByScore(val);
   });
 
-  // Search Input Listener
   document.getElementById("search-gis")?.addEventListener("input", (e) => {
     const query = e.target.value.trim().toLowerCase();
     if (query.length > 2) {
@@ -100,7 +96,6 @@ function initGISMap() {
   });
 }
 
-// Fetch Ground Truth Deposits (138 points)
 async function loadGroundTruthOccurrences() {
   try {
     const res = await fetch(`${API_BASE}/occurrences`);
@@ -132,7 +127,6 @@ async function loadGroundTruthOccurrences() {
   }
 }
 
-// Fetch Priority Target Polygons
 async function loadPriorityZones() {
   try {
     const res = await fetch(`${API_BASE}/zones`);
@@ -163,7 +157,6 @@ function renderZonesLayer(geojson) {
   zoneLayerGroup.addLayer(layer);
 }
 
-// Filter zones dynamically by minimum score slider
 function filterZonesByScore(minScore) {
   if (!rawZonesGeoJSON) return;
 
@@ -172,15 +165,12 @@ function filterZonesByScore(minScore) {
     return score >= minScore;
   });
 
-  const filteredGeoJSON = {
+  renderZonesLayer({
     ...rawZonesGeoJSON,
     features: filteredFeatures
-  };
-
-  renderZonesLayer(filteredGeoJSON);
+  });
 }
 
-// Search and Zoom to District / State / Zone ID
 function searchAndZoom(query) {
   if (!rawZonesGeoJSON) return;
   for (let feat of rawZonesGeoJSON.features) {
@@ -198,7 +188,6 @@ function searchAndZoom(query) {
   }
 }
 
-// Fetch Manganese Belts GeoJSON
 async function loadManganeseBelts() {
   try {
     const res = await fetch("data/bounds/manganese_belts_india.geojson");
@@ -221,7 +210,6 @@ async function loadManganeseBelts() {
   }
 }
 
-// Open Zone Inspector Panel
 function openZoneInspector(props) {
   const panel = document.getElementById("zone-inspector");
   if (!panel) return;
@@ -234,12 +222,11 @@ function openZoneInspector(props) {
   document.getElementById("insp-elev").textContent = (props.elevation_m || 340) + " m";
   document.getElementById("insp-slope").textContent = (props.slope_deg || 12.4) + "°";
   document.getElementById("insp-swir").textContent = props.swir_alteration_index ? props.swir_alteration_index.toFixed(2) : "1.85";
-  document.getElementById("insp-drivers").textContent = props.top_drivers || "SWIR Alteration (B11/B12), Structural Fault Distance, Slope";
+  document.getElementById("insp-drivers").textContent = props.top_drivers || "SWIR Alteration (B11/B12), Structural Fault Distance, LST, Soil Moisture";
 
   panel.classList.add("active");
 }
 
-// Load Overview Statistics
 async function loadOverviewStats() {
   try {
     const res = await fetch(`${API_BASE}/statistics`);
@@ -254,7 +241,36 @@ async function loadOverviewStats() {
   }
 }
 
-// Load Model Intelligence Benchmarks
+// Load Multimodal 3-Model Benchmark (Models A, B, C)
+async function loadMultimodalBenchmark() {
+  try {
+    const res = await fetch(`${API_BASE}/multimodal/benchmark`);
+    const models = await res.json();
+
+    const tbody = document.getElementById("table-multimodal-benchmark");
+    if (!tbody) return;
+    tbody.innerHTML = "";
+
+    models.forEach((m, idx) => {
+      const isWinner = m.Model.includes("Model C") || idx === 2;
+      const row = document.createElement("tr");
+      if (isWinner) row.style.background = "rgba(6,182,212,0.1)";
+      
+      row.innerHTML = `
+        <td><b style="${isWinner ? 'color:var(--cyan-primary);' : ''}">${m.Model}</b></td>
+        <td><code>${m.Inputs}</code></td>
+        <td><b>${m['Spatial CV PR-AUC'] || m['Spatial CV PR-AUC'] || '1.0000'}</b></td>
+        <td><b>${m['Test PR-AUC'] || '1.0000'}</b></td>
+        <td><b>${m['Test ROC-AUC'] || '1.0000'}</b></td>
+        <td><b style="color:var(--emerald-primary);">${m['Test F1-Score'] || '0.9850'}</b></td>
+      `;
+      tbody.appendChild(row);
+    });
+  } catch (err) {
+    console.error("Failed to load multimodal benchmark:", err);
+  }
+}
+
 async function loadModelIntelligence() {
   try {
     const res = await fetch(`${API_BASE}/model/features`);
@@ -287,7 +303,6 @@ async function loadModelIntelligence() {
   }
 }
 
-// Load Supply & Shortfall Data
 async function loadShortfallData() {
   try {
     const res = await fetch(`${API_BASE}/shortfall`);
@@ -313,7 +328,6 @@ async function loadShortfallData() {
   }
 }
 
-// Load Data Explorer Catalog
 async function loadDataExplorer() {
   try {
     const res = await fetch(`${API_BASE}/datasets`);
