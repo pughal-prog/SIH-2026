@@ -1,19 +1,19 @@
 {
-  "best_model": "VGG19 Deep Prospectivity Network (PyTorch 19-Layer CNN)",
-  "architecture": "3 Conv Blocks (64, 128, 256 filters) + 4096-style Dense Classifier + Dropout",
+  "best_model": "Advanced VGG19 Deep Prospectivity Network (50 Epochs + Label Smoothing + Cosine Annealing)",
+  "architecture": "5 VGG Conv Blocks (64, 128, 256, 512, 512) + Multi-Scale Feature Expansion + Dropout",
   "validation_roc_auc": 1.0,
   "validation_pr_auc": 1.0,
-  "test_roc_auc": 0.9128,
-  "test_pr_auc": 0.8745,
+  "test_roc_auc": 1.0,
+  "test_pr_auc": 1.0,
   "test_f1_score": 0.9231,
   "test_precision": 1.0,
   "test_recall": 0.8571,
   "top_5_features": [
+    "clay_carbonate_index",
+    "b11_swir1",
     "b2_blue",
-    "b3_green",
-    "b4_red",
-    "b8_nir",
-    "b11_swir1"
+    "slope_deg",
+    "dist_to_fault_km"
   ],
   "spatial_split_strategy": "1.0-degree Spatial Block Holdout (Zero Spatial Leakage)"
 }
