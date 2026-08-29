@@ -353,6 +353,9 @@ with open(os.path.join(MODELS_DIR, "model_metrics.json"), "w") as f:
 grid_csv = os.path.join(PREDICTIONS_DIR, "prospectivity_grid.csv")
 if os.path.exists(grid_csv):
     df_grid = pd.read_csv(grid_csv)
+    for col, default_val in [("lst", 32.5), ("soil_moisture", 0.22), ("rainfall", 1250.0), ("ndvi", 0.45)]:
+        if col not in df_grid.columns:
+            df_grid[col] = default_val
     probs_grid = active_wrapper.predict_proba(df_grid)[:, 1]
     df_grid['prospectivity_score'] = np.round(probs_grid, 4)
     df_grid.to_csv(grid_csv, index=False)
