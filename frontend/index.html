@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: #ffffff !important;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,17 +13,17 @@
   <!-- Leaflet GIS CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-  <!-- Custom Design System CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Custom Design System CSS with Version Cache Busting -->
+  <link rel="stylesheet" href="styles.css?v=3.0">
 </head>
-<body>
+<body style="background-color: #ffffff !important; color: #0f172a !important;">
 
   <!-- Top Glass Navbar -->
-  <header class="navbar">
+  <header class="navbar" style="background: rgba(255, 255, 255, 0.98) !important; border-bottom: 1px solid #e2e8f0 !important;">
     <div class="brand">
       <div class="brand-icon">Mn</div>
       <div>
-        <div class="brand-title">Multimodal Manganese AI Intelligence Platform</div>
+        <div class="brand-title" style="color: #0f172a !important; -webkit-text-fill-color: #0f172a !important;">Multimodal Manganese AI Intelligence Platform</div>
         <div class="live-badge" style="margin-top: 2px;">
           <span class="live-dot"></span>
           <span>Groups A-D Multimodal Active</span>
@@ -41,114 +41,114 @@
   </header>
 
   <!-- Quick Ticker Bar -->
-  <div class="ticker-bar">
+  <div class="ticker-bar" style="background: #ffffff !important; border-bottom: 1px solid #e2e8f0 !important; color: #475569 !important;">
     <div class="ticker-item">
       <span>Active Groups:</span>
-      <span class="ticker-val">Groups A, B, C, D (LST, Soil Moisture, Rainfall)</span>
+      <span class="ticker-val" style="color: #0f172a !important;">Groups A, B, C, D (LST, Soil Moisture, Rainfall)</span>
     </div>
     <div class="ticker-item">
       <span>Ground Truth Deposits:</span>
-      <span class="ticker-val" id="stat-pts">124 Points</span>
+      <span class="ticker-val" id="stat-pts" style="color: #0f172a !important;">124 Points</span>
     </div>
     <div class="ticker-item">
       <span>High Priority Target Zones:</span>
-      <span class="ticker-val" id="stat-zones">499 Polygons</span>
+      <span class="ticker-val" id="stat-zones" style="color: #0f172a !important;">499 Polygons</span>
     </div>
     <div class="ticker-item">
       <span>2030 Projected Import Shortfall:</span>
-      <span class="ticker-val" id="stat-shortfall">6,850 kt</span>
+      <span class="ticker-val" id="stat-shortfall" style="color: #0f172a !important;">6,850 kt</span>
     </div>
     <div class="ticker-item">
       <span>Multimodal PR-AUC:</span>
-      <span class="ticker-val" id="stat-auc">1.0000</span>
+      <span class="ticker-val" id="stat-auc" style="color: #0f172a !important;">1.0000</span>
     </div>
   </div>
 
   <!-- App Content Body -->
-  <main class="app-content">
+  <main class="app-content" style="background-color: #ffffff !important;">
 
     <!-- 1. OVERVIEW VIEW -->
-    <section id="overview-view" class="view-section active">
-      <div class="dashboard-container">
+    <section id="overview-view" class="view-section active" style="background-color: #ffffff !important;">
+      <div class="dashboard-container" style="background-color: #ffffff !important;">
         <div class="header-block">
-          <h1>Multimodal Manganese Intelligence & Decision Support</h1>
-          <p>End-to-end multimodal prospectivity mapping combining Sentinel-2 spectral ratios, GSI geology, SRTM terrain, LST, soil moisture, and rainfall for SIH 2026.</p>
+          <h1 style="color: #0f172a !important;">Multimodal Manganese Intelligence & Decision Support</h1>
+          <p style="color: #475569 !important;">End-to-end multimodal prospectivity mapping combining Sentinel-2 spectral ratios, GSI geology, SRTM terrain, LST, soil moisture, and rainfall for SIH 2026.</p>
         </div>
 
         <!-- Hero KPI Cards -->
         <div class="hero-grid">
-          <div class="hero-card">
-            <div class="hero-title">Ground Truth Deposit Sites</div>
-            <div class="hero-value">124</div>
-            <div class="hero-sub">USGS MRDS India Occurrence Dataset</div>
+          <div class="hero-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
+            <div class="hero-title" style="color: #64748b !important;">Ground Truth Deposit Sites</div>
+            <div class="hero-value" style="color: #0f172a !important;">124</div>
+            <div class="hero-sub" style="color: #059669 !important;">USGS MRDS India Occurrence Dataset</div>
           </div>
-          <div class="hero-card">
-            <div class="hero-title">High Priority Target Zones</div>
-            <div class="hero-value">499</div>
-            <div class="hero-sub">Score ≥ 0.75 Exploration Target Polygons</div>
+          <div class="hero-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
+            <div class="hero-title" style="color: #64748b !important;">High Priority Target Zones</div>
+            <div class="hero-value" style="color: #0f172a !important;">499</div>
+            <div class="hero-sub" style="color: #059669 !important;">Score ≥ 0.75 Exploration Target Polygons</div>
           </div>
-          <div class="hero-card">
-            <div class="hero-title">2030 Projected Deficit</div>
-            <div class="hero-value" style="color: var(--orange-primary);">6,850 kt</div>
-            <div class="hero-sub">National Steel Capacity Demand Gap</div>
+          <div class="hero-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
+            <div class="hero-title" style="color: #64748b !important;">2030 Projected Deficit</div>
+            <div class="hero-value" style="color: #d97706 !important;">6,850 kt</div>
+            <div class="hero-sub" style="color: #059669 !important;">National Steel Capacity Demand Gap</div>
           </div>
-          <div class="hero-card">
-            <div class="hero-title">Multimodal Fusion PR-AUC</div>
-            <div class="hero-value" style="color: var(--emerald-primary);">1.0000</div>
-            <div class="hero-sub">Model C (VGG19 CNN ⊕ Groups A-D)</div>
+          <div class="hero-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
+            <div class="hero-title" style="color: #64748b !important;">Multimodal Fusion PR-AUC</div>
+            <div class="hero-value" style="color: #059669 !important;">1.0000</div>
+            <div class="hero-sub" style="color: #059669 !important;">Model C (VGG19 CNN ⊕ Groups A-D)</div>
           </div>
         </div>
 
         <!-- Input Groups Structure Card -->
-        <div class="glass-table-card">
+        <div class="glass-table-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
           <div class="table-title">
-            <span>Multimodal Input Groups Structure (Groups A - D)</span>
-            <span style="font-size: 12px; color: var(--cyan-primary);">Validated Spatial Coverage</span>
+            <span style="color: #4f46e5 !important;">Multimodal Input Groups Structure (Groups A - D)</span>
+            <span style="font-size: 12px; color: #0284c7 !important;">Validated Spatial Coverage</span>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-            <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 12px; border: 1px solid var(--border-glass);">
-              <b style="color: var(--cyan-primary);">Group A — Spectral</b>
-              <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Sentinel-2 B2, B3, B4, B8, B11, B12, Ferrous Iron (B4/B2), SWIR Alteration (B11/B12), Clay/Carbonate (B11/B8), NDVI.</p>
+            <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+              <b style="color: #0284c7;">Group A — Spectral</b>
+              <p style="font-size: 12px; color: #475569; margin-top: 6px;">Sentinel-2 B2, B3, B4, B8, B11, B12, Ferrous Iron (B4/B2), SWIR Alteration (B11/B12), Clay/Carbonate (B11/B8), NDVI.</p>
             </div>
-            <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 12px; border: 1px solid var(--border-glass);">
-              <b style="color: var(--orange-primary);">Group B — Geological</b>
-              <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">GSI / NGDR Lithology, Rock Type, Distance to Fault (km), Distance to Lineament (km).</p>
+            <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+              <b style="color: #d97706;">Group B — Geological</b>
+              <p style="font-size: 12px; color: #475569; margin-top: 6px;">GSI / NGDR Lithology, Rock Type, Distance to Fault (km), Distance to Lineament (km).</p>
             </div>
-            <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 12px; border: 1px solid var(--border-glass);">
-              <b style="color: var(--emerald-primary);">Group C — Terrain</b>
-              <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">SRTM 30m Elevation (m), Slope (°), Aspect sin/cos, Topographic Roughness Index (TRI).</p>
+            <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+              <b style="color: #059669;">Group C — Terrain</b>
+              <p style="font-size: 12px; color: #475569; margin-top: 6px;">SRTM 30m Elevation (m), Slope (°), Aspect sin/cos, Topographic Roughness Index (TRI).</p>
             </div>
-            <div style="background: rgba(255,255,255,0.03); padding: 16px; border-radius: 12px; border: 1px solid var(--border-glass);">
-              <b style="color: var(--purple-primary);">Group D — Environmental (NEW)</b>
-              <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">Land Surface Temp (LST °C), Soil Moisture (m³/m³ SMAP/ESA CCI), IMD/CHIRPS Rainfall (mm/yr).</p>
+            <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+              <b style="color: #7c3aed;">Group D — Environmental (NEW)</b>
+              <p style="font-size: 12px; color: #475569; margin-top: 6px;">Land Surface Temp (LST °C), Soil Moisture (m³/m³ SMAP/ESA CCI), IMD/CHIRPS Rainfall (mm/yr).</p>
             </div>
           </div>
         </div>
 
         <!-- Strategic Cards Grid -->
         <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
-          <div class="glass-table-card">
+          <div class="glass-table-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
             <div class="table-title">
-              <span>Primary Manganese Exploration Belts (India)</span>
-              <span style="font-size: 12px; color: var(--text-muted);">UNFC NMI Reserve Distribution</span>
+              <span style="color: #4f46e5 !important;">Primary Manganese Exploration Belts (India)</span>
+              <span style="font-size: 12px; color: #64748b !important;">UNFC NMI Reserve Distribution</span>
             </div>
             <table class="styled-table">
               <thead>
                 <tr>
-                  <th>Manganese Belt</th>
-                  <th>Key Districts</th>
-                  <th>Total Reserves (kt)</th>
-                  <th>National Share (%)</th>
+                  <th style="background: #f8fafc !important; color: #475569 !important;">Manganese Belt</th>
+                  <th style="background: #f8fafc !important; color: #475569 !important;">Key Districts</th>
+                  <th style="background: #f8fafc !important; color: #475569 !important;">Total Reserves (kt)</th>
+                  <th style="background: #f8fafc !important; color: #475569 !important;">National Share (%)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><b style="color: var(--cyan-primary);">Odisha Belt</b></td>
+                  <td><b style="color: #0284c7;">Odisha Belt</b></td>
                   <td>Keonjhar, Sundargarh, Rayagada, Koraput</td>
                   <td>92,530 kt</td>
                   <td>
                     <div style="display:flex; align-items:center; gap:8px;">
-                      <div class="prog-bar-container" style="width:100px;">
+                      <div class="prog-bar-container" style="width:100px; background: #e2e8f0;">
                         <div class="prog-bar-fill" style="width:44%;"></div>
                       </div>
                       <b>44.0%</b>
@@ -156,12 +156,12 @@
                   </td>
                 </tr>
                 <tr>
-                  <td><b style="color: var(--orange-primary);">MP - MH Belt</b></td>
+                  <td><b style="color: #d97706;">MP - MH Belt</b></td>
                   <td>Balaghat, Chhindwara, Nagpur, Bhandara</td>
                   <td>89,800 kt</td>
                   <td>
                     <div style="display:flex; align-items:center; gap:8px;">
-                      <div class="prog-bar-container" style="width:100px;">
+                      <div class="prog-bar-container" style="width:100px; background: #e2e8f0;">
                         <div class="prog-bar-fill" style="width:42.7%;"></div>
                       </div>
                       <b>42.7%</b>
@@ -169,12 +169,12 @@
                   </td>
                 </tr>
                 <tr>
-                  <td><b style="color: var(--emerald-primary);">Karnataka Belt</b></td>
+                  <td><b style="color: #059669;">Karnataka Belt</b></td>
                   <td>Bellary, Shimoga, Uttara Kannada</td>
                   <td>23,200 kt</td>
                   <td>
                     <div style="display:flex; align-items:center; gap:8px;">
-                      <div class="prog-bar-container" style="width:100px;">
+                      <div class="prog-bar-container" style="width:100px; background: #e2e8f0;">
                         <div class="prog-bar-fill" style="width:11%;"></div>
                       </div>
                       <b>11.0%</b>
@@ -182,12 +182,12 @@
                   </td>
                 </tr>
                 <tr>
-                  <td><b style="color: var(--purple-primary);">Andhra Pradesh Belt</b></td>
+                  <td><b style="color: #7c3aed;">Andhra Pradesh Belt</b></td>
                   <td>Srikakulam, Vizianagaram</td>
                   <td>4,800 kt</td>
                   <td>
                     <div style="display:flex; align-items:center; gap:8px;">
-                      <div class="prog-bar-container" style="width:100px;">
+                      <div class="prog-bar-container" style="width:100px; background: #e2e8f0;">
                         <div class="prog-bar-fill" style="width:2.3%;"></div>
                       </div>
                       <b>2.3%</b>
@@ -198,19 +198,19 @@
             </table>
           </div>
 
-          <div class="glass-table-card">
+          <div class="glass-table-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
             <div class="table-title">
-              <span>Scientific Terms</span>
+              <span style="color: #4f46e5 !important;">Scientific Terms</span>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: var(--text-muted);">
-              <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px;">
-                <b style="color: var(--cyan-primary);">Prospectivity:</b> Relative spatial likelihood of mineral occurrence based on Groups A-D.
+            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: #475569;">
+              <div style="background: #f8fafc; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                <b style="color: #0284c7;">Prospectivity:</b> Relative spatial likelihood of mineral occurrence based on Groups A-D.
               </div>
-              <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px;">
-                <b style="color: var(--orange-primary);">Priority Zone:</b> Delineated high-score exploration target polygon.
+              <div style="background: #f8fafc; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                <b style="color: #d97706;">Priority Zone:</b> Delineated high-score exploration target polygon.
               </div>
-              <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px;">
-                <b style="color: var(--emerald-primary);">Scenario Model:</b> Exploration-to-supply deficit impact simulation.
+              <div style="background: #f8fafc; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                <b style="color: #059669;">Scenario Model:</b> Exploration-to-supply deficit impact simulation.
               </div>
             </div>
           </div>
@@ -219,107 +219,107 @@
     </section>
 
     <!-- 2. EXPLORATION MAP VIEW -->
-    <section id="map-view" class="view-section">
-      <div id="gis-map"></div>
+    <section id="map-view" class="view-section" style="background-color: #f1f5f9 !important;">
+      <div id="gis-map" style="background-color: #f1f5f9 !important;"></div>
 
       <!-- Floating Controls Panel -->
-      <div class="gis-control-panel">
-        <div class="panel-header">
+      <div class="gis-control-panel" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;">
+        <div class="panel-header" style="color: #4f46e5 !important;">
           <span>GIS Map Controls</span>
-          <span style="font-size: 11px; color: var(--text-muted);">EPSG:4326</span>
+          <span style="font-size: 11px; color: #64748b;">EPSG:4326</span>
         </div>
 
-        <input type="text" id="search-gis" class="search-box" placeholder="Search District / Zone ID (e.g. MN-ZONE-024)...">
+        <input type="text" id="search-gis" class="search-box" style="background: #f8fafc !important; color: #0f172a !important; border: 1px solid #e2e8f0 !important;" placeholder="Search District / Zone ID (e.g. MN-ZONE-024)...">
 
-        <div class="layer-item">
+        <div class="layer-item" style="color: #0f172a !important;">
           <span>Known Deposits (MRDS India)</span>
           <input type="checkbox" id="chk-occurrences" checked>
         </div>
-        <div class="layer-item">
+        <div class="layer-item" style="color: #0f172a !important;">
           <span>Priority Target Polygons</span>
           <input type="checkbox" id="chk-zones" checked>
         </div>
-        <div class="layer-item">
+        <div class="layer-item" style="color: #0f172a !important;">
           <span>Manganese Belts Boundary</span>
           <input type="checkbox" id="chk-belts" checked>
         </div>
 
         <div class="slider-group">
-          <label>
+          <label style="color: #475569 !important;">
             <span>Min Prospectivity Score Filter</span>
-            <b id="val-score-filter" style="color: var(--orange-primary);">0.75</b>
+            <b id="val-score-filter" style="color: #d97706 !important;">0.75</b>
           </label>
           <input type="range" id="slider-score" class="range-input" min="0.0" max="1.0" step="0.05" value="0.75">
         </div>
       </div>
 
       <!-- Slide-in Zone Inspector Sidebar -->
-      <div id="zone-inspector" class="zone-inspector">
+      <div id="zone-inspector" class="zone-inspector" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 15px 40px rgba(0,0,0,0.12) !important;">
         <div style="display: flex; justify-content: space-between; align-items: center;">
           <span class="score-tag" id="insp-id">MN-ZONE-024</span>
           <button class="inspector-close" id="close-inspector">&times;</button>
         </div>
 
-        <div class="score-hero">
+        <div class="score-hero" style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(2, 132, 199, 0.08) 100%) !important; border: 1px solid rgba(79, 70, 229, 0.25) !important;">
           <div>
-            <div style="font-size: 12px; color: var(--text-muted);">Prospectivity Score</div>
-            <div class="score-num" id="insp-score">0.87</div>
+            <div style="font-size: 12px; color: #475569;">Prospectivity Score</div>
+            <div class="score-num" id="insp-score" style="color: #4f46e5 !important;">0.87</div>
           </div>
           <div style="text-align: right;">
-            <div style="font-size: 13px; font-weight: 700; color: var(--emerald-primary);" id="insp-conf">88.5% Confidence</div>
-            <div style="font-size: 11px; color: var(--text-muted);">Multimodal Model C</div>
+            <div style="font-size: 13px; font-weight: 700; color: #059669;" id="insp-conf">88.5% Confidence</div>
+            <div style="font-size: 11px; color: #64748b;">Multimodal Model C</div>
           </div>
         </div>
 
         <div class="spec-grid">
-          <div class="spec-card">
-            <div class="spec-val" id="insp-state">Odisha</div>
-            <div class="spec-lbl">State</div>
+          <div class="spec-card" style="background: #f8fafc !important; border: 1px solid #e2e8f0 !important;">
+            <div class="spec-val" id="insp-state" style="color: #4f46e5 !important;">Odisha</div>
+            <div class="spec-lbl" style="color: #64748b !important;">State</div>
           </div>
-          <div class="spec-card">
-            <div class="spec-val" id="insp-area">28.5 km²</div>
-            <div class="spec-lbl">Zone Area</div>
+          <div class="spec-card" style="background: #f8fafc !important; border: 1px solid #e2e8f0 !important;">
+            <div class="spec-val" id="insp-area" style="color: #4f46e5 !important;">28.5 km²</div>
+            <div class="spec-lbl" style="color: #64748b !important;">Zone Area</div>
           </div>
-          <div class="spec-card">
-            <div class="spec-val" id="insp-elev">340 m</div>
-            <div class="spec-lbl">Elevation</div>
+          <div class="spec-card" style="background: #f8fafc !important; border: 1px solid #e2e8f0 !important;">
+            <div class="spec-val" id="insp-elev" style="color: #4f46e5 !important;">340 m</div>
+            <div class="spec-lbl" style="color: #64748b !important;">Elevation</div>
           </div>
-          <div class="spec-card">
-            <div class="spec-val" id="insp-slope">12.4°</div>
-            <div class="spec-lbl">Terrain Slope</div>
+          <div class="spec-card" style="background: #f8fafc !important; border: 1px solid #e2e8f0 !important;">
+            <div class="spec-val" id="insp-slope" style="color: #4f46e5 !important;">12.4°</div>
+            <div class="spec-lbl" style="color: #64748b !important;">Terrain Slope</div>
           </div>
         </div>
 
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); padding: 16px; border-radius: 12px;">
-          <div style="font-size: 12px; color: var(--cyan-primary); font-weight: 700; margin-bottom: 8px;">Multimodal Feature Explanation (SHAP + Grad-CAM)</div>
-          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;" id="insp-drivers">SWIR Alteration (B11/B12), Fault Proximity, Land Surface Temp (LST), Soil Moisture</p>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 16px; border-radius: 12px;">
+          <div style="font-size: 12px; color: #4f46e5; font-weight: 700; margin-bottom: 8px;">Multimodal Feature Explanation (SHAP + Grad-CAM)</div>
+          <p style="font-size: 13px; color: #475569; line-height: 1.5;" id="insp-drivers">SWIR Alteration (B11/B12), Fault Proximity, Land Surface Temp (LST), Soil Moisture</p>
         </div>
       </div>
     </section>
 
     <!-- 3. MODEL INTELLIGENCE VIEW -->
-    <section id="ml-view" class="view-section">
-      <div class="dashboard-container">
+    <section id="ml-view" class="view-section" style="background-color: #ffffff !important;">
+      <div class="dashboard-container" style="background-color: #ffffff !important;">
         <div class="header-block">
-          <h1>Multimodal 3-Model Benchmark Architecture</h1>
-          <p>Rigorous spatial block cross-validation benchmark comparing Model A (Tabular), Model B (Pure VGG19 CNN), and Model C (Multimodal Fusion).</p>
+          <h1 style="color: #0f172a !important;">Multimodal 3-Model Benchmark Architecture</h1>
+          <p style="color: #475569 !important;">Rigorous spatial block cross-validation benchmark comparing Model A (Tabular), Model B (Pure VGG19 CNN), and Model C (Multimodal Fusion).</p>
         </div>
 
         <!-- 3-Model Comparison Table -->
-        <div class="glass-table-card">
+        <div class="glass-table-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
           <div class="table-title">
-            <span>Three-Model Multimodal Benchmark (Spatial Block Split)</span>
-            <span style="font-size: 12px; color: var(--emerald-primary);">Winner: Model C (Multimodal Fusion)</span>
+            <span style="color: #4f46e5 !important;">Three-Model Multimodal Benchmark (Spatial Block Split)</span>
+            <span style="font-size: 12px; color: #059669 !important;">Winner: Model C (Multimodal Fusion)</span>
           </div>
           <table class="styled-table">
             <thead>
               <tr>
-                <th>Model Architecture</th>
-                <th>Input Representation</th>
-                <th>Spatial CV PR-AUC</th>
-                <th>Test PR-AUC</th>
-                <th>Test ROC-AUC</th>
-                <th>Test F1-Score</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Model Architecture</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Input Representation</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Spatial CV PR-AUC</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Test PR-AUC</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Test ROC-AUC</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Test F1-Score</th>
               </tr>
             </thead>
             <tbody id="table-multimodal-benchmark">
@@ -328,17 +328,17 @@
           </table>
         </div>
 
-        <div class="glass-table-card">
+        <div class="glass-table-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
           <div class="table-title">
-            <span>Feature Importance Ranks (Groups A - D Multimodal Vector)</span>
+            <span style="color: #4f46e5 !important;">Feature Importance Ranks (Groups A - D Multimodal Vector)</span>
           </div>
           <table class="styled-table">
             <thead>
               <tr>
-                <th>Rank</th>
-                <th>Feature Name</th>
-                <th>Importance Weight</th>
-                <th>Feature Contribution</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Rank</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Feature Name</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Importance Weight</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Feature Contribution</th>
               </tr>
             </thead>
             <tbody id="table-model-features">
@@ -350,25 +350,25 @@
     </section>
 
     <!-- 4. SUPPLY & SHORTFALL VIEW -->
-    <section id="shortfall-view" class="view-section">
-      <div class="dashboard-container">
+    <section id="shortfall-view" class="view-section" style="background-color: #ffffff !important;">
+      <div class="dashboard-container" style="background-color: #ffffff !important;">
         <div class="header-block">
-          <h1>Supply & Production Shortfall Forecast</h1>
-          <p>National manganese ore production projections (2014-2030) and import dependency analysis.</p>
+          <h1 style="color: #0f172a !important;">Supply & Production Shortfall Forecast</h1>
+          <p style="color: #475569 !important;">National manganese ore production projections (2014-2030) and import dependency analysis.</p>
         </div>
 
-        <div class="glass-table-card">
+        <div class="glass-table-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
           <div class="table-title">
-            <span>National Manganese Ore Supply vs Demand Deficit (2022 - 2030)</span>
+            <span style="color: #4f46e5 !important;">National Manganese Ore Supply vs Demand Deficit (2022 - 2030)</span>
           </div>
           <table class="styled-table">
             <thead>
               <tr>
-                <th>Year</th>
-                <th>Domestic Production (kt)</th>
-                <th>National Demand (kt)</th>
-                <th>Shortfall Deficit (kt)</th>
-                <th>Import Dependency (%)</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Year</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Domestic Production (kt)</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">National Demand (kt)</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Shortfall Deficit (kt)</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Import Dependency (%)</th>
               </tr>
             </thead>
             <tbody id="table-shortfall-data">
@@ -380,23 +380,23 @@
     </section>
 
     <!-- 5. DATA EXPLORER VIEW -->
-    <section id="data-view" class="view-section">
-      <div class="dashboard-container">
+    <section id="data-view" class="view-section" style="background-color: #ffffff !important;">
+      <div class="dashboard-container" style="background-color: #ffffff !important;">
         <div class="header-block">
-          <h1>Data Explorer & Provenance Catalog</h1>
-          <p>Inventory catalog of ingested geological, satellite, environmental (LST, Soil Moisture, Rain), and mining datasets.</p>
+          <h1 style="color: #0f172a !important;">Data Explorer & Provenance Catalog</h1>
+          <p style="color: #475569 !important;">Inventory catalog of ingested geological, satellite, environmental (LST, Soil Moisture, Rain), and mining datasets.</p>
         </div>
 
-        <div class="glass-table-card">
+        <div class="glass-table-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
           <table class="styled-table">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Dataset Name</th>
-                <th>Format</th>
-                <th>Records</th>
-                <th>Role</th>
-                <th>Relevance</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">ID</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Dataset Name</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Format</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Records</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Role</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Relevance</th>
               </tr>
             </thead>
             <tbody id="table-datasets-catalog">
@@ -411,7 +411,7 @@
 
   <!-- Leaflet GIS JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <!-- Application JS -->
-  <script src="app.js"></script>
+  <!-- Application JS with Version Cache Busting -->
+  <script src="app.js?v=3.0"></script>
 </body>
 </html>
