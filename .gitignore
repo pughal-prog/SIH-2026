@@ -7,6 +7,10 @@ __pycache__/
 venv/
 env/
 
+# Large Model Weights Binary Checkpoints
+models/*.pt
+models/*.onnx
+
 # Large Raw Archives & Extracted Duplicates
 data/raw/usgs_mrds/mrds-tab.zip
 data/raw_extracted/
