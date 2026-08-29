@@ -1,0 +1,3111 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0001",
+        "site_name": "Laugur Mine",
+        "latitude": 21.92946,
+        "longitude": 80.35034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10158629",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.35034,
+          21.92946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0002",
+        "site_name": "Cape Gadani",
+        "latitude": 29.96588,
+        "longitude": 69.38662,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090244",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.38662,
+          29.96588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0003",
+        "site_name": "Kodur, Garbham, and Perapi Mines",
+        "latitude": 18.27479,
+        "longitude": 83.55025,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10304411",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.55025,
+          18.27479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0004",
+        "site_name": "Manegaon Mines",
+        "latitude": 21.82947,
+        "longitude": 80.26034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10183530",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.26034,
+          21.82947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0005",
+        "site_name": "Goguldoho Mines: Western and East",
+        "latitude": 21.40951,
+        "longitude": 79.43036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10134171",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.43036,
+          21.40951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0006",
+        "site_name": "Maharashtra/Mahya Pradesh Area",
+        "latitude": 21.99947,
+        "longitude": 79.00038,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10279384",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.00038,
+          21.99947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0007",
+        "site_name": "Kuttinga",
+        "latitude": 19.1664,
+        "longitude": 83.46695,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10255709",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.46695,
+          19.1664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0008",
+        "site_name": "Kanatola",
+        "latitude": 21.87447,
+        "longitude": 80.35034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003853",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.35034,
+          21.87447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0009",
+        "site_name": "Adilabad",
+        "latitude": 22.88286,
+        "longitude": 79.61656,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003832",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.61656,
+          22.88286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0010",
+        "site_name": "Barbil",
+        "latitude": 22.11614,
+        "longitude": 85.3502,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10231471",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.3502,
+          22.11614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0011",
+        "site_name": "Enkatola",
+        "latitude": 21.36618,
+        "longitude": 80.16701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003845",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16701,
+          21.36618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0012",
+        "site_name": "Junewani Mines Area:  Junewani Mi",
+        "latitude": 21.4795,
+        "longitude": 79.26036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10207330",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.26036,
+          21.4795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0013",
+        "site_name": "Thal",
+        "latitude": 33.66527,
+        "longitude": 71.50063,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003920",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.50063,
+          33.66527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0014",
+        "site_name": "Verlem",
+        "latitude": 15.0501,
+        "longitude": 74.25048,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Karnataka",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003873",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.25048,
+          15.0501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0015",
+        "site_name": "Siljora Mine",
+        "latitude": 20.56599,
+        "longitude": 84.50478,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10021438",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.50478,
+          20.56599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0016",
+        "site_name": "Chorbaoli-Muknapur Manganese Ore",
+        "latitude": 21.4795,
+        "longitude": 79.31036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10133872",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.31036,
+          21.4795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0017",
+        "site_name": "Sandur Mines",
+        "latitude": 14.41686,
+        "longitude": 79.60034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10182655",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.60034,
+          14.41686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0018",
+        "site_name": "Singhbhum",
+        "latitude": 23.79167,
+        "longitude": 87.99351,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003870",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.99351,
+          23.79167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0019",
+        "site_name": "Waraseoni",
+        "latitude": 21.76615,
+        "longitude": 80.04201,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003875",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.04201,
+          21.76615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0020",
+        "site_name": "Balapur/Hamesha",
+        "latitude": 21.5495,
+        "longitude": 79.70035,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10081079",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.70035,
+          21.5495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0021",
+        "site_name": "Banjartola",
+        "latitude": 21.95779,
+        "longitude": 80.27534,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003835",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.27534,
+          21.95779
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0022",
+        "site_name": "Barbaspur",
+        "latitude": 21.79947,
+        "longitude": 80.10867,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003836",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.10867,
+          21.79947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0024",
+        "site_name": "Baihar",
+        "latitude": 22.04945,
+        "longitude": 80.567,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090205",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.567,
+          22.04945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0025",
+        "site_name": "Pipartola",
+        "latitude": 21.87447,
+        "longitude": 80.20867,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090220",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20867,
+          21.87447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0026",
+        "site_name": "Goa State",
+        "latitude": 15.50006,
+        "longitude": 73.91718,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "60000576",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.91718,
+          15.50006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0027",
+        "site_name": "Dhapewata",
+        "latitude": 21.89114,
+        "longitude": 80.19201,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003843",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.19201,
+          21.89114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0028",
+        "site_name": "Banjari",
+        "latitude": 21.8828,
+        "longitude": 80.31701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003834",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.31701,
+          21.8828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0029",
+        "site_name": "Miara",
+        "latitude": 34.43187,
+        "longitude": 73.50058,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003917",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.50058,
+          34.43187
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0030",
+        "site_name": "Salgini",
+        "latitude": 15.00844,
+        "longitude": 74.25048,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Karnataka",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003866",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.25048,
+          15.00844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0031",
+        "site_name": "Jamda-Koira Valley",
+        "latitude": 21.89946,
+        "longitude": 85.25021,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10206839",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.25021,
+          21.89946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0032",
+        "site_name": "Sonpuri",
+        "latitude": 21.94946,
+        "longitude": 80.467,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090223",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.467,
+          21.94946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0033",
+        "site_name": "Chatera",
+        "latitude": 21.86614,
+        "longitude": 80.13367,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090208",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.13367,
+          21.86614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0034",
+        "site_name": "Gaonajhola",
+        "latitude": 22.00778,
+        "longitude": 80.36701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090211",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.36701,
+          22.00778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0035",
+        "site_name": "Maharashtra-Madya Pradesh Area",
+        "latitude": 21.95506,
+        "longitude": 80.05034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10183457",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.05034,
+          21.95506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0036",
+        "site_name": "Ekodi",
+        "latitude": 21.79114,
+        "longitude": 80.14201,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090210",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.14201,
+          21.79114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0037",
+        "site_name": "Samnapur R.S",
+        "latitude": 21.86614,
+        "longitude": 80.35034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090222",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.35034,
+          21.86614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0038",
+        "site_name": "Umardaoni",
+        "latitude": 21.92724,
+        "longitude": 80.23367,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090225",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.23367,
+          21.92724
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0039",
+        "site_name": "Gulla Hurki",
+        "latitude": 21.87864,
+        "longitude": 79.99202,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003849",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.99202,
+          21.87864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0040",
+        "site_name": "Polwatur",
+        "latitude": 21.99947,
+        "longitude": 80.29201,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003864",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.29201,
+          21.99947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0042",
+        "site_name": "Netravli",
+        "latitude": 15.08899,
+        "longitude": 74.20881,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Karnataka",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003860",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.20881,
+          15.08899
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0043",
+        "site_name": "Bijora",
+        "latitude": 21.97446,
+        "longitude": 80.38367,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090207",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.38367,
+          21.97446
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0044",
+        "site_name": "Birsola",
+        "latitude": 21.87447,
+        "longitude": 80.11701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003840",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.11701,
+          21.87447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0045",
+        "site_name": "Tagaung Taung",
+        "latitude": 23.57292,
+        "longitude": 96.18213,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003940",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.18213,
+          23.57292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0046",
+        "site_name": "Garra",
+        "latitude": 21.79947,
+        "longitude": 80.15034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090212",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.15034,
+          21.79947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0048",
+        "site_name": "Ukwa",
+        "latitude": 21.96613,
+        "longitude": 80.467,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10106594",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.467,
+          21.96613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0049",
+        "site_name": "Kalaparbat Mine",
+        "latitude": 22.29942,
+        "longitude": 85.3002,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10183222",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.3002,
+          22.29942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0051",
+        "site_name": "Kot Pahar",
+        "latitude": 21.89114,
+        "longitude": 80.40866,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090217",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.40866,
+          21.89114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0052",
+        "site_name": "Bharweli",
+        "latitude": 21.81614,
+        "longitude": 80.18367,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003837",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18367,
+          21.81614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0053",
+        "site_name": "Bharweli",
+        "latitude": 21.8328,
+        "longitude": 80.23367,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003838",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.23367,
+          21.8328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0054",
+        "site_name": "Kansa",
+        "latitude": 20.82955,
+        "longitude": 86.33018,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10207002",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.33018,
+          20.82955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0055",
+        "site_name": "Khara",
+        "latitude": 21.96613,
+        "longitude": 80.26701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090216",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.26701,
+          21.96613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0056",
+        "site_name": "Kandri Mine",
+        "latitude": 21.40951,
+        "longitude": 79.28036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10207185",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.28036,
+          21.40951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0057",
+        "site_name": "Jamunjhola",
+        "latitude": 21.92168,
+        "longitude": 80.23784,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090214",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.23784,
+          21.92168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0059",
+        "site_name": "Ukwa",
+        "latitude": 21.95946,
+        "longitude": 80.46033,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10207184",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.46033,
+          21.95946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0060",
+        "site_name": "Jagantola and Ghondi Mines",
+        "latitude": 21.94946,
+        "longitude": 80.26034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10231163",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.26034,
+          21.94946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0061",
+        "site_name": "Tambesra,Udaipur and Banswara",
+        "latitude": 23.49934,
+        "longitude": 74.2505,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10182981",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.2505,
+          23.49934
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0062",
+        "site_name": "Gujarat State",
+        "latitude": 22.9994,
+        "longitude": 72.50054,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "60000574",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.50054,
+          22.9994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0063",
+        "site_name": "Kosmi",
+        "latitude": 21.79947,
+        "longitude": 80.20867,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003857",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20867,
+          21.79947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0064",
+        "site_name": "Ghura Gali",
+        "latitude": 34.29855,
+        "longitude": 73.46725,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090246",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.46725,
+          34.29855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0065",
+        "site_name": "Kajlidongri Mine",
+        "latitude": 22.49943,
+        "longitude": 73.33382,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10159307",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.33382,
+          22.49943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0067",
+        "site_name": "Nishkal",
+        "latitude": 19.21637,
+        "longitude": 83.21693,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003861",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.21693,
+          19.21637
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0068",
+        "site_name": "Katangi",
+        "latitude": 21.76615,
+        "longitude": 79.80035,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003854",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.80035,
+          21.76615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0069",
+        "site_name": "Mansar",
+        "latitude": 21.39951,
+        "longitude": 79.26036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10303989",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.26036,
+          21.39951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0070",
+        "site_name": "Karnataka State (Mysore State)",
+        "latitude": 13.93351,
+        "longitude": 75.51714,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Karnataka",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "60000573",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.51714,
+          13.93351
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0071",
+        "site_name": "Ramandrug Group Deposits",
+        "latitude": 15.0801,
+        "longitude": 76.55042,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Karnataka",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10279611",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.55042,
+          15.0801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0072",
+        "site_name": "Bhandarbori Mine",
+        "latitude": 21.39951,
+        "longitude": 79.45036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10208578",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.45036,
+          21.39951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0073",
+        "site_name": "Kokma",
+        "latitude": 21.98279,
+        "longitude": 80.26701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003856",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.26701,
+          21.98279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0074",
+        "site_name": "Bhandi Dhundan.",
+        "latitude": 34.29855,
+        "longitude": 73.33391,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003921",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.33391,
+          34.29855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0075",
+        "site_name": "Dhapera",
+        "latitude": 21.89114,
+        "longitude": 80.16284,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090209",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16284,
+          21.89114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0076",
+        "site_name": "Kulti-Raniganj",
+        "latitude": 23.7493,
+        "longitude": 86.86016,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10279388",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.86016,
+          23.7493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0078",
+        "site_name": "Kategaon",
+        "latitude": 21.99113,
+        "longitude": 80.15867,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090215",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.15867,
+          21.99113
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0079",
+        "site_name": "Chiklajhori",
+        "latitude": 21.94946,
+        "longitude": 80.40033,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003842",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.40033,
+          21.94946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0080",
+        "site_name": "Manegaon",
+        "latitude": 21.84947,
+        "longitude": 80.25034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090218",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.25034,
+          21.84947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0081",
+        "site_name": "Beldongri",
+        "latitude": 21.34951,
+        "longitude": 79.30036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10206660",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.30036,
+          21.34951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0082",
+        "site_name": "Rajpur",
+        "latitude": 21.98279,
+        "longitude": 80.36701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003865",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.36701,
+          21.98279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0083",
+        "site_name": "Amatola",
+        "latitude": 21.76615,
+        "longitude": 80.11701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003833",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.11701,
+          21.76615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0084",
+        "site_name": "Cavarem",
+        "latitude": 15.1251,
+        "longitude": 74.14215,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003841",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.14215,
+          15.1251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0085",
+        "site_name": "Naweoba",
+        "latitude": 31.34876,
+        "longitude": 69.51734,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003915",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.51734,
+          31.34876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0086",
+        "site_name": "Laugur",
+        "latitude": 21.93279,
+        "longitude": 80.35034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003859",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.35034,
+          21.93279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0087",
+        "site_name": "Janapalacheruvu Deposit",
+        "latitude": 15.46006,
+        "longitude": 79.15035,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10207196",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.15035,
+          15.46006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0088",
+        "site_name": "Garbham",
+        "latitude": 16.60541,
+        "longitude": 79.58501,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003846",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.58501,
+          16.60541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0089",
+        "site_name": "Salai-Ghoti Belt",
+        "latitude": 21.5095,
+        "longitude": 79.43036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10255721",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.43036,
+          21.5095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0090",
+        "site_name": "Rivona",
+        "latitude": 15.16676,
+        "longitude": 74.10881,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10097587",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.10881,
+          15.16676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0092",
+        "site_name": "Gumgaon",
+        "latitude": 21.39951,
+        "longitude": 78.98367,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10207244",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.98367,
+          21.39951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0093",
+        "site_name": "Sandur",
+        "latitude": 14.68706,
+        "longitude": 76.1853,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Karnataka",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003868",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.1853,
+          14.68706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0094",
+        "site_name": "Madhya Pradesh and Maharashtra States",
+        "latitude": 21.83277,
+        "longitude": 80.30034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "60000571",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.30034,
+          21.83277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0095",
+        "site_name": "Kera",
+        "latitude": 21.74948,
+        "longitude": 80.11701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003855",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.11701,
+          21.74948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0096",
+        "site_name": "Behrai",
+        "latitude": 21.84947,
+        "longitude": 80.13367,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090206",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.13367,
+          21.84947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0097",
+        "site_name": "Tirodi",
+        "latitude": 21.68278,
+        "longitude": 79.75035,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10159238",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.75035,
+          21.68278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0098",
+        "site_name": "Chaibasa Area",
+        "latitude": 22.5494,
+        "longitude": 85.81019,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10182813",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.81019,
+          22.5494
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0100",
+        "site_name": "Sanguem",
+        "latitude": 15.22509,
+        "longitude": 74.16715,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003869",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.16715,
+          15.22509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0101",
+        "site_name": "Titwa",
+        "latitude": 21.99529,
+        "longitude": 80.13367,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003872",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.13367,
+          21.99529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0102",
+        "site_name": "Mudda Mines",
+        "latitude": 21.4595,
+        "longitude": 79.41036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10256031",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.41036,
+          21.4595
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0103",
+        "site_name": "Hirapur",
+        "latitude": 21.84947,
+        "longitude": 80.24201,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003850",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.24201,
+          21.84947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0106",
+        "site_name": "Lohdongri Deposit",
+        "latitude": 21.32952,
+        "longitude": 79.36036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10133901",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.36036,
+          21.32952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0107",
+        "site_name": "Keonjhar Mn Deposits",
+        "latitude": 22.02944,
+        "longitude": 85.4102,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10159301",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.4102,
+          22.02944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0108",
+        "site_name": "Jaitpuri",
+        "latitude": 22.01612,
+        "longitude": 80.36701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003851",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.36701,
+          22.01612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0109",
+        "site_name": "Galdanian",
+        "latitude": 34.26522,
+        "longitude": 73.31725,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003919",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.31725,
+          34.26522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0110",
+        "site_name": "Mandri Mine",
+        "latitude": 21.40951,
+        "longitude": 79.40036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10279381",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.40036,
+          21.40951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0111",
+        "site_name": "Talabori",
+        "latitude": 21.94946,
+        "longitude": 80.31701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090224",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.31701,
+          21.94946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0112",
+        "site_name": "Balapur Hamesha Mine",
+        "latitude": 20.80957,
+        "longitude": 76.60043,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10183644",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.60043,
+          20.80957
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0113",
+        "site_name": "Gongalpara",
+        "latitude": 21.89946,
+        "longitude": 80.30034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003848",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.30034,
+          21.89946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0114",
+        "site_name": "Viliena",
+        "latitude": 15.16676,
+        "longitude": 74.25048,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Karnataka",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003874",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.25048,
+          15.16676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0115",
+        "site_name": "Hirmutola",
+        "latitude": 21.98279,
+        "longitude": 80.13367,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090213",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.13367,
+          21.98279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0116",
+        "site_name": "Dongargaon",
+        "latitude": 21.71615,
+        "longitude": 80.08367,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003844",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.08367,
+          21.71615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0117",
+        "site_name": "Satak Mine and Satak Extension Mi",
+        "latitude": 21.34951,
+        "longitude": 79.26036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10207106",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.26036,
+          21.34951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0118",
+        "site_name": "Ghondi",
+        "latitude": 21.91613,
+        "longitude": 80.417,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003847",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.417,
+          21.91613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0119",
+        "site_name": "Orissa Deposits",
+        "latitude": 21.63281,
+        "longitude": 85.66686,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10084839",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.66686,
+          21.63281
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0122",
+        "site_name": "Kurthitola",
+        "latitude": 21.94946,
+        "longitude": 80.25034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003858",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.25034,
+          21.94946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0124",
+        "site_name": "Ramrama",
+        "latitude": 21.85503,
+        "longitude": 79.94202,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10094105",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.94202,
+          21.85503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0125",
+        "site_name": "Joida Mn Deposits: Nagari, Chipol",
+        "latitude": 15.21009,
+        "longitude": 74.50047,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Karnataka",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10279574",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.50047,
+          15.21009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0126",
+        "site_name": "Samnapur",
+        "latitude": 21.96613,
+        "longitude": 80.48366,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003867",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.48366,
+          21.96613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0127",
+        "site_name": "Killa",
+        "latitude": 34.36521,
+        "longitude": 73.50058,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090245",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.50058,
+          34.36521
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0128",
+        "site_name": "Orissa State",
+        "latitude": 21.63278,
+        "longitude": 85.66689,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "60000572",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.66689,
+          21.63278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0129",
+        "site_name": "Andhra Pradesh State",
+        "latitude": 18.36648,
+        "longitude": 83.45025,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Odisha",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "60000575",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.45025,
+          18.36648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0130",
+        "site_name": "Salpa",
+        "latitude": 21.99947,
+        "longitude": 80.35034,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090221",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.35034,
+          21.99947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0131",
+        "site_name": "Peli",
+        "latitude": 21.86614,
+        "longitude": 80.26701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003862",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.26701,
+          21.86614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0132",
+        "site_name": "Kajlidongri",
+        "latitude": 22.94939,
+        "longitude": 74.51716,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003852",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.51716,
+          22.94939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0133",
+        "site_name": "Piparia",
+        "latitude": 21.74948,
+        "longitude": 80.16701,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10003863",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16701,
+          21.74948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0134",
+        "site_name": "Bisgod",
+        "latitude": 15.0501,
+        "longitude": 74.58487,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Karnataka",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10208573",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.58487,
+          15.0501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0135",
+        "site_name": "Shivrajpur Syndicate Concessions",
+        "latitude": 22.39944,
+        "longitude": 73.65051,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10255753",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.65051,
+          22.39944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0136",
+        "site_name": "Pindkapar",
+        "latitude": 21.98279,
+        "longitude": 80.43366,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10090219",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.43366,
+          21.98279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0137",
+        "site_name": "Naveli",
+        "latitude": 15.13343,
+        "longitude": 74.16715,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Other State",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10106593",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.16715,
+          15.13343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "occurrence_id": "MN_OCC_0138",
+        "site_name": "Waregaon Deposit",
+        "latitude": 21.32952,
+        "longitude": 79.41036,
+        "crs": "EPSG:4326",
+        "country": "India",
+        "state": "Madhya Pradesh / Maharashtra",
+        "commodity": "Manganese",
+        "source_db": "USGS MRDS",
+        "original_dep_id": "10279528",
+        "sample_type": "Mine / Occurrence Site",
+        "confidence_score": 0.95,
+        "label": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.41036,
+          21.32952
+        ]
+      }
+    }
+  ]
+}

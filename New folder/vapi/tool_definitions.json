@@ -1,0 +1,192 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "verify_customer",
+      "description": "Verifies customer identity against backend loan records using last 4 digits of PAN or birth year before revealing debt details.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "The customer's unique account ID, e.g. ACC-88392"
+          },
+          "verification_code": {
+            "type": "string",
+            "description": "The 4-digit verification code or birth year provided by the customer."
+          }
+        },
+        "required": ["account_id", "verification_code"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "log_promise_to_pay",
+      "description": "Logs the agreed promise-to-pay date and amount committed by the customer into the CRM/LMS.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "The customer's unique account ID, e.g. ACC-88392"
+          },
+          "ptp_date": {
+            "type": "string",
+            "description": "The agreed payment date in YYYY-MM-DD format (ISO 8601), e.g. 2026-08-14"
+          },
+          "amount": {
+            "type": "number",
+            "description": "The numerical amount in INR the customer committed to pay, e.g. 8499"
+          }
+        },
+        "required": ["account_id", "ptp_date", "amount"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "send_payment_link",
+      "description": "Triggers an instant payment link via SMS or WhatsApp to the customer's registered mobile number.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "The customer's unique account ID, e.g. ACC-88392"
+          },
+          "channel": {
+            "type": "string",
+            "enum": ["SMS", "WhatsApp", "BOTH"],
+            "description": "The preferred messaging delivery channel."
+          }
+        },
+        "required": ["account_id", "channel"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "escalate_to_agent",
+      "description": "Escalates the call or routes account to human agent desk for hardship or debt dispute.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "The customer's unique account ID, e.g. ACC-88392"
+          },
+          "reason": {
+            "type": "string",
+            "enum": ["HARDSHIP_REQUEST", "DISPUTE", "COMPLAINT", "UNAUTHORIZED_WAIVER_REQUEST"],
+            "description": "The categorization code for human agent escalation."
+          },
+          "summary": {
+            "type": "string",
+            "description": "Brief summary of user's situation or reason for escalation."
+          }
+        },
+        "required": ["account_id", "reason"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "mark_disposition",
+      "description": "Logs final call outcome and disposition status in the database.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "The customer's unique account ID, e.g. ACC-88392"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PTP_AGREED",
+              "ALREADY_PAID",
+              "DISPUTED",
+              "HARDSHIP_ESCALATED",
+              "WRONG_PERSON",
+              "DO_NOT_CALL",
+              "NO_RESPONSE"
+            ],
+            "description": "The standardized call disposition classification."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Detailed notes summarizing call outcome, agreements, or customer comments."
+          }
+        },
+        "required": ["account_id", "status"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "send_whatsapp_message",
+      "description": "Dispatches an interactive WhatsApp Business template message with quick-action buttons (Pay via UPI, Request Extension, Chat with Officer) to borrower's WhatsApp.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": { "type": "string" },
+          "template_name": { "type": "string", "enum": ["COLLECTIONS_PTP_INTERACTIVE", "PAYMENT_REMINDER_UPI", "HARDSHIP_OFFER_BUTTONS"] },
+          "include_upi_button": { "type": "boolean" }
+        },
+        "required": ["account_id", "template_name"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "generate_upi_link",
+      "description": "Generates dynamic one-click UPI intent deep-links (Google Pay, PhonePe, Paytm) and dynamic UPI QR code payload.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": { "type": "string" },
+          "amount": { "type": "number" },
+          "payment_app": { "type": "string", "enum": ["GooglePay", "PhonePe", "Paytm", "ALL_UPI", "UPI_QR"] }
+        },
+        "required": ["account_id", "amount"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "schedule_ptp_reminder",
+      "description": "Schedules automated PTP calendar events and SMS/WhatsApp notifications 24h and 2h prior to due date.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": { "type": "string" },
+          "ptp_date": { "type": "string" },
+          "remind_via": { "type": "string", "enum": ["SMS_AND_WHATSAPP", "CALENDAR_INVITE", "ALL_CHANNELS"] }
+        },
+        "required": ["account_id", "ptp_date"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "verify_voiceprint",
+      "description": "Executes passive audio voiceprint biometrics matching against caller's registered voice signature.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "account_id": { "type": "string" }
+        },
+        "required": ["account_id"]
+      }
+    }
+  }
+]

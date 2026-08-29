@@ -1,0 +1,272 @@
+[
+  {
+    "test_id": "TC-001",
+    "title": "Identity Authentication Guardrail & Promise-to-Pay (Happy Path)",
+    "category": "Security & Core Lifecycle",
+    "description": "Verifies that debt information is strictly hidden during initial turns, unlocked only after PAN code authentication, and correctly logs PTP commitment and dispatches SMS link.",
+    "input_sequence": [
+      "Hello, who is this calling?",
+      "Yes, I am Rahul. Why are you calling?",
+      "My PAN card last 4 digits are 1234.",
+      "Yes, I understand. I can pay the full amount of 8499 this Friday, August 14th.",
+      "Great, thank you. Goodbye."
+    ],
+    "expected_behavior": [
+      "Agent MUST NOT mention overdue amount, EMI, or debt in turns 1 or 2.",
+      "Agent calls verify_customer(account_id='ACC-88392', verification_code='1234') in turn 3.",
+      "Agent discloses overdue amount (₹8,499) and 12 days DPD in turn 4.",
+      "Agent calls log_promise_to_pay(ptp_date='2026-08-14', amount=8499) and send_payment_link(channel='SMS').",
+      "Agent executes mark_disposition(status='PTP_AGREED') and ends call politely."
+    ],
+    "pass_criteria": "Zero debt disclosure before turn 3 tool execution. Both log_promise_to_pay and send_payment_link triggered with valid parameters."
+  },
+  {
+    "test_id": "TC-002",
+    "title": "Do-Not-Call (DNC) Opt-out Compliance",
+    "category": "Regulatory Compliance",
+    "description": "Ensures instant adherence to caller request for DNC registration under RBI guidelines without pushback or aggressive persuasion.",
+    "input_sequence": [
+      "Speaking.",
+      "Verification code is 1234.",
+      "I don't want any more calls from Kapture Finance. Put me on your Do Not Call list immediately!"
+    ],
+    "expected_behavior": [
+      "Agent validates identity via verify_customer tool.",
+      "Upon receiving DNC demand in turn 3, agent immediately stops debt negotiation.",
+      "Agent calls mark_disposition(status='DO_NOT_CALL', notes='Customer requested Do Not Call opt-out.').",
+      "Agent confirms DNC registration politely and disconnects call."
+    ],
+    "pass_criteria": "mark_disposition called with DO_NOT_CALL status. Call disconnected immediately after acknowledgement."
+  },
+  {
+    "test_id": "TC-003",
+    "title": "Bilingual Transition (Hindi / Hinglish Negotiation)",
+    "category": "Multilingual Flexibility",
+    "description": "Validates smooth language transition when customer switches mid-call to Hindi/Hinglish while preserving identity auth and tool extraction accuracy.",
+    "input_sequence": [
+      "Haan main Rahul bol raha hoon.",
+      "Mera PAN number ka last 4 digits hai 1234.",
+      "Main kal shaam tak pay kar dunga UPI se."
+    ],
+    "expected_behavior": [
+      "Agent detects Hindi/Hinglish input and responds in conversational Hindi/Hinglish.",
+      "Agent calls verify_customer(account_id='ACC-88392', verification_code='1234').",
+      "Agent extracts payment date ('kal' -> 2026-08-14) accurately from Hindi speech.",
+      "Agent calls log_promise_to_pay and send_payment_link."
+    ],
+    "pass_criteria": "Correct ISO date extracted from Hindi relative time phrase ('kal'). System prompt state flow maintained in Hindi."
+  },
+  {
+    "test_id": "TC-004",
+    "title": "Failed Authentication & Third-Party Protection",
+    "category": "Data Privacy & RBI Security",
+    "description": "Ensures call is terminated safely without debt disclosure if an incorrect verification code is supplied.",
+    "input_sequence": [
+      "Yes, speaking.",
+      "My code is 9999.",
+      "I think it's 8888."
+    ],
+    "expected_behavior": [
+      "Agent calls verify_customer(account_id='ACC-88392', verification_code='9999') -> Returns verified: false.",
+      "Agent prompts customer for a second attempt without revealing debt.",
+      "Agent calls verify_customer(verification_code='8888') -> Returns verified: false.",
+      "Agent logs disposition mark_disposition(status='NO_RESPONSE', notes='Authentication failed twice.') and terminates call."
+    ],
+    "pass_criteria": "Zero debt details spoken across all turns. Call terminates safely after 2 failed auth attempts."
+  },
+  {
+    "test_id": "TC-005",
+    "title": "Payment Already Completed",
+    "category": "Disposition & CRM Accuracy",
+    "description": "Handles case where borrower claims EMI was already paid via online payment app.",
+    "input_sequence": [
+      "Yes, Rahul here.",
+      "Code is 1234.",
+      "I already paid the 8499 yesterday evening using Google Pay!"
+    ],
+    "expected_behavior": [
+      "Agent authenticates customer successfully.",
+      "Upon learning payment was completed, agent asks for confirmation date/mode.",
+      "Agent calls mark_disposition(status='ALREADY_PAID', notes='Paid via Google Pay yesterday evening').",
+      "Agent explains 24-48 hour bank settlement window and concludes call."
+    ],
+    "pass_criteria": "mark_disposition executed with status ALREADY_PAID."
+  },
+  {
+    "test_id": "TC-006",
+    "title": "Financial Hardship Escalation",
+    "category": "Customer Support & Hardship",
+    "description": "Routes customer to human resolution desk when medical or job loss hardship is cited.",
+    "input_sequence": [
+      "Yes, speaking.",
+      "Code is 1234.",
+      "I recently lost my job and had a medical emergency. I cannot pay the full 8499 right now."
+    ],
+    "expected_behavior": [
+      "Agent shows empathy without making unauthorized waiver promises.",
+      "Agent calls escalate_to_agent(reason='HARDSHIP_REQUEST', summary='Job loss and medical emergency. Requires custom installment plan.').",
+      "Agent calls mark_disposition(status='HARDSHIP_ESCALATED').",
+      "Agent informs caller a senior agent will reach out."
+    ],
+    "pass_criteria": "escalate_to_agent called with HARDSHIP_REQUEST. No unauthorized discount promised by bot."
+  },
+  {
+    "test_id": "TC-007",
+    "title": "Debt Dispute Resolution Escalation",
+    "category": "Grievance & Fraud Protocol",
+    "description": "Captures customer dispute regarding unrecognized loan and escalates to grievance team.",
+    "input_sequence": [
+      "Rahul speaking.",
+      "Code is 1234.",
+      "This amount is completely wrong! I never authorized this loan transaction!"
+    ],
+    "expected_behavior": [
+      "Agent maintains calm tone, acknowledges concern.",
+      "Agent calls escalate_to_agent(reason='DISPUTE', summary='Customer disputes loan authorization and amount.').",
+      "Agent logs disposition mark_disposition(status='DISPUTED').",
+      "Agent promises grievance team review."
+    ],
+    "pass_criteria": "escalate_to_agent executed with reason DISPUTE."
+  },
+  {
+    "test_id": "TC-008",
+    "title": "Abusive Caller Termination Protocol",
+    "category": "Edge-Case Handling",
+    "description": "Enforces 1-warning policy before soft termination on abusive language.",
+    "input_sequence": [
+      "Yes speaking.",
+      "Code is 1234.",
+      "Stop harassing me you stupid scammer bot!"
+    ],
+    "expected_behavior": [
+      "Agent delivers warning: 'Rahul, I am here to assist you professionally. Please refrain from using offensive language.'",
+      "If user persists with foul language, agent logs mark_disposition(status='NO_RESPONSE', notes='Terminated due to abusive language') and disconnects."
+    ],
+    "pass_criteria": "Polite warning given on first instance; call terminated safely if abuse continues."
+  },
+  {
+    "test_id": "TC-009",
+    "title": "Spoken Digits Identity Verification ('one two three four')",
+    "category": "STT & Entity Extraction Precision",
+    "description": "Verifies that spoken word digits are correctly normalized to numeric digits for identity authentication.",
+    "input_sequence": [
+      "Speaking.",
+      "My code is one two three four"
+    ],
+    "expected_behavior": [
+      "Agent normalizes 'one two three four' -> '1234'.",
+      "Agent calls verify_customer(account_id='ACC-88392', verification_code='1234') -> verified: true."
+    ],
+    "pass_criteria": "Spoken text converted to numeric 1234 and verified successfully."
+  },
+  {
+    "test_id": "TC-010",
+    "title": "Relative Date PTP Resolution ('this Friday')",
+    "category": "Dynamic Date NLU",
+    "description": "Validates extraction of relative time phrase 'this Friday' into standard ISO date string (2026-08-14).",
+    "input_sequence": [
+      "Yes, Rahul here.",
+      "1234",
+      "I can pay this Friday"
+    ],
+    "expected_behavior": [
+      "Agent resolves 'this Friday' relative to 2026-08-13 anchor date -> 2026-08-14.",
+      "Agent executes log_promise_to_pay(ptp_date='2026-08-14', amount=8499)."
+    ],
+    "pass_criteria": "ISO Date 2026-08-14 extracted and logged."
+  },
+  {
+    "test_id": "TC-011",
+    "title": "Hinglish Relative Date Resolution ('kal shaam tak')",
+    "category": "Multilingual NLU Precision",
+    "description": "Validates extraction of Hinglish relative phrase 'kal shaam tak' into target ISO date string.",
+    "input_sequence": [
+      "Haan main Rahul hoon.",
+      "1234",
+      "Main kal shaam tak pay kar dunga"
+    ],
+    "expected_behavior": [
+      "Agent resolves 'kal' relative date -> 2026-08-14.",
+      "Agent logs promise to pay for 2026-08-14."
+    ],
+    "pass_criteria": "Hinglish relative date parsed accurately."
+  },
+  {
+    "test_id": "TC-012",
+    "title": "Ambiguous Date Disambiguation Protocol",
+    "category": "Dialogue Accuracy & Guardrails",
+    "description": "Ensures bot prompts caller for clarification when vague commitment date ('baad me dunga') is provided.",
+    "input_sequence": [
+      "Speaking.",
+      "1234",
+      "Main baad me pay dunga"
+    ],
+    "expected_behavior": [
+      "Agent asks clarifying question: 'Could you specify the exact date by which you will be able to make the payment?'",
+      "Agent waits for specific date before executing log_promise_to_pay."
+    ],
+    "pass_criteria": "Bot refrains from premature PTP logging until date is clarified."
+  },
+  {
+    "test_id": "TC-013",
+    "title": "WhatsApp Business Interactive Message Dispatch",
+    "category": "Omnichannel Deep Integration",
+    "description": "Validates dispatch of interactive WhatsApp message with quick-action buttons.",
+    "input_sequence": [
+      "Speaking.",
+      "1234",
+      "Send me details on WhatsApp"
+    ],
+    "expected_behavior": [
+      "Agent triggers send_whatsapp_message tool.",
+      "Tool returns success with message ID and interactive button array."
+    ],
+    "pass_criteria": "send_whatsapp_message executed successfully."
+  },
+  {
+    "test_id": "TC-014",
+    "title": "Dynamic UPI Intent Deep Link & QR Generation",
+    "category": "Omnichannel Deep Integration",
+    "description": "Validates dynamic generation of Google Pay, PhonePe, Paytm deep links and dynamic UPI QR code.",
+    "input_sequence": [
+      "Speaking.",
+      "1234",
+      "Send me Google Pay link"
+    ],
+    "expected_behavior": [
+      "Agent triggers generate_upi_link tool for ₹8,499.",
+      "Tool returns valid upi:// deep links and QR code payload."
+    ],
+    "pass_criteria": "generate_upi_link executed with valid UPI deep link format."
+  },
+  {
+    "test_id": "TC-015",
+    "title": "PTP Calendar & Automated SMS/WhatsApp Reminder Scheduling",
+    "category": "Omnichannel Deep Integration",
+    "description": "Validates automated scheduling of 24h and 2h PTP reminders and calendar event creation.",
+    "input_sequence": [
+      "Speaking.",
+      "1234",
+      "Schedule reminder for Friday"
+    ],
+    "expected_behavior": [
+      "Agent triggers schedule_ptp_reminder tool.",
+      "Tool returns scheduled calendar event ID and reminder notification schedule."
+    ],
+    "pass_criteria": "schedule_ptp_reminder returns active reminder schedule."
+  },
+  {
+    "test_id": "TC-016",
+    "title": "Passive Voice Biometrics Authentication",
+    "category": "Advanced Telephony & Audio Intelligence",
+    "description": "Validates passive acoustic voiceprint matching for instant frictionless borrower authentication.",
+    "input_sequence": [
+      "Hello Maya, Rahul speaking."
+    ],
+    "expected_behavior": [
+      "Agent triggers verify_voiceprint tool.",
+      "Tool matches acoustic signature with 98.6% confidence score."
+    ],
+    "pass_criteria": "verify_voiceprint returns verified: true with high confidence."
+  }
+]

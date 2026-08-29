@@ -1,0 +1,125 @@
+occurrence_id,site_name,latitude,longitude,crs,country,state,commodity,source_db,original_dep_id,sample_type,confidence_score,label
+MN_OCC_0001,Laugur Mine,21.92946,80.35034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10158629,Mine / Occurrence Site,0.95,1
+MN_OCC_0002,Cape Gadani,29.96588,69.38662,EPSG:4326,India,Other State,Manganese,USGS MRDS,10090244,Mine / Occurrence Site,0.95,1
+MN_OCC_0003,"Kodur, Garbham, and Perapi Mines",18.27479,83.55025,EPSG:4326,India,Odisha,Manganese,USGS MRDS,10304411,Mine / Occurrence Site,0.95,1
+MN_OCC_0004,Manegaon Mines,21.82947,80.26034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10183530,Mine / Occurrence Site,0.95,1
+MN_OCC_0005,Goguldoho Mines: Western and East,21.40951,79.43036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10134171,Mine / Occurrence Site,0.95,1
+MN_OCC_0006,Maharashtra/Mahya Pradesh Area,21.99947,79.00038,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10279384,Mine / Occurrence Site,0.95,1
+MN_OCC_0007,Kuttinga,19.1664,83.46695,EPSG:4326,India,Odisha,Manganese,USGS MRDS,10255709,Mine / Occurrence Site,0.95,1
+MN_OCC_0008,Kanatola,21.87447,80.35034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003853,Mine / Occurrence Site,0.95,1
+MN_OCC_0009,Adilabad,22.88286,79.61656,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003832,Mine / Occurrence Site,0.95,1
+MN_OCC_0010,Barbil,22.11614,85.3502,EPSG:4326,India,Odisha,Manganese,USGS MRDS,10231471,Mine / Occurrence Site,0.95,1
+MN_OCC_0011,Enkatola,21.36618,80.16701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003845,Mine / Occurrence Site,0.95,1
+MN_OCC_0012,Junewani Mines Area:  Junewani Mi,21.4795,79.26036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10207330,Mine / Occurrence Site,0.95,1
+MN_OCC_0013,Thal,33.66527,71.50063,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003920,Mine / Occurrence Site,0.95,1
+MN_OCC_0014,Verlem,15.0501,74.25048,EPSG:4326,India,Karnataka,Manganese,USGS MRDS,10003873,Mine / Occurrence Site,0.95,1
+MN_OCC_0015,Siljora Mine,20.56599,84.50478,EPSG:4326,India,Odisha,Manganese,USGS MRDS,10021438,Mine / Occurrence Site,0.95,1
+MN_OCC_0016,Chorbaoli-Muknapur Manganese Ore,21.4795,79.31036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10133872,Mine / Occurrence Site,0.95,1
+MN_OCC_0017,Sandur Mines,14.41686,79.60034,EPSG:4326,India,Other State,Manganese,USGS MRDS,10182655,Mine / Occurrence Site,0.95,1
+MN_OCC_0018,Singhbhum,23.79167,87.99351,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003870,Mine / Occurrence Site,0.95,1
+MN_OCC_0019,Waraseoni,21.76615,80.04201,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003875,Mine / Occurrence Site,0.95,1
+MN_OCC_0020,Balapur/Hamesha,21.5495,79.70035,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10081079,Mine / Occurrence Site,0.95,1
+MN_OCC_0021,Banjartola,21.95779,80.27534,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003835,Mine / Occurrence Site,0.95,1
+MN_OCC_0022,Barbaspur,21.79947,80.10867,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003836,Mine / Occurrence Site,0.95,1
+MN_OCC_0024,Baihar,22.04945,80.567,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090205,Mine / Occurrence Site,0.95,1
+MN_OCC_0025,Pipartola,21.87447,80.20867,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090220,Mine / Occurrence Site,0.95,1
+MN_OCC_0026,Goa State,15.50006,73.91718,EPSG:4326,India,Other State,Manganese,USGS MRDS,60000576,Mine / Occurrence Site,0.95,1
+MN_OCC_0027,Dhapewata,21.89114,80.19201,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003843,Mine / Occurrence Site,0.95,1
+MN_OCC_0028,Banjari,21.8828,80.31701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003834,Mine / Occurrence Site,0.95,1
+MN_OCC_0029,Miara,34.43187,73.50058,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003917,Mine / Occurrence Site,0.95,1
+MN_OCC_0030,Salgini,15.00844,74.25048,EPSG:4326,India,Karnataka,Manganese,USGS MRDS,10003866,Mine / Occurrence Site,0.95,1
+MN_OCC_0031,Jamda-Koira Valley,21.89946,85.25021,EPSG:4326,India,Odisha,Manganese,USGS MRDS,10206839,Mine / Occurrence Site,0.95,1
+MN_OCC_0032,Sonpuri,21.94946,80.467,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090223,Mine / Occurrence Site,0.95,1
+MN_OCC_0033,Chatera,21.86614,80.13367,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090208,Mine / Occurrence Site,0.95,1
+MN_OCC_0034,Gaonajhola,22.00778,80.36701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090211,Mine / Occurrence Site,0.95,1
+MN_OCC_0035,Maharashtra-Madya Pradesh Area,21.95506,80.05034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10183457,Mine / Occurrence Site,0.95,1
+MN_OCC_0036,Ekodi,21.79114,80.14201,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090210,Mine / Occurrence Site,0.95,1
+MN_OCC_0037,Samnapur R.S,21.86614,80.35034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090222,Mine / Occurrence Site,0.95,1
+MN_OCC_0038,Umardaoni,21.92724,80.23367,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090225,Mine / Occurrence Site,0.95,1
+MN_OCC_0039,Gulla Hurki,21.87864,79.99202,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003849,Mine / Occurrence Site,0.95,1
+MN_OCC_0040,Polwatur,21.99947,80.29201,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003864,Mine / Occurrence Site,0.95,1
+MN_OCC_0042,Netravli,15.08899,74.20881,EPSG:4326,India,Karnataka,Manganese,USGS MRDS,10003860,Mine / Occurrence Site,0.95,1
+MN_OCC_0043,Bijora,21.97446,80.38367,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090207,Mine / Occurrence Site,0.95,1
+MN_OCC_0044,Birsola,21.87447,80.11701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003840,Mine / Occurrence Site,0.95,1
+MN_OCC_0045,Tagaung Taung,23.57292,96.18213,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003940,Mine / Occurrence Site,0.95,1
+MN_OCC_0046,Garra,21.79947,80.15034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090212,Mine / Occurrence Site,0.95,1
+MN_OCC_0048,Ukwa,21.96613,80.467,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10106594,Mine / Occurrence Site,0.95,1
+MN_OCC_0049,Kalaparbat Mine,22.29942,85.3002,EPSG:4326,India,Odisha,Manganese,USGS MRDS,10183222,Mine / Occurrence Site,0.95,1
+MN_OCC_0051,Kot Pahar,21.89114,80.40866,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090217,Mine / Occurrence Site,0.95,1
+MN_OCC_0052,Bharweli,21.81614,80.18367,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003837,Mine / Occurrence Site,0.95,1
+MN_OCC_0053,Bharweli,21.8328,80.23367,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003838,Mine / Occurrence Site,0.95,1
+MN_OCC_0054,Kansa,20.82955,86.33018,EPSG:4326,India,Odisha,Manganese,USGS MRDS,10207002,Mine / Occurrence Site,0.95,1
+MN_OCC_0055,Khara,21.96613,80.26701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090216,Mine / Occurrence Site,0.95,1
+MN_OCC_0056,Kandri Mine,21.40951,79.28036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10207185,Mine / Occurrence Site,0.95,1
+MN_OCC_0057,Jamunjhola,21.92168,80.23784,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090214,Mine / Occurrence Site,0.95,1
+MN_OCC_0059,Ukwa,21.95946,80.46033,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10207184,Mine / Occurrence Site,0.95,1
+MN_OCC_0060,Jagantola and Ghondi Mines,21.94946,80.26034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10231163,Mine / Occurrence Site,0.95,1
+MN_OCC_0061,"Tambesra,Udaipur and Banswara",23.49934,74.2505,EPSG:4326,India,Other State,Manganese,USGS MRDS,10182981,Mine / Occurrence Site,0.95,1
+MN_OCC_0062,Gujarat State,22.9994,72.50054,EPSG:4326,India,Other State,Manganese,USGS MRDS,60000574,Mine / Occurrence Site,0.95,1
+MN_OCC_0063,Kosmi,21.79947,80.20867,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003857,Mine / Occurrence Site,0.95,1
+MN_OCC_0064,Ghura Gali,34.29855,73.46725,EPSG:4326,India,Other State,Manganese,USGS MRDS,10090246,Mine / Occurrence Site,0.95,1
+MN_OCC_0065,Kajlidongri Mine,22.49943,73.33382,EPSG:4326,India,Other State,Manganese,USGS MRDS,10159307,Mine / Occurrence Site,0.95,1
+MN_OCC_0067,Nishkal,19.21637,83.21693,EPSG:4326,India,Odisha,Manganese,USGS MRDS,10003861,Mine / Occurrence Site,0.95,1
+MN_OCC_0068,Katangi,21.76615,79.80035,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003854,Mine / Occurrence Site,0.95,1
+MN_OCC_0069,Mansar,21.39951,79.26036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10303989,Mine / Occurrence Site,0.95,1
+MN_OCC_0070,Karnataka State (Mysore State),13.93351,75.51714,EPSG:4326,India,Karnataka,Manganese,USGS MRDS,60000573,Mine / Occurrence Site,0.95,1
+MN_OCC_0071,Ramandrug Group Deposits,15.0801,76.55042,EPSG:4326,India,Karnataka,Manganese,USGS MRDS,10279611,Mine / Occurrence Site,0.95,1
+MN_OCC_0072,Bhandarbori Mine,21.39951,79.45036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10208578,Mine / Occurrence Site,0.95,1
+MN_OCC_0073,Kokma,21.98279,80.26701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003856,Mine / Occurrence Site,0.95,1
+MN_OCC_0074,Bhandi Dhundan.,34.29855,73.33391,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003921,Mine / Occurrence Site,0.95,1
+MN_OCC_0075,Dhapera,21.89114,80.16284,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090209,Mine / Occurrence Site,0.95,1
+MN_OCC_0076,Kulti-Raniganj,23.7493,86.86016,EPSG:4326,India,Other State,Manganese,USGS MRDS,10279388,Mine / Occurrence Site,0.95,1
+MN_OCC_0078,Kategaon,21.99113,80.15867,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090215,Mine / Occurrence Site,0.95,1
+MN_OCC_0079,Chiklajhori,21.94946,80.40033,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003842,Mine / Occurrence Site,0.95,1
+MN_OCC_0080,Manegaon,21.84947,80.25034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090218,Mine / Occurrence Site,0.95,1
+MN_OCC_0081,Beldongri,21.34951,79.30036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10206660,Mine / Occurrence Site,0.95,1
+MN_OCC_0082,Rajpur,21.98279,80.36701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003865,Mine / Occurrence Site,0.95,1
+MN_OCC_0083,Amatola,21.76615,80.11701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003833,Mine / Occurrence Site,0.95,1
+MN_OCC_0084,Cavarem,15.1251,74.14215,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003841,Mine / Occurrence Site,0.95,1
+MN_OCC_0085,Naweoba,31.34876,69.51734,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003915,Mine / Occurrence Site,0.95,1
+MN_OCC_0086,Laugur,21.93279,80.35034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003859,Mine / Occurrence Site,0.95,1
+MN_OCC_0087,Janapalacheruvu Deposit,15.46006,79.15035,EPSG:4326,India,Other State,Manganese,USGS MRDS,10207196,Mine / Occurrence Site,0.95,1
+MN_OCC_0088,Garbham,16.60541,79.58501,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003846,Mine / Occurrence Site,0.95,1
+MN_OCC_0089,Salai-Ghoti Belt,21.5095,79.43036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10255721,Mine / Occurrence Site,0.95,1
+MN_OCC_0090,Rivona,15.16676,74.10881,EPSG:4326,India,Other State,Manganese,USGS MRDS,10097587,Mine / Occurrence Site,0.95,1
+MN_OCC_0092,Gumgaon,21.39951,78.98367,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10207244,Mine / Occurrence Site,0.95,1
+MN_OCC_0093,Sandur,14.68706,76.1853,EPSG:4326,India,Karnataka,Manganese,USGS MRDS,10003868,Mine / Occurrence Site,0.95,1
+MN_OCC_0094,Madhya Pradesh and Maharashtra States,21.83277,80.30034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,60000571,Mine / Occurrence Site,0.95,1
+MN_OCC_0095,Kera,21.74948,80.11701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003855,Mine / Occurrence Site,0.95,1
+MN_OCC_0096,Behrai,21.84947,80.13367,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090206,Mine / Occurrence Site,0.95,1
+MN_OCC_0097,Tirodi,21.68278,79.75035,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10159238,Mine / Occurrence Site,0.95,1
+MN_OCC_0098,Chaibasa Area,22.5494,85.81019,EPSG:4326,India,Other State,Manganese,USGS MRDS,10182813,Mine / Occurrence Site,0.95,1
+MN_OCC_0100,Sanguem,15.22509,74.16715,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003869,Mine / Occurrence Site,0.95,1
+MN_OCC_0101,Titwa,21.99529,80.13367,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003872,Mine / Occurrence Site,0.95,1
+MN_OCC_0102,Mudda Mines,21.4595,79.41036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10256031,Mine / Occurrence Site,0.95,1
+MN_OCC_0103,Hirapur,21.84947,80.24201,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003850,Mine / Occurrence Site,0.95,1
+MN_OCC_0106,Lohdongri Deposit,21.32952,79.36036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10133901,Mine / Occurrence Site,0.95,1
+MN_OCC_0107,Keonjhar Mn Deposits,22.02944,85.4102,EPSG:4326,India,Odisha,Manganese,USGS MRDS,10159301,Mine / Occurrence Site,0.95,1
+MN_OCC_0108,Jaitpuri,22.01612,80.36701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003851,Mine / Occurrence Site,0.95,1
+MN_OCC_0109,Galdanian,34.26522,73.31725,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003919,Mine / Occurrence Site,0.95,1
+MN_OCC_0110,Mandri Mine,21.40951,79.40036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10279381,Mine / Occurrence Site,0.95,1
+MN_OCC_0111,Talabori,21.94946,80.31701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090224,Mine / Occurrence Site,0.95,1
+MN_OCC_0112,Balapur Hamesha Mine,20.80957,76.60043,EPSG:4326,India,Other State,Manganese,USGS MRDS,10183644,Mine / Occurrence Site,0.95,1
+MN_OCC_0113,Gongalpara,21.89946,80.30034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003848,Mine / Occurrence Site,0.95,1
+MN_OCC_0114,Viliena,15.16676,74.25048,EPSG:4326,India,Karnataka,Manganese,USGS MRDS,10003874,Mine / Occurrence Site,0.95,1
+MN_OCC_0115,Hirmutola,21.98279,80.13367,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090213,Mine / Occurrence Site,0.95,1
+MN_OCC_0116,Dongargaon,21.71615,80.08367,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003844,Mine / Occurrence Site,0.95,1
+MN_OCC_0117,Satak Mine and Satak Extension Mi,21.34951,79.26036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10207106,Mine / Occurrence Site,0.95,1
+MN_OCC_0118,Ghondi,21.91613,80.417,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003847,Mine / Occurrence Site,0.95,1
+MN_OCC_0119,Orissa Deposits,21.63281,85.66686,EPSG:4326,India,Odisha,Manganese,USGS MRDS,10084839,Mine / Occurrence Site,0.95,1
+MN_OCC_0122,Kurthitola,21.94946,80.25034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003858,Mine / Occurrence Site,0.95,1
+MN_OCC_0124,Ramrama,21.85503,79.94202,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10094105,Mine / Occurrence Site,0.95,1
+MN_OCC_0125,"Joida Mn Deposits: Nagari, Chipol",15.21009,74.50047,EPSG:4326,India,Karnataka,Manganese,USGS MRDS,10279574,Mine / Occurrence Site,0.95,1
+MN_OCC_0126,Samnapur,21.96613,80.48366,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003867,Mine / Occurrence Site,0.95,1
+MN_OCC_0127,Killa,34.36521,73.50058,EPSG:4326,India,Other State,Manganese,USGS MRDS,10090245,Mine / Occurrence Site,0.95,1
+MN_OCC_0128,Orissa State,21.63278,85.66689,EPSG:4326,India,Odisha,Manganese,USGS MRDS,60000572,Mine / Occurrence Site,0.95,1
+MN_OCC_0129,Andhra Pradesh State,18.36648,83.45025,EPSG:4326,India,Odisha,Manganese,USGS MRDS,60000575,Mine / Occurrence Site,0.95,1
+MN_OCC_0130,Salpa,21.99947,80.35034,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090221,Mine / Occurrence Site,0.95,1
+MN_OCC_0131,Peli,21.86614,80.26701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003862,Mine / Occurrence Site,0.95,1
+MN_OCC_0132,Kajlidongri,22.94939,74.51716,EPSG:4326,India,Other State,Manganese,USGS MRDS,10003852,Mine / Occurrence Site,0.95,1
+MN_OCC_0133,Piparia,21.74948,80.16701,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10003863,Mine / Occurrence Site,0.95,1
+MN_OCC_0134,Bisgod,15.0501,74.58487,EPSG:4326,India,Karnataka,Manganese,USGS MRDS,10208573,Mine / Occurrence Site,0.95,1
+MN_OCC_0135,Shivrajpur Syndicate Concessions,22.39944,73.65051,EPSG:4326,India,Other State,Manganese,USGS MRDS,10255753,Mine / Occurrence Site,0.95,1
+MN_OCC_0136,Pindkapar,21.98279,80.43366,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10090219,Mine / Occurrence Site,0.95,1
+MN_OCC_0137,Naveli,15.13343,74.16715,EPSG:4326,India,Other State,Manganese,USGS MRDS,10106593,Mine / Occurrence Site,0.95,1
+MN_OCC_0138,Waregaon Deposit,21.32952,79.41036,EPSG:4326,India,Madhya Pradesh / Maharashtra,Manganese,USGS MRDS,10279528,Mine / Occurrence Site,0.95,1

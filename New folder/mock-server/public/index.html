@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kapture Finance — Google Voice AI Collections ("Maya")</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Google Minimalist Navbar -->
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-logo-spark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>Kapture Finance — Voice AI Collections</h1>
+        <p>Outbound Collections Agent "Maya" • Voice-to-Voice Engine</p>
+      </div>
+    </div>
+
+    <!-- ElevenLabs Key & Female Voice Controls -->
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 0.4rem; background: #ffffff; border: 1px solid var(--google-border); border-radius: var(--radius-pill); padding: 0.25rem 0.75rem;">
+        <span style="font-size: 0.75rem; color: var(--text-secondary); font-weight: 500;">Voice:</span>
+        <select id="voice-selector" style="border: none; background: transparent; font-size: 0.8rem; font-weight: 600; color: var(--google-blue); outline: none; cursor: pointer;">
+          <option value="EXAVITQu4vr4xnSDxMaL" selected>Sarah (Professional)</option>
+          <option value="21m00Tcm4TlvDq8ikWAM">Rachel (Calm & Clear)</option>
+          <option value="MF3mGyEYCl7XYWbV9V6O">Elli (Gentle)</option>
+          <option value="XB0fDUnXU5powFXDhCwa">Charlotte (UK Accent)</option>
+          <option value="2EiwWnXFnvU5JabPnv8n">Bella (Warm)</option>
+        </select>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.4rem; background: #ffffff; border: 1px solid var(--google-border); border-radius: var(--radius-pill); padding: 0.25rem 0.75rem;">
+        <span style="font-size: 0.75rem; color: var(--text-secondary); font-weight: 500;">Key:</span>
+        <input type="password" id="eleven-api-key" placeholder="Paste ElevenLabs Key..." style="border: none; background: transparent; font-size: 0.78rem; width: 140px; outline: none; color: var(--text-primary);" />
+      </div>
+
+      <div class="status-pill">
+        <div class="google-dot"></div>
+        <span>Voice-to-Voice Active</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard Container -->
+  <div class="dashboard-container">
+
+    <!-- Analytics Summary Top Row -->
+    <div class="metrics-row">
+      <div class="stat-box">
+        <div class="stat-icon-wrap" style="background: var(--google-blue-light); color: var(--google-blue);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="stat-box-info">
+          <h4>142</h4>
+          <p>Total Calls Dispatched</p>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon-wrap" style="background: var(--google-green-light); color: var(--google-green);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <div class="stat-box-info">
+          <h4>94.2%</h4>
+          <p>Identity Auth Success</p>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon-wrap" style="background: var(--google-purple-light); color: var(--google-purple);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+        </div>
+        <div class="stat-box-info">
+          <h4>₹ 8,42,500</h4>
+          <p>Promises-to-Pay Collected</p>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon-wrap" style="background: var(--google-yellow-light); color: var(--google-yellow);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="6"/>
+            <circle cx="12" cy="12" r="2"/>
+          </svg>
+        </div>
+        <div class="stat-box-info">
+          <h4>82.5%</h4>
+          <p>AI Containment Rate</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left Column: Borrower Profile & State Machine -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Borrower Profile</span>
+        <span class="google-chip" style="background: var(--google-red-light); color: var(--google-red); border-color: transparent;">DPD: 12 Days</span>
+      </div>
+
+      <div class="customer-profile">
+        <div class="google-avatar">RS</div>
+        <div class="customer-details">
+          <h3>Rahul Sharma</h3>
+          <p>Account ID: <strong>ACC-88392</strong></p>
+          <p>Phone: +91 98*****210</p>
+        </div>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric-box">
+          <div class="metric-label">Loan Product</div>
+          <div class="metric-value">Personal Loan</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Overdue Amount</div>
+          <div class="metric-value red">₹ 8,499</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">EMI Due Date</div>
+          <div class="metric-value">Aug 01, 2026</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Auth Credentials</div>
+          <div class="metric-value blue">PAN: 1234</div>
+        </div>
+      </div>
+
+      <div class="card-header" style="margin-top: 0.5rem;">
+        <span class="card-title">State Machine Regime</span>
+        <span id="current-state-label" style="font-size: 0.75rem; color: var(--google-blue); font-weight: 600;">STATE 0</span>
+      </div>
+
+      <div class="state-flow">
+        <div class="state-step active" id="state-node-0">
+          <div class="state-num">0</div>
+          <div>STATE 0: Greeting & Confirm Target</div>
+        </div>
+        <div class="state-step" id="state-node-1">
+          <div class="state-num">1</div>
+          <div>STATE 1: Identity Auth Gate (PAN / DOB)</div>
+        </div>
+        <div class="state-step" id="state-node-2">
+          <div class="state-num">2</div>
+          <div>STATE 2: Overdue Disclosure & Negotiate</div>
+        </div>
+        <div class="state-step" id="state-node-3">
+          <div class="state-num">3</div>
+          <div>STATE 3: Real-time Tool Execution</div>
+        </div>
+        <div class="state-step" id="state-node-4">
+          <div class="state-num">4</div>
+          <div>STATE 4: Call Close & Disposition Log</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Column: Voice Simulator & 4-Color Audio Wave -->
+    <div class="card call-panel">
+      <div class="call-header-row">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <div id="call-dot" style="width: 10px; height: 10px; border-radius: 50%; background: var(--text-tertiary);"></div>
+          <span id="call-status-text" style="font-weight: 600; font-size: 0.85rem; color: var(--text-secondary);">Idle • Ready for Call</span>
+        </div>
+        <button id="btn-toggle-call" class="btn-google-call">
+          <span id="btn-call-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </span>
+          <span id="btn-call-text">Start Call to Rahul</span>
+        </button>
+      </div>
+
+      <!-- Google Assistant 4-Color Waveform -->
+      <div class="assistant-wave" id="audio-wave">
+        <div class="assistant-bar blue"></div>
+        <div class="assistant-bar red"></div>
+        <div class="assistant-bar yellow"></div>
+        <div class="assistant-bar green"></div>
+      </div>
+
+      <!-- Transcript Box -->
+      <div class="transcript-area" id="transcript-box">
+        <div class="chat-bubble system">
+          Click "Start Call to Rahul" to initiate the voice-to-voice collections session with Maya.
+        </div>
+      </div>
+
+      <!-- Quick Preset Chips -->
+      <div class="google-chips">
+        <div class="google-chip" onclick="selectPreset('Yes, speaking')">"Yes, speaking"</div>
+        <div class="google-chip" onclick="selectPreset('1234')">"Code: 1234" (Valid)</div>
+        <div class="google-chip" onclick="selectPreset('9999')">"Code: 9999" (Invalid)</div>
+        <div class="google-chip" onclick="selectPreset('I can pay full amount this Friday')">"Pay Friday" (PTP)</div>
+        <div class="google-chip" onclick="selectPreset('I already paid yesterday via UPI')">"Already Paid"</div>
+        <div class="google-chip" onclick="selectPreset('I lost my job and have medical emergency')">"Hardship"</div>
+        <div class="google-chip" onclick="selectPreset('Stop calling me, put me on DNC list!')">"Do Not Call"</div>
+      </div>
+
+      <!-- Input Row with Mic Voice Input -->
+      <form class="input-row" id="chat-form">
+        <input type="text" id="user-input" placeholder="Type or click Mic to speak as Rahul..." disabled autocomplete="off" />
+        <button type="button" id="btn-mic" class="btn-google-call" style="background: #ffffff; color: var(--google-blue); border: 1px solid var(--google-border); padding: 0 1rem; box-shadow: none;" disabled title="Click to Speak via Microphone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </button>
+        <button type="submit" class="btn-send-google" id="btn-send" disabled>Send</button>
+      </form>
+    </div>
+
+    <!-- Right Column: Webhook Inspector -->
+    <div class="card inspector-panel">
+      <div class="card-header">
+        <span class="card-title">Live Webhook Inspector</span>
+        <span style="font-size: 0.75rem; color: var(--google-blue); font-weight: 500;">POST /webhook</span>
+      </div>
+
+      <div class="inspector-log" id="log-container">
+        <div class="inspector-item">
+          <div class="inspector-meta">
+            <span>[SYS INIT]</span>
+            <span>Server Ready</span>
+          </div>
+          <div class="json-view">Listening for Vapi tool-calls on http://localhost:3000/webhook...</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

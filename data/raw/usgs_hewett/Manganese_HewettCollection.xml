@@ -1,0 +1,812 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Melissa A. Bennett</origin>
+        <origin>Allen K. Andersen</origin>
+        <origin>Niki E. Wintzer</origin>
+        <pubdate>20250501</pubdate>
+        <title>International Manganese Samples—The Donnel Foster Hewett Collection</title>
+        <edition>Microsoft Excel 365</edition>
+        <geoform>spreadsheet</geoform>
+        <pubinfo>
+          <pubplace>Spokane, WA</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <othercit>Donnel Foster Hewett</othercit>
+        <onlink>https://doi.org/10.5066/P13G6HYE</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>International manganese samples in this collection were acquired from various countries, typically by geoscientists and university professors of the corresponding region. Manganese samples from the United States were collected in the field primarily by other USGS scientists noted in the dataset. The dataset corresponds to Hewett's physical collection of manganese-bearing samples re-established in 2023-2024 under the National Geological and Geophysical Data Preservation Program. Individual samples were assigned a new USGS Sample ID once the sample locality was identified. Each new sample number has an assigned cabinet letter and drawer number so that users can readily locate physical samples in the reorganized collection. The dataset includes location (state and site-specific names such as mines, claim(s), prospects, and deposit groups), latitude and longitude, origin of coordinates, sample type, collector of sample (if given), mineral name (if given), qualitative volume estimates for manganese oxide in each sample, and mass of samples in kilograms and grams. It is important to note that one mine, claim, or prospect can have multiple samples with different USGS identification numbers.
+
+This collection of manganese samples was assembled by Donnel Foster Hewett (1881-1971), an economic geologist and mineralogist with the USGS for fifty-nine years, serving for a period of time as Chief of the USGS's Metalliferous Geology Section. His study of manganese deposits aided in wartime steel production and earned him the nickname, "Mr. Manganese.” He is credited with the discovery of two major economic deposits, including the Minas Ragra mine, a major vanadium producer in the Pasco Region of Peru. Throughout the first half of the 20th century, Hewett provided an overall deeper understanding of metalliferous ore genesis in various geological settings.</abstract>
+      <purpose>This dataset is part of the 2023-2024 USGS Critical Mineral Commodity Specialist Collections Preservation effort for public and scientific use under the National Geological and Geophysical Data Preservation Program (NGGDPP). The dataset is also available through an on-line repository named ReSciColl (Registry of Scientific Collections). Retrospective studies on manganese oxide ore deposits, manganese characteristics from various mineral systems, and other geochemical, mineralogical, or spectroscopic studies are deemed as appropriate use of this collection.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>19110401</begdate>
+          <enddate>19710205</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>observed</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-132.6584</westbc>
+        <eastbc>143.9739</eastbc>
+        <northbc>48.8231</northbc>
+        <southbc>-42.0167</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>geoscientificInformation</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>critical minerals</themekey>
+        <themekey>pyrolusite</themekey>
+        <themekey>manganese</themekey>
+        <themekey>mineral deposits</themekey>
+        <themekey>field activity logs</themekey>
+        <themekey>data preservation</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:679ba27ed34ea8c1837736c7</themekey>
+      </theme>
+      <place>
+        <placekt>Common Geographic Areas</placekt>
+        <placekey>International</placekey>
+        <placekey>Turkey</placekey>
+        <placekey>Japan</placekey>
+        <placekey>Greece</placekey>
+        <placekey>Africa</placekey>
+        <placekey>Pakistan</placekey>
+        <placekey>Indonesia</placekey>
+        <placekey>Sweden</placekey>
+        <placekey>Australia</placekey>
+        <placekey>Philippines</placekey>
+        <placekey>Canada</placekey>
+        <placekey>Ukraine</placekey>
+        <placekey>France</placekey>
+        <placekey>India</placekey>
+        <placekey>Morocco</placekey>
+        <placekey>Cuba</placekey>
+        <placekey>Chile</placekey>
+        <placekey>Argentina</placekey>
+        <placekey>Puerto Rico</placekey>
+        <placekey>Bolivia</placekey>
+        <placekey>Costa Rica</placekey>
+        <placekey>Columbia</placekey>
+        <placekey>Asia</placekey>
+        <placekey>Brazil</placekey>
+        <placekey>California</placekey>
+        <placekey>Nevada</placekey>
+        <placekey>New York</placekey>
+        <placekey>Colorado</placekey>
+        <placekey>Nova Scotia</placekey>
+        <placekey>British Columbia</placekey>
+        <placekey>Ontario</placekey>
+        <placekey>Baja California</placekey>
+        <placekey>San Luis Potosi</placekey>
+        <placekey>Zacatecas</placekey>
+        <placekey>Chihuahua</placekey>
+        <placekey>Durango</placekey>
+        <placekey>South America</placekey>
+        <placekey>North America</placekey>
+        <placekey>Europe</placekey>
+        <placekey>United States</placekey>
+        <placekey>Hidalgo</placekey>
+        <placekey>Baja California Sur</placekey>
+        <placekey>Sonora</placekey>
+        <placekey>Oklahoma</placekey>
+        <placekey>Arkansas</placekey>
+        <placekey>Missouri</placekey>
+        <placekey>Virginia</placekey>
+        <placekey>Massachusetts</placekey>
+        <placekey>North Carolina</placekey>
+        <placekey>Tennessee</placekey>
+        <placekey>Pennsylvania</placekey>
+        <placekey>New Jersey</placekey>
+        <placekey>Georgia</placekey>
+        <placekey>Alabama</placekey>
+        <placekey>Maine</placekey>
+        <placekey>South Dakota</placekey>
+        <placekey>New Mexico</placekey>
+        <placekey>Utah</placekey>
+        <placekey>Colorado</placekey>
+        <placekey>Nevada</placekey>
+        <placekey>California</placekey>
+        <placekey>Texas</placekey>
+        <placekey>Oregon</placekey>
+        <placekey>Washington</placekey>
+        <placekey>Idaho</placekey>
+        <placekey>Montana</placekey>
+        <placekey>Arizona</placekey>
+        <placekey>Missouri</placekey>
+      </place>
+    </keywords>
+    <accconst>None.  Please see 'Distribution Info' for details.</accconst>
+    <useconst>Creative Common CC0 1.0 Universal License</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Allen K. Andersen</cntper>
+          <cntorg>Geology, Minerals, Energy and Geophysics Science Center</cntorg>
+        </cntperp>
+        <cntpos>Research Geologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>904 W. Riverside</address>
+          <city>Spokane</city>
+          <state>Washington</state>
+          <postal>99201</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>509-368-3115</cntvoice>
+        <cntemail>akandersen@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>USGS Contractor, Melissa Bennett; USGS Scientists, Allen Andersen, Niki Wintzer, and Donnel Foster Hewett; and the National Geological and Geophysical Data Preservation Program.</datacred>
+    <native>Microsoft Excel 365, Version 2402, "Hewett_Manganese_Collection" at 122KB.</native>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>A RMSE (root mean square error) compared geospatial locations given by the collector against georeferenced images of deposits given in a corresponding scientific paper. All deposit coordinates tested in RMSE was calculated in Arcgis Pro® using WGS84 datum. The location accuracy or RMSE value for these coordinates is 0.2 meters. Earth Point© coordinates were verified for accuracy in ArcGIS Pro® by testing ten centroids of a described PLSS (Public Land Survey System) location given by the sample collector. Results found that the average horizontal distance between Earth Point© and ArcGIS® coordinates is less than five kilometers. If a sample had a PLSS location, Earth Point© was then used to calculate centroid coordinates for that location. The LasBela Mining District is a unique instance where a coordinate centroid was generated from known deposits identified in "Colombo Plan, 1960, Reconnaissance geology of part of west Pakistan: The Government of Canada." This literature was sent to Hewett personally upon his request for sample locations. Deposits in this literature matched USGS MRDS (Mineral Resources Data System) KML files, where a centroid for LasBela District was generated.</attraccr>
+    </attracc>
+    <logic>All locations given for individual samples were reported by the collector. If the sample location given by the collector could not be verified with PLSS, USGS MRDS or other reference materials, they were not used in this collection.</logic>
+    <complete>This dataset represents manganese-rich samples collected throughout Donnel F. Hewett's career. There are over 700 physical mineral samples from around the world. These samples are from diverse metalliferous ore deposits including lacustrine, carbonate-replacement (CRD), LCT pegmatite, and volcanogenic massive sulfide (VMS). Essential information is provided about individual samples: mass in grams and kilograms; mineral type (if noted by collector); sample type (reference hand sample(s),powder, sand, and/or pebble); and, an estimated percentage of manganese oxides for each sample. Approximately ninety percent of this collection was geo-chemically analyzed by Hewett through 1911-1951</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>0.2 meters</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>&gt; 5 meters</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>BLM GIS Web Service</origin>
+            <pubdate>20170717</pubdate>
+            <title>PLSS locations in California, Utah, and Arizona, Derived from Cadastral/BLM_Natl_PLSS_CadNSDI (MapServer)</title>
+            <geoform>vector digital data</geoform>
+            <pubinfo>
+              <pubplace>ArcGIS Hub</pubplace>
+              <publish>Bureau of Land Management</publish>
+            </pubinfo>
+            <onlink>https://gis.blm.gov/arcgis/rest/services/Cadastral/BLM_Natl_PLSS_CadNSDI/MapServer</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>20170717</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>BLM National Public Land Survey System CadNSDI</srccitea>
+        <srccontr>Aided in verification of centroid coordinates in ArcGIS Pro® for section, township, and range provided by sample collectors.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Bernard M. Pracejus</origin>
+            <pubdate>19900501</pubdate>
+            <title>MRDS 10003913, KML of Kohan Jhal manganese deposit in LasBela District, Pakistan</title>
+            <geoform>application/service</geoform>
+            <pubinfo>
+              <pubplace>USGS</pubplace>
+              <publish>USGS</publish>
+            </pubinfo>
+            <onlink>https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10003913</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>19900501</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>Kohan Jhal</srccitea>
+        <srccontr>The KML file attached to to this record was used in ArcGIS Pro® to find the centroid of the LasBela District, Pakistan.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Bernard M. Pracejus</origin>
+            <pubdate>19900501</pubdate>
+            <title>MRDS 100033912, KML of Mohd Khan Bent manganese deposit in LasBela District, Pakistan</title>
+            <geoform>application/service</geoform>
+            <pubinfo>
+              <pubplace>USGS</pubplace>
+              <publish>USGS</publish>
+            </pubinfo>
+            <onlink>https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10003912</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>19900501</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>Mohd Khan Bent</srccitea>
+        <srccontr>The KML file attached to to this record was used in ArcGIS Pro® to find the centroid of the LasBela District, Pakistan.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Bernard M. Pracejus</origin>
+            <pubdate>19900501</pubdate>
+            <title>MRDS 10003911, KML of Siro Dhora manganese deposit in LasBela District, Pakistan</title>
+            <geoform>application/service</geoform>
+            <pubinfo>
+              <pubplace>USGS</pubplace>
+              <publish>USGS</publish>
+            </pubinfo>
+            <onlink>https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10003911</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>19900501</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>Siro Dhora</srccitea>
+        <srccontr>The KML file attached to to this record was used in ArcGIS Pro® to find the centroid of the LasBela District, Pakistan.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Bernard M. Pracejus</origin>
+            <pubdate>19900501</pubdate>
+            <title>MRDS 100090241, KML of Khabri Dhora manganese deposit in LasBela District, Pakistan</title>
+            <geoform>application/service</geoform>
+            <pubinfo>
+              <pubplace>USGS</pubplace>
+              <publish>USGS</publish>
+            </pubinfo>
+            <onlink>https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10090241</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>19900501</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>Khabri Dhora</srccitea>
+        <srccontr>The KML file attached to to this record was used in ArcGIS Pro® to find the centroid of the LasBela District, Pakistan.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Bernard M. Pracejus</origin>
+            <pubdate>19900501</pubdate>
+            <title>MRDS 10090242, KML of Khan Khed Nai manganese deposit in LasBela District, Pakistan</title>
+            <geoform>application/service</geoform>
+            <pubinfo>
+              <pubplace>USGS</pubplace>
+              <publish>USGS</publish>
+            </pubinfo>
+            <onlink>https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10090242</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Digital and/or Hardcopy</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>19900501</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>Khan Khed Nai</srccitea>
+        <srccontr>The KML file attached to to this record was used in ArcGIS Pro® to find the centroid of the LasBela District, Pakistan.</srccontr>
+      </srcinfo>
+      <procstep>
+        <procdesc>Samples were recovered from labeled boxes on pallets and one dresser. In many instances, samples were stored in labeled boxes, rock bags, glass jars, glass vials and/or paper containers. These labels matched locations in Hewett's journal or the collectors field note. Collector field notes were stored with the corresponding sample. Information about state location, additional area descriptions, mineral name (if given by collector), collector name, deposit name and/or mine name were generated from these sources. Initially, all samples were searched using USGS MRDS on-line database.</procdesc>
+        <procdate>20240601</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>If an individual sample could not be matched to a MRDS file or no PLSS was provided by the collector, a government mineral database or a corresponding scientific journal (typically authored by the collector) was used in an effort to find coordinates.</procdesc>
+        <procdate>20240601</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Sample locations were identified and coordinates were transformed to the WGS84 datum. Some coordinates could be found in a corresponding scientific journal and were transformed in NCAT (NGS Coordinate Conversion and Transformation Tool). Images of deposit locations found in scientific journals were georeferenced in ArcGIS Pro®. Deposits that had a PLSS description were transformed in Earth Point©. Samples with known locations had collector name, mineral name (if provided by collector), mine name and, additional descriptions entered into the dataset.</procdesc>
+        <procdate>20240601</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>The volumetric abundance in percent of manganese oxide minerals present was visually estimated for each unique sample. Manganese oxide volume estimates were based on the presence of black to dark steel-grey minerals with a submetallic to resinous luster and botryoidal, massive, or fibrous habit. Some manganese oxides appeared velvety, silky, or sooty with more massive forms best described as earthy. If manganese oxide volume percent was over fifty, a Y or Yes was assigned to that sample. While a sample can have a twenty percent manganese oxide volume estimate, it is important to note that the same sample might contain another non-oxide manganese mineral (for example, rhodochrosite, knebelite, and bementite).</procdesc>
+        <procdate>20240601</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Information about individual sample mass was recorded into our dataset under the "Mass_kilograms" and "Mass_grams" headings. Each USGS Sample ID has a mass recorded into the dataset. It is important to note that some samples are contained in more than one box but has one USGS Sample ID assigned to it. The mass of multiple boxes assigned to one USGS Sample ID are summed.</procdesc>
+        <procdate>20240601</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>D.F. Hewett sample identification numbers were assigned to a new, USGS Sample ID. Hewett sample identification numbers and the associated USGS sample numbers are under the "Hewett_Sample_ID" and "USGS_Sample_ID" headings in our dataset, respectively. USGS Sample ID's are labeled on sample boxes, directly on large hand samples or on sample jars.</procdesc>
+        <procdate>20240601</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Labeled samples are stored in rock cabinets. The Rock cabinets are labeled with a cabinet letter and a drawer number for ease of sample retrieval, e.g., USGS Sample ID MC0042 from Harshaw Mining District, Arizona is stored in A3; cabinet letter A, drawer 3. Our dataset denotes this information under the "Drawer_Number" and "Cabinet_Letter" headings.</procdesc>
+        <procdate>20240601</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>Hewett_Manganese_Collection.xls (DF_Hewett_Manganese)</enttypl>
+        <enttypd>Excel Worksheet</enttypd>
+        <enttypds>Producer Defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Location</attrlabl>
+        <attrdef>City, county, district, or country where the sample was collected.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>City, county, district, or country where the sample was collected.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Province</attrlabl>
+        <attrdef>For international samples, the name of the province where the sample was collected.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>For international samples, the name of the province where the sample was collected.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>State</attrlabl>
+        <attrdef>State where the sample was collected.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>State where the sample was collected.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Hewett_Sample_Number</attrlabl>
+        <attrdef>An alphanumeric sample number assigned by D.F. Hewett that is associated with that particular sample's locality. Additional information about samples were found in D.F. Hewett's journals or international geological survey tags found with the corresponding sample.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Hewett sample numbers typically included a locality abbreviation with a hyphenated number at the end, e.g., AR-13 comes from Bouse, Arizona.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Mine</attrlabl>
+        <attrdef>Name of specific mine, prospect, tract, claim, or deposit from which the sample was collected. Initially, this information was taken from two sources including D.F. Hewett's journal or a geological survey tag.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Blank Cell</edomv>
+            <edomvd>A mine name was not given for these samples.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>Initially, mine information was taken from two sources including D.F. Hewett's journal or a geological survey tag.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>USGS_Sample_ID</attrlabl>
+        <attrdef>A new USGS Sample ID was assigned to D.F. Hewett's samples during the 2023-2024 USGS collection preservation effort. More than one USGS Sample ID may have been assigned for a single locality.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>A new USGS Sample ID was assigned to D.F. Hewett's samples during the 2023-2024 USGS collection preservation effort.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Mineral</attrlabl>
+        <attrdef>Manganese mineral identification. Minerals were identified by D.F. Hewett or another scientist who personally collected the sample.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Blank Cell</edomv>
+            <edomvd>A mineral name was not given for these samples.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>Of the forty-three minerals named in our dataset by collectors, fourteen out of forty-three are manganese oxide minerals. Most minerals in this collection are associated with manganese. Historical mineral names that are not approved by IMA (International Mineralogy Association) as of 2024, were not used in our dataset.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Additional_Descriptions</attrlabl>
+        <attrdef>Additional descriptions aid in identifying sample locations such as historic mine names, mine owner names, mining districts, and native reservations. Additional descriptions may include specific geologic formations, e.g., Chinle Formation in Nevada, groups, e.g., Owl Group in New Mexico, occurrences, e.g., Fort Payne Chert in Tennessee, and mountain ranges from where the sample originated. Rarely, a specific mine adit, stope, tunnel, or drift name was given in association with a particular sample.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Blank Cell</edomv>
+            <edomvd>The collector did not provide additional descriptions for these samples.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>Additional descriptions aid in identifying sample locations such as historic mine names, mine owner names, mining districts, and native reservations.
+
+The specificity of descriptions available for each sample was dependent upon information given by the collector.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Selected_References</attrlabl>
+        <attrdef>Selected references were used to verify the location or existence of a deposit as described by the collector. Selected sources include information such as state documents, interactive government mineral deposit maps, historical archives, or published scientific journals.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Blank Cell</edomv>
+            <edomvd>The location given in Hewett's notes were sufficient and external sources about location was not necessary.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>Bibliographic references used to determine the location in question.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Collector</attrlabl>
+        <attrdef>Name of the scientist who collected the sample. Information was obtained from paper tags that included names of national and international scientists. Collector names was not given for all samples.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Blank Cell</edomv>
+            <edomvd>A collector name was not available for these samples.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>Most selected references used to identify sample locations are correlated to the collector i.e., the author of the selected reference is the collector.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude</attrlabl>
+        <attrdef>Latitude of corresponding sample in WGS84 datum in decimal degrees.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Latitude of corresponding sample in WGS84 datum.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude</attrlabl>
+        <attrdef>Longitude of corresponding sample in WGS84 datum in decimal degrees.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Longitude of corresponding sample in WGS84 datum.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>WGS84_Coordinate_Source</attrlabl>
+        <attrdef>Original source of WGS84 coordinates.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>ArcGIS Pro®</edomv>
+            <edomvd>Coordinates calculated in ArcGIS Pro® were done so using deposit maps. Geo-referencing was completed in WGS84 datum. A centroid was calculated in ArcGIS Pro® using the same datum, for the Las Belas Mining District, Pakistan.  A RMSE (root mean square error) test was applied to all ArcGIS® coordinates to check location accuracy.</edomvd>
+            <edomvds>User Defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Earth Point©</edomv>
+            <edomvd>Earth Point© automatically calculated the centroid coordinates of a PLSS given by the sample collector in WGS84 datum.</edomvd>
+            <edomvds>User Defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>NCAT</edomv>
+            <edomvd>NCAT was applied in instances where written coordinates of deposits were available in government mineral databases or scientific literature. An NCAT transformation was performed on these coordinates to ensure use in WGS84 datum.</edomvd>
+            <edomvds>User Defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>MRDS</edomv>
+            <edomvd>A mineral record data system (MRDS) is a USGS deposit database that provides coordinate location in WGS84 datum.</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>MRDS_Record_ID</attrlabl>
+        <attrdef>MRDS (Mineral Records Data System) Record ID</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Blank Cell</edomv>
+            <edomvd>An MRDS record was not available for these samples.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>A record ID assigned by MRDS that describes the corresponding sample location, geology, minerals, or other characteristics.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PLSS</attrlabl>
+        <attrdef>Public Land Survey System (PLSS) as assigned by the scientist who collected the sample.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Blank Cell</edomv>
+            <edomvd>A PLSS was not given for these samples.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <udom>PLSS descriptions were found on geologic survey tags stored along with the corresponding sample.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sample_Type</attrlabl>
+        <attrdef>Describes the type of sub-sample in D.F. Hewett's Manganese Collection.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Describes the type of sub-sample in D.F. Hewett's Manganese Collection. Sample types were noted during the 2023-2024 USGS collection preservation effort. Sample types include Core Sample(s), Reference Sample(s), Powder, Sand, Pebble, and Thin Section(s). It is important to note that one Hewett Sample Number can have any combination of sample types.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Label_Origin</attrlabl>
+        <attrdef>The origin of written alphanumeric sample numbers assigned by D.F. Hewett. Label origins include Bottle Label, Box, Envelope, Glass Vial, Paper Bag, Paper Jar, Plastic Bag, and Rock Bag.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Rock Bag</edomv>
+            <edomvd>Hewett's identification label for this sample was found on a rock bag.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Bottle Label</edomv>
+            <edomvd>Hewett's identification label for this sample was found on a bottle label.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Envelope</edomv>
+            <edomvd>Hewett's identification label for this sample was found on an envelope.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Paper Bag</edomv>
+            <edomvd>Hewett's identification label for this sample was found on a paper bag.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Glass Vial</edomv>
+            <edomvd>Hewett's identification label for this sample was found on a glass vial.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Paper Jar</edomv>
+            <edomvd>Hewett's identification label for this sample was found on a paper jar.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Box</edomv>
+            <edomvd>Hewett's identification label for this sample was found on a box.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Plastic Bag</edomv>
+            <edomvd>Hewett's identification label for this sample was found on a plastic bag.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Mn_Oxide_Dominant</attrlabl>
+        <attrdef>Indicates with a Y (Yes) or N (No) whether each sample is composed of greater than 50 percent manganese oxide minerals.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Y</edomv>
+            <edomvd>Sample is composed of greater than 50 percent manganese oxide minerals.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>N</edomv>
+            <edomvd>Sample is composed of less than 50 percent manganese oxide minerals.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Mn_Min_Vol_Estimate</attrlabl>
+        <attrdef>Manganese oxide volume estimate for each USGS Sample ID. While a sample can have a twenty percent manganese oxide volume estimate, it is important to note that the same sample may contain abundant amounts of another manganese mineral, i.e., rhodochrosite, knebelite, bementite etc...</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Manganese oxide volume estimate for each USGS Sample ID. While a sample can have a twenty percent manganese oxide volume estimate, it is important to note that the same sample may contain abundant amounts of another manganese mineral i.e., rhodochrosite, knebelite, bementite etc.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Mass_kilograms</attrlabl>
+        <attrdef>Mass of the sample measured in kilograms during the 2023-2024 USGS collection preservation effort.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Mass of the sample measured in kilograms during the 2023-2024 USGS collection preservation effort.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Mass_grams</attrlabl>
+        <attrdef>Mass of the sample measured in grams during the 2023-2024 USGS collection preservation effort.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>Mass of the sample measured in grams during the 2023-2024 USGS collection preservation effort.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cabinet_Letter</attrlabl>
+        <attrdef>Cabinet Letter containing the specific sample with assigned USGS Sample ID.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>A</edomv>
+            <edomvd>Physical sample is in cabinet letter A.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>B</edomv>
+            <edomvd>Physical sample is in cabinet letter B.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>C</edomv>
+            <edomvd>Physical sample is in cabinet letter C.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>D</edomv>
+            <edomvd>Physical sample is in cabinet letter D.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>E</edomv>
+            <edomvd>Physical sample is in cabinet letter E.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>F</edomv>
+            <edomvd>Physical sample is in cabinet letter F.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>G</edomv>
+            <edomvd>Physical sample is in cabinet letter G.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>H</edomv>
+            <edomvd>Physical sample is in cabinet letter H.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Drawer_Number</attrlabl>
+        <attrdef>Drawer Number containing the specific sample with an assigned USGS Sample ID.</attrdef>
+        <attrdefs>Producer Defined</attrdefs>
+        <attrdomv>
+          <udom>All samples are stored in drawers. The drawer number explains where the sample is located via cabinet letter and drawer number.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey - ScienceBase</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing address</addrtype>
+          <address>Denver Federal Center</address>
+          <address>Building 810</address>
+          <address>Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data for other purposes, nor on all computer systems, nor shall the act of distribution constitute any such warranty.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>Digital Data</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.5066/P13G6HYE</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>None</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20250501</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Allen K Andersen</cntper>
+          <cntorg>U.S. Geological Survey</cntorg>
+        </cntperp>
+        <cntpos>Research Geologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>904 W. Riverside</address>
+          <city>Spokane</city>
+          <state>WA</state>
+          <postal>99201</postal>
+        </cntaddr>
+        <cntvoice>
+        </cntvoice>
+        <cntemail>akandersen@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>

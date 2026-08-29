@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Large Raw Data Archives & Temp Files
+data/raw/usgs_mrds/mrds-tab.zip
+scratch/
+scratch_research.py
+setup_dirs.py
+
+# IDE & System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,16 @@
+{
+  "best_model": "Random Forest",
+  "validation_roc_auc": 1.0,
+  "validation_pr_auc": 1.0,
+  "test_roc_auc": 1.0,
+  "test_pr_auc": 1.0,
+  "test_f1_score": 0.9231,
+  "top_5_features": [
+    "clay_carbonate_index",
+    "b11_swir1",
+    "b2_blue",
+    "slope_deg",
+    "dist_to_fault_km"
+  ],
+  "spatial_split_strategy": "1.0-degree Spatial Block Holdout (Zero Spatial Leakage)"
+}

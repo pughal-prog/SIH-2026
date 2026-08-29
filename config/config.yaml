@@ -1,0 +1,22 @@
+# SIH 2026 Manganese AI Pipeline Configuration
+project_name: SIH 2026 Manganese Exploration & Production Shortfall Analysis
+version: 1.0.0
+crs:
+  storage: EPSG:4326
+  projected: EPSG:32644  # UTM Zone 44N for India distance/area calculations
+data_paths:
+  raw: data/raw
+  raw_extracted: data/raw_extracted
+  validated: data/validated
+  processed: data/processed
+  features: data/features
+  training: data/training
+  predictions: data/predictions
+  metadata: data/metadata
+random_seed: 42
+spatial_resolution_meters: 30
+manganese_belts:
+  - Odisha
+  - Madhya Pradesh - Maharashtra
+  - Karnataka
+  - Andhra Pradesh

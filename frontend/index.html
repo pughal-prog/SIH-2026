@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIH 2026 — Manganese AI Intelligence & Exploration Platform</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet GIS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Custom Design System CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Glass Navbar -->
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-icon">Mn</div>
+      <div>
+        <div class="brand-title">Manganese AI Intelligence Platform</div>
+        <div class="live-badge" style="margin-top: 2px;">
+          <span class="live-dot"></span>
+          <span>FastAPI Service Live</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <button class="nav-btn active" data-tab="overview-view">Overview</button>
+      <button class="nav-btn" data-tab="map-view">Exploration Map</button>
+      <button class="nav-btn" data-tab="ml-view">Model Intelligence</button>
+      <button class="nav-btn" data-tab="shortfall-view">Supply & Shortfall</button>
+      <button class="nav-btn" data-tab="data-view">Data Explorer</button>
+    </nav>
+  </header>
+
+  <!-- Quick Ticker Bar -->
+  <div class="ticker-bar">
+    <div class="ticker-item">
+      <span>Analyzed Exploration Area:</span>
+      <span class="ticker-val">11,400 km²</span>
+    </div>
+    <div class="ticker-item">
+      <span>Ground Truth Deposits:</span>
+      <span class="ticker-val" id="stat-pts">124 Points</span>
+    </div>
+    <div class="ticker-item">
+      <span>High Priority Target Zones:</span>
+      <span class="ticker-val" id="stat-zones">499 Polygons</span>
+    </div>
+    <div class="ticker-item">
+      <span>2030 Projected Import Shortfall:</span>
+      <span class="ticker-val" id="stat-shortfall">6,850 kt</span>
+    </div>
+    <div class="ticker-item">
+      <span>Model Validation PR-AUC:</span>
+      <span class="ticker-val" id="stat-auc">1.0000</span>
+    </div>
+  </div>
+
+  <!-- App Content Body -->
+  <main class="app-content">
+
+    <!-- 1. OVERVIEW VIEW -->
+    <section id="overview-view" class="view-section active">
+      <div class="dashboard-container">
+        <div class="header-block">
+          <h1>National Manganese Intelligence & Decision Support</h1>
+          <p>AI prospectivity mapping and time-series supply shortfall forecasting for Smart India Hackathon 2026.</p>
+        </div>
+
+        <!-- Hero KPI Cards -->
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="hero-title">Ground Truth Occurrence Sites</div>
+            <div class="hero-value">124</div>
+            <div class="hero-sub">USGS MRDS India Occurrence Dataset</div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-title">High Priority Target Zones</div>
+            <div class="hero-value">499</div>
+            <div class="hero-sub">Score ≥ 0.75 Exploration Target Polygons</div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-title">2030 Projected Deficit</div>
+            <div class="hero-value" style="color: var(--orange-primary);">6,850 kt</div>
+            <div class="hero-sub">National Steel Capacity Demand Gap</div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-title">Model PR-AUC Performance</div>
+            <div class="hero-value" style="color: var(--emerald-primary);">1.0000</div>
+            <div class="hero-sub">Deep Random Forest (300 Trees)</div>
+          </div>
+        </div>
+
+        <!-- Strategic Cards Grid -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+          <div class="glass-table-card">
+            <div class="table-title">
+              <span>Primary Manganese Exploration Belts (India)</span>
+              <span style="font-size: 12px; color: var(--text-muted);">UNFC NMI Reserve Distribution</span>
+            </div>
+            <table class="styled-table">
+              <thead>
+                <tr>
+                  <th>Manganese Belt</th>
+                  <th>Key Districts</th>
+                  <th>Total Reserves (kt)</th>
+                  <th>National Share (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b style="color: var(--cyan-primary);">Odisha Belt</b></td>
+                  <td>Keonjhar, Sundargarh, Rayagada, Koraput</td>
+                  <td>92,530 kt</td>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <div class="prog-bar-container" style="width:100px;">
+                        <div class="prog-bar-fill" style="width:44%;"></div>
+                      </div>
+                      <b>44.0%</b>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b style="color: var(--orange-primary);">MP - MH Belt</b></td>
+                  <td>Balaghat, Chhindwara, Nagpur, Bhandara</td>
+                  <td>89,800 kt</td>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <div class="prog-bar-container" style="width:100px;">
+                        <div class="prog-bar-fill" style="width:42.7%;"></div>
+                      </div>
+                      <b>42.7%</b>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b style="color: var(--emerald-primary);">Karnataka Belt</b></td>
+                  <td>Bellary, Shimoga, Uttara Kannada</td>
+                  <td>23,200 kt</td>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <div class="prog-bar-container" style="width:100px;">
+                        <div class="prog-bar-fill" style="width:11%;"></div>
+                      </div>
+                      <b>11.0%</b>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b style="color: var(--purple-primary);">Andhra Pradesh Belt</b></td>
+                  <td>Srikakulam, Vizianagaram</td>
+                  <td>4,800 kt</td>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <div class="prog-bar-container" style="width:100px;">
+                        <div class="prog-bar-fill" style="width:2.3%;"></div>
+                      </div>
+                      <b>2.3%</b>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="glass-table-card">
+            <div class="table-title">
+              <span>Scientific Terminology</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: var(--text-muted);">
+              <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px;">
+                <b style="color: var(--cyan-primary);">Prospectivity:</b> Predicted relative spatial likelihood of manganese mineralization based on satellite and terrain indicators.
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px;">
+                <b style="color: var(--orange-primary);">Priority Zone:</b> Delineated high-score exploration target bounding polygon.
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px;">
+                <b style="color: var(--emerald-primary);">Scenario Model:</b> Exploration-to-supply impact simulation model.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. EXPLORATION MAP VIEW -->
+    <section id="map-view" class="view-section">
+      <div id="gis-map"></div>
+
+      <!-- Floating Controls Panel -->
+      <div class="gis-control-panel">
+        <div class="panel-header">
+          <span>GIS Map Controls</span>
+          <span style="font-size: 11px; color: var(--text-muted);">EPSG:4326</span>
+        </div>
+
+        <input type="text" id="search-gis" class="search-box" placeholder="Search District / Zone ID (e.g. MN-ZONE-024)...">
+
+        <div class="layer-item">
+          <span>Known Deposits (MRDS India)</span>
+          <input type="checkbox" id="chk-occurrences" checked>
+        </div>
+        <div class="layer-item">
+          <span>Priority Target Polygons</span>
+          <input type="checkbox" id="chk-zones" checked>
+        </div>
+        <div class="layer-item">
+          <span>Manganese Belts Boundary</span>
+          <input type="checkbox" id="chk-belts" checked>
+        </div>
+
+        <div class="slider-group">
+          <label>
+            <span>Min Prospectivity Score Filter</span>
+            <b id="val-score-filter" style="color: var(--orange-primary);">0.75</b>
+          </label>
+          <input type="range" id="slider-score" class="range-input" min="0.0" max="1.0" step="0.05" value="0.75">
+        </div>
+      </div>
+
+      <!-- Slide-in Zone Inspector Sidebar -->
+      <div id="zone-inspector" class="zone-inspector">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="score-tag" id="insp-id">MN-ZONE-024</span>
+          <button class="inspector-close" id="close-inspector">&times;</button>
+        </div>
+
+        <div class="score-hero">
+          <div>
+            <div style="font-size: 12px; color: var(--text-muted);">Prospectivity Score</div>
+            <div class="score-num" id="insp-score">0.87</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 13px; font-weight: 700; color: var(--emerald-primary);" id="insp-conf">88.5% Confidence</div>
+            <div style="font-size: 11px; color: var(--text-muted);">High Reliability</div>
+          </div>
+        </div>
+
+        <div class="spec-grid">
+          <div class="spec-card">
+            <div class="spec-val" id="insp-state">Odisha</div>
+            <div class="spec-lbl">State</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-val" id="insp-area">28.5 km²</div>
+            <div class="spec-lbl">Zone Area</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-val" id="insp-elev">340 m</div>
+            <div class="spec-lbl">Elevation</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-val" id="insp-slope">12.4°</div>
+            <div class="spec-lbl">Terrain Slope</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); padding: 16px; border-radius: 12px;">
+          <div style="font-size: 12px; color: var(--cyan-primary); font-weight: 700; margin-bottom: 8px;">SHAP Model Feature Explanation</div>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;" id="insp-drivers">SWIR Alteration (B11/B12), Structural Fault Proximity, Terrain Slope</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MODEL INTELLIGENCE VIEW -->
+    <section id="ml-view" class="view-section">
+      <div class="dashboard-container">
+        <div class="header-block">
+          <h1>Model Intelligence & Benchmarks</h1>
+          <p>Evaluation results for candidate models on spatial block cross-validation.</p>
+        </div>
+
+        <div class="glass-table-card">
+          <div class="table-title">
+            <span>Candidate Model Comparison (Spatial Block Split)</span>
+            <span style="font-size: 12px; color: var(--emerald-primary);">Winner: Deep Random Forest (300 Trees)</span>
+          </div>
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Model Name</th>
+                <th>ROC-AUC</th>
+                <th>PR-AUC</th>
+                <th>F1-Score</th>
+                <th>Precision</th>
+                <th>Recall</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: rgba(6,182,212,0.08);">
+                <td><b style="color: var(--cyan-primary);">Deep Random Forest (300 Trees)</b></td>
+                <td><b>1.0000</b></td>
+                <td><b>1.0000</b></td>
+                <td><b>0.9916</b></td>
+                <td>1.0000</td>
+                <td>0.9833</td>
+              </tr>
+              <tr>
+                <td><b>XGBoost Classifier</b></td>
+                <td>0.9951</td>
+                <td>0.9938</td>
+                <td>0.9655</td>
+                <td>1.0000</td>
+                <td>0.9333</td>
+              </tr>
+              <tr>
+                <td><b>Extra Trees Classifier</b></td>
+                <td>1.0000</td>
+                <td>1.0000</td>
+                <td>0.9831</td>
+                <td>1.0000</td>
+                <td>0.9667</td>
+              </tr>
+              <tr>
+                <td><b>HistGradientBoosting</b></td>
+                <td>1.0000</td>
+                <td>1.0000</td>
+                <td>0.9565</td>
+                <td>1.0000</td>
+                <td>0.9167</td>
+              </tr>
+              <tr>
+                <td><b>Logistic Regression Baseline</b></td>
+                <td>0.9949</td>
+                <td>0.9943</td>
+                <td>0.9565</td>
+                <td>1.0000</td>
+                <td>0.9167</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="glass-table-card">
+          <div class="table-title">
+            <span>Top Feature Importance Ranks (SHAP Weighting)</span>
+          </div>
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Feature Name</th>
+                <th>Importance Weight</th>
+                <th>Feature Contribution</th>
+              </tr>
+            </thead>
+            <tbody id="table-model-features">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SUPPLY & SHORTFALL VIEW -->
+    <section id="shortfall-view" class="view-section">
+      <div class="dashboard-container">
+        <div class="header-block">
+          <h1>Supply & Production Shortfall Forecast</h1>
+          <p>National manganese ore production projections (2014-2030) and import dependency analysis.</p>
+        </div>
+
+        <div class="glass-table-card">
+          <div class="table-title">
+            <span>National Manganese Ore Supply vs Demand Deficit (2022 - 2030)</span>
+          </div>
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Domestic Production (kt)</th>
+                <th>National Demand (kt)</th>
+                <th>Shortfall Deficit (kt)</th>
+                <th>Import Dependency (%)</th>
+              </tr>
+            </thead>
+            <tbody id="table-shortfall-data">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DATA EXPLORER VIEW -->
+    <section id="data-view" class="view-section">
+      <div class="dashboard-container">
+        <div class="header-block">
+          <h1>Data Explorer & Provenance Catalog</h1>
+          <p>Inventory catalog of ingested geological, satellite, mining, and reserve datasets.</p>
+        </div>
+
+        <div class="glass-table-card">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Dataset Name</th>
+                <th>Format</th>
+                <th>Records</th>
+                <th>Role</th>
+                <th>Relevance</th>
+              </tr>
+            </thead>
+            <tbody id="table-datasets-catalog">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Leaflet GIS JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Application JS -->
+  <script src="app.js"></script>
+</body>
+</html>

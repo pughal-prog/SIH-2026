@@ -1,0 +1,24 @@
+{
+  "feature_names": [
+    "b2_blue",
+    "b3_green",
+    "b4_red",
+    "b8_nir",
+    "b11_swir1",
+    "b12_swir2",
+    "ferrous_iron_index",
+    "swir_alteration_index",
+    "clay_carbonate_index",
+    "ndvi",
+    "elevation_m",
+    "slope_deg",
+    "aspect_sin",
+    "aspect_cos",
+    "tri_roughness",
+    "dist_to_fault_km",
+    "dist_to_lineament_km"
+  ],
+  "target": "label",
+  "model_name": "Random Forest",
+  "num_features": 17
+}
