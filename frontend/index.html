@@ -317,8 +317,91 @@
       </div>
     </section>
 
+    <!-- 3. MODEL INTELLIGENCE & BENCHMARKS VIEW -->
+    <section id="ml-view" class="view-section" style="background-color: #ffffff !important;">
+      <div class="dashboard-container" style="background-color: #ffffff !important;">
+        <div class="header-block">
+          <h1 style="color: #0f172a !important;">Multimodal 3-Model Benchmark Architecture</h1>
+          <p style="color: #475569 !important;">Rigorous spatial block cross-validation benchmark comparing Model A (Tabular Baseline), Model B (Pure VGG19 CNN), and Model C (Multimodal Fusion).</p>
+        </div>
+
+        <!-- 3-Model Comparison Table -->
+        <div class="glass-table-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
+          <div class="table-title">
+            <span style="color: #4f46e5 !important;">Three-Model Multimodal Benchmark (Spatial Block Split)</span>
+            <span style="font-size: 12px; color: #059669 !important;">Winner: Model C (Multimodal Fusion)</span>
+          </div>
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Model Architecture</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Input Representation</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Spatial CV PR-AUC</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Test PR-AUC</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Test ROC-AUC</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Test F1-Score</th>
+              </tr>
+            </thead>
+            <tbody id="table-multimodal-benchmark">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="glass-table-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
+          <div class="table-title">
+            <span style="color: #4f46e5 !important;">Feature Importance Ranks (Groups A - D Multimodal Vector)</span>
+          </div>
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Rank</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Feature Name</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Importance Weight</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Feature Contribution</th>
+              </tr>
+            </thead>
+            <tbody id="table-model-features">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SUPPLY & SHORTFALL VIEW -->
+    <section id="shortfall-view" class="view-section" style="background-color: #ffffff !important;">
+      <div class="dashboard-container" style="background-color: #ffffff !important;">
+        <div class="header-block">
+          <h1 style="color: #0f172a !important;">Supply & Production Shortfall Forecast</h1>
+          <p style="color: #475569 !important;">National manganese ore production projections (2014-2030) and import dependency analysis.</p>
+        </div>
+
+        <div class="glass-table-card" style="background: #ffffff !important; border: 1px solid #e2e8f0 !important;">
+          <div class="table-title">
+            <span style="color: #4f46e5 !important;">National Manganese Ore Supply vs Demand Deficit (2022 - 2030)</span>
+          </div>
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Year</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Domestic Production (kt)</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">National Demand (kt)</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Shortfall Deficit (kt)</th>
+                <th style="background: #f8fafc !important; color: #475569 !important;">Import Dependency (%)</th>
+              </tr>
+            </thead>
+            <tbody id="table-shortfall-data">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
     <!-- 5. DATA EXPLORER VIEW -->
     <section id="data-view" class="view-section" style="background-color: #ffffff !important;">
+
       <div class="dashboard-container" style="background-color: #ffffff !important;">
         <div class="header-block">
           <h1 style="color: #0f172a !important;">Data Explorer & Provenance Catalog</h1>
