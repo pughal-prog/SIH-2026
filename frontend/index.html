@@ -14,9 +14,10 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <!-- Custom Design System CSS with Version Cache-Busting -->
-  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="styles.css?v=10.0">
 </head>
 <body style="background-color: #ffffff !important; color: #0f172a !important;">
+
 
   <!-- Top Glass Navbar -->
   <header class="navbar" style="background: rgba(255, 255, 255, 0.98) !important; border-bottom: 1px solid #e2e8f0 !important;">
@@ -348,8 +349,9 @@
   </main>
 
   <!-- 3D FLOATING AI CHATBOT LAUNCHER & GLASS DRAWER WIDGET (FIXED BOTTOM-RIGHT) -->
-  <div id="ai-chatbot-widget">
+  <div id="ai-chatbot-widget" style="position: fixed !important; bottom: 28px !important; right: 28px !important; z-index: 999999 !important; margin: 0 !important; padding: 0 !important;">
     <!-- Floating 3D Icon Trigger Button -->
+
     <button id="ai-chatbot-trigger" class="chatbot-3d-btn" aria-label="Open manganese suitability assistant" role="button" title="Open manganese suitability assistant">
       <div class="chatbot-3d-inner">
         <div class="glow-aura"></div>
