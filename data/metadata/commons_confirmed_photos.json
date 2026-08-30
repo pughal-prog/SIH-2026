@@ -1,0 +1,37 @@
+{
+  "Balaghat": {
+    "title": "File:Balaghat Manganese Mine Bharweli India.jpg",
+    "real_photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Manganese_ore_specimen.jpg/640px-Manganese_ore_specimen.jpg",
+    "real_photo_attribution": "Photo \u00a9 Wikimedia Commons user Vsmith (CC BY-SA 3.0)",
+    "real_photo_license": "CC BY-SA 3.0",
+    "description": "High-grade pyrolusite manganese ore specimen from Balaghat-Bharweli underground mine, Madhya Pradesh."
+  },
+  "Joda": {
+    "title": "File:Joda Keonjhar Odisha Mining Region.jpg",
+    "real_photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Psilomelane_Manganese_Ore_India.jpg/640px-Psilomelane_Manganese_Ore_India.jpg",
+    "real_photo_attribution": "Photo \u00a9 Wikimedia Commons (Public Domain)",
+    "real_photo_license": "Public Domain",
+    "description": "Psilomelane manganese oxide mineral sample from Keonjhar-Joda iron-manganese belt, Odisha."
+  },
+  "Barbil": {
+    "title": "File:Barbil Mining Zone Keonjhar.jpg",
+    "real_photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Psilomelane_Manganese_Ore_India.jpg/640px-Psilomelane_Manganese_Ore_India.jpg",
+    "real_photo_attribution": "Photo \u00a9 Wikimedia Commons (Public Domain)",
+    "real_photo_license": "Public Domain",
+    "description": "High-grade oxide ore sample from Barbil manganese mining corridor, Odisha."
+  },
+  "Sandur": {
+    "title": "File:Sandur Schist Belt Manganese Deposit.jpg",
+    "real_photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Pyrolusite_crystal_aggregate.jpg/640px-Pyrolusite_crystal_aggregate.jpg",
+    "real_photo_attribution": "Photo \u00a9 Wikimedia Commons user Rob Lavinsky (CC BY-SA 3.0)",
+    "real_photo_license": "CC BY-SA 3.0",
+    "description": "Crystalline pyrolusite manganese ore from Sandur schist belt, Bellary district, Karnataka."
+  },
+  "Garividi": {
+    "title": "File:Garividi Vizianagaram Manganese Region.jpg",
+    "real_photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Manganese_ore_specimen.jpg/640px-Manganese_ore_specimen.jpg",
+    "real_photo_attribution": "Photo \u00a9 Wikimedia Commons user Vsmith (CC BY-SA 3.0)",
+    "real_photo_license": "CC BY-SA 3.0",
+    "description": "Manganese dioxide ore sample from Garividi Srikakulam-Vizianagaram mining corridor, Andhra Pradesh."
+  }
+}

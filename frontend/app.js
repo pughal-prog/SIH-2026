@@ -767,8 +767,75 @@ function openZoneInspector(props) {
   document.getElementById("insp-slope").textContent = slopeStr;
   document.getElementById("insp-drivers").textContent = driversStr;
 
+  // MINE LOCATION IMAGERY DISPLAY LOGIC (Part 3)
+  const imgBlock = document.getElementById("insp-imagery-block");
+  if (imgBlock) {
+    const satUrl = props.thumbnail_url || `http://127.0.0.1:8000/static/thumbnails/${zoneId}.png`;
+    const satAttr = props.thumbnail_attribution || "Imagery © Esri, Maxar, Earthstar Geographics";
+    
+    const realUrl = props.real_photo_url;
+    const realAttr = props.real_photo_attribution || "";
+    const realLicense = props.real_photo_license || "";
+    const realDesc = props.real_photo_description || "";
+
+    if (realUrl) {
+      // Tier 2: Real ground photo primary with satellite view toggle
+      imgBlock.innerHTML = `
+        <div style="background: rgba(30, 41, 59, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; overflow: hidden; margin-top: 8px;">
+          <div style="position: relative; height: 160px; background: #0f172a;">
+            <img id="img-display-main" src="${realUrl}" alt="Mine Location Photo" style="width: 100%; height: 100%; object-fit: cover;" onError="this.onerror=null; this.src='${satUrl}';" />
+            <div style="position: absolute; top: 8px; right: 8px; background: rgba(15, 23, 42, 0.85); color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 10px; border: 1px solid rgba(56, 189, 248, 0.4);">
+              ✓ Wikimedia Ground Photo (${realLicense})
+            </div>
+          </div>
+          <div style="padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; background: rgba(15, 23, 42, 0.6);">
+            <div style="max-width: 250px;">
+              <div style="font-size: 11px; color: #cbd5e1; font-weight: 600; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">${realDesc || 'Ground Mineral Specimen / Mine Site'}</div>
+              <div style="font-size: 10px; color: #94a3b8;">${realAttr}</div>
+            </div>
+            <button id="btn-toggle-sat" style="background: rgba(2, 132, 199, 0.2); border: 1px solid #0284c7; color: #38bdf8; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; white-space: nowrap;">
+              🛰️ Satellite View
+            </button>
+          </div>
+        </div>
+      `;
+
+      let showingSat = false;
+      setTimeout(() => {
+        document.getElementById("btn-toggle-sat")?.addEventListener("click", () => {
+          const imgEl = document.getElementById("img-display-main");
+          if (!imgEl) return;
+          showingSat = !showingSat;
+          if (showingSat) {
+            imgEl.src = satUrl;
+            document.getElementById("btn-toggle-sat").textContent = "📷 Ground Photo";
+          } else {
+            imgEl.src = realUrl;
+            document.getElementById("btn-toggle-sat").textContent = "🛰️ Satellite View";
+          }
+        });
+      }, 50);
+    } else {
+      // Tier 1: Precomputed Satellite Thumbnail only
+      imgBlock.innerHTML = `
+        <div style="background: rgba(30, 41, 59, 0.9); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; overflow: hidden; margin-top: 8px;">
+          <div style="position: relative; height: 160px; background: #0f172a;">
+            <img src="${satUrl}" alt="Satellite View" style="width: 100%; height: 100%; object-fit: cover;" onError="this.onerror=null; this.src='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/14/7198/11806';" />
+            <div style="position: absolute; bottom: 8px; left: 8px; right: 8px; background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-size: 10px; font-weight: 600; padding: 4px 8px; border-radius: 8px;">
+              Satellite view — no ground photo available for this location
+            </div>
+          </div>
+          <div style="padding: 8px 12px; font-size: 10px; color: #94a3b8; background: rgba(15, 23, 42, 0.6); text-align: right;">
+            ${satAttr}
+          </div>
+        </div>
+      `;
+    }
+  }
+
   panel.classList.add("active");
 }
+
 
 
 async function loadOverviewStats() {
