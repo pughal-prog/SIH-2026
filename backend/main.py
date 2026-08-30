@@ -48,8 +48,9 @@ def enrich_feature_imagery(props, place_key=""):
     confirmed = get_confirmed_photos()
     feature_id = str(props.get("zone_id") or props.get("occurrence_id") or props.get("site_name") or "ZONE")
     
-    props["thumbnail_url"] = f"/static/thumbnails/{feature_id}.png"
+    props["thumbnail_url"] = f"http://127.0.0.1:8000/static/thumbnails/{feature_id}.png"
     props["thumbnail_attribution"] = "Imagery © Esri, Maxar, Earthstar Geographics"
+
     
     matched = None
     full_str = f"{place_key} {props.get('state', '')} {props.get('belt_name', '')} {props.get('site_name', '')}".lower()
