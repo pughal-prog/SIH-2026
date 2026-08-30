@@ -607,11 +607,12 @@ body {
 
 /* 3D FLOATING AI CHATBOT LAUNCHER & GLASS DRAWER STYLES */
 #ai-chatbot-widget {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 99999;
+  position: fixed !important;
+  bottom: 28px !important;
+  right: 28px !important;
+  z-index: 999999 !important;
 }
+
 
 .chatbot-3d-btn {
   width: 64px;
@@ -700,29 +701,30 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* 3D Glassmorphic Chatbot Drawer */
+/* 3D Glassmorphic Chatbot Drawer Popup */
 .chatbot-drawer-3d {
-  position: fixed;
-  bottom: 104px;
-  right: 28px;
-  width: 440px;
-  height: 600px;
-  max-height: 80vh;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 24px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(2, 132, 199, 0.25);
-  z-index: 99999;
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
+  position: fixed !important;
+  bottom: 104px !important;
+  right: 28px !important;
+  width: 440px !important;
+  height: 600px !important;
+  max-height: 80vh !important;
+  background: rgba(15, 23, 42, 0.96) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(2, 132, 199, 0.3) !important;
+  z-index: 999999 !important;
+  display: none !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
   animation: drawerPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .chatbot-drawer-3d.active {
-  display: flex;
+  display: flex !important;
 }
+
 
 @keyframes drawerPop {
   from { opacity: 0; transform: scale(0.85) translateY(20px); }
