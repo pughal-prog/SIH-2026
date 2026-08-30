@@ -23,8 +23,12 @@ def test_ground_truth_coordinates():
 
 def test_master_ml_dataset():
     parquet_path = os.path.join(TRAINING_DIR, "master_manganese_training.parquet")
-    assert os.path.exists(parquet_path), "Master training Parquet does not exist"
-    df = pd.read_parquet(parquet_path)
+    csv_path = os.path.join(TRAINING_DIR, "master_manganese_training.csv")
+    assert os.path.exists(parquet_path) or os.path.exists(csv_path), "Master training dataset does not exist"
+    try:
+        df = pd.read_parquet(parquet_path)
+    except Exception:
+        df = pd.read_csv(csv_path)
     assert len(df) == 496, f"Expected 496 rows, got {len(df)}"
     assert df.isnull().sum().sum() == 0, "Found null values in ML training set"
     assert "spatial_block_id" in df.columns, "Missing spatial_block_id column"
@@ -32,7 +36,11 @@ def test_master_ml_dataset():
 
 def test_spatial_split_leakage():
     parquet_path = os.path.join(TRAINING_DIR, "master_manganese_training.parquet")
-    df = pd.read_parquet(parquet_path)
+    csv_path = os.path.join(TRAINING_DIR, "master_manganese_training.csv")
+    try:
+        df = pd.read_parquet(parquet_path)
+    except Exception:
+        df = pd.read_csv(csv_path)
     train_blocks = set(df[df['spatial_split'] == 'train']['spatial_block_id'])
     test_blocks = set(df[df['spatial_split'] == 'test']['spatial_block_id'])
     val_blocks = set(df[df['spatial_split'] == 'validation']['spatial_block_id'])

@@ -28,6 +28,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+class MultimodalPipelineWrapper:
+    def __init__(self, tabular_model, mean_vals, std_vals, feature_cols):
+        self.tabular_model = tabular_model
+        self.mean_vals = mean_vals
+        self.std_vals = std_vals
+        self.feature_cols = feature_cols
+        
+    def predict_proba(self, X):
+        if isinstance(X, pd.DataFrame):
+            X_norm = (X[self.feature_cols] - self.mean_vals) / self.std_vals
+            X_arr = X_norm.values
+        else:
+            X_arr = X
+        return self.tabular_model.predict_proba(X_arr)
+
+import sys
+sys.modules['__main__'].MultimodalPipelineWrapper = MultimodalPipelineWrapper
+
 # Global Cached Data
 model_artifact = None
 
@@ -45,18 +63,33 @@ def clean_dict_records(records):
         clean_records.append(clean_r)
     return clean_records
 
+import sys
+import traceback
+
 @app.on_event("startup")
 def load_artifacts():
     global model_artifact
     model_pkl = os.path.join(MODELS_DIR, "best_manganese_model.pkl")
+    sys.stderr.write(f"[DEBUG] model_pkl path: {model_pkl}, exists: {os.path.exists(model_pkl)}\n")
     if os.path.exists(model_pkl):
         try:
+            import __main__
+            setattr(__main__, 'MultimodalPipelineWrapper', MultimodalPipelineWrapper)
+            if '__main__' in sys.modules:
+                setattr(sys.modules['__main__'], 'MultimodalPipelineWrapper', MultimodalPipelineWrapper)
+            if 'backend.main' in sys.modules:
+                sys.modules['backend.main'].MultimodalPipelineWrapper = MultimodalPipelineWrapper
             model_artifact = joblib.load(model_pkl)
+            sys.stderr.write(f"[+] Successfully loaded model_artifact into memory: {type(model_artifact)}\n")
         except Exception as e:
-            print(f"[!] Warning loading model pkl: {e}")
+            sys.stderr.write(f"[!] Warning loading model pkl: {e}\n")
+            traceback.print_exc(file=sys.stderr)
+
+load_artifacts()
 
 @app.get("/api/health")
 def get_health():
+    sys.stderr.write(f"[GET /api/health] model_artifact is: {model_artifact}\n")
     return {
         "status": "healthy",
         "system": "SIH 2026 Multimodal Manganese AI Platform",
