@@ -2,6 +2,7 @@ import os
 import re
 import math
 import json
+import logging
 import pandas as pd
 import numpy as np
 from rapidfuzz import process, fuzz
@@ -9,6 +10,10 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
+
+# Configure Diagnostic Logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logger = logging.getLogger("ChatbotEngine")
 
 BASE_DIR = r"d:\mangan ai"
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -58,14 +63,17 @@ class ChatbotEngine:
     def _load_data(self):
         if os.path.exists(GAZETTEER_PATH):
             self.gazetteer_df = pd.read_parquet(GAZETTEER_PATH)
+            logger.info(f"[INIT] Loaded Gazetteer: {len(self.gazetteer_df)} records")
         elif os.path.exists(os.path.join(REF_DIR, "india_gazetteer.csv")):
             self.gazetteer_df = pd.read_csv(os.path.join(REF_DIR, "india_gazetteer.csv"))
 
         if os.path.exists(GRID_PATH):
             self.grid_df = pd.read_csv(GRID_PATH)
+            logger.info(f"[INIT] Loaded Grid: {len(self.grid_df)} cells")
 
         if os.path.exists(OCCURRENCES_PATH):
             self.occurrences_df = pd.read_csv(OCCURRENCES_PATH)
+            logger.info(f"[INIT] Loaded Occurrences: {len(self.occurrences_df)} sites")
 
     def search_autocomplete(self, query: str, limit: int = 6):
         if self.gazetteer_df is None or self.gazetteer_df.empty or not query.strip():
@@ -82,10 +90,12 @@ class ChatbotEngine:
             full_str = f"{name} {alt} {district} {state}".lower()
             
             score = 0
-            if q_lower in name.lower():
+            if q_lower == name.lower():
                 score = 100
+            elif q_lower in name.lower():
+                score = 90
             elif q_lower in full_str:
-                score = 80
+                score = 75
             else:
                 score = fuzz.partial_ratio(q_lower, full_str)
                 
@@ -104,26 +114,29 @@ class ChatbotEngine:
         return results[:limit]
 
     def geocode_place(self, place_query: str):
+        logger.info(f"[DIAGNOSTIC STEP 1] Gazetteer match check for input: '{place_query}'")
         if not place_query or not place_query.strip():
-            return None
+            return None, False, []
         
         q_str = place_query.strip()
 
-        # Check if coordinates input like "21.6289, 85.5817"
+        # Check coordinate input e.g. "21.6289, 85.5817"
         coord_match = re.match(r"^(-?\d+\.?\d*)\s*,\s*(-?\d+\.?\d*)$", q_str)
         if coord_match:
             lat = float(coord_match.group(1))
             lon = float(coord_match.group(2))
-            return {
-                "place_name": f"Coordinate Location ({lat:.4f}, {lon:.4f})",
+            res = {
+                "place_name": f"Coordinates ({lat:.4f}, {lon:.4f})",
                 "district": "Custom Location",
                 "state": "Modeled Region",
                 "latitude": lat,
                 "longitude": lon,
                 "place_type": "coordinates"
             }
+            logger.info(f"[DIAGNOSTIC STEP 1 SUCCESS] Parsed Coordinates: {lat}, {lon}")
+            return res, False, []
 
-        # Check if Zone ID input like "MN-ZONE-024" or "GRID_0024"
+        # Check Zone ID input e.g. "MN-ZONE-024" or "GRID_0024"
         zone_match = re.search(r"(?:MN-ZONE-|GRID_|ZONE-)?(\d+)", q_str, re.IGNORECASE)
         if (q_str.lower().startswith("zone") or q_str.lower().startswith("mn-zone") or q_str.lower().startswith("grid")) and self.grid_df is not None:
             zone_num = int(zone_match.group(1)) if zone_match else 1
@@ -134,7 +147,7 @@ class ChatbotEngine:
                 grid_row = self.grid_df.iloc[zone_num - 1]
 
             if grid_row is not None:
-                return {
+                res = {
                     "place_name": f"Target Zone MN-ZONE-{zone_num:03d}",
                     "district": str(grid_row.get("belt_name", "Manganese Belt")),
                     "state": str(grid_row.get("state", "Odisha")),
@@ -142,16 +155,27 @@ class ChatbotEngine:
                     "longitude": float(grid_row["longitude"]),
                     "place_type": "exploration_zone"
                 }
+                logger.info(f"[DIAGNOSTIC STEP 1 SUCCESS] Matched Zone ID: MN-ZONE-{zone_num:03d} at ({grid_row['latitude']}, {grid_row['longitude']})")
+                return res, False, []
 
-        # Fuzzy string matching in gazetteer
+        # Search gazetteer with ambiguity detection
         if self.gazetteer_df is not None and not self.gazetteer_df.empty:
-            names_list = self.gazetteer_df["place_name"].tolist()
-            match = process.extractOne(q_str, names_list, scorer=fuzz.WRatio)
-            if match and match[1] > 40:
-                matched_row = self.gazetteer_df[self.gazetteer_df["place_name"] == match[0]].iloc[0]
-                return matched_row.to_dict()
+            matches = self.search_autocomplete(q_str, limit=5)
+            if matches:
+                # Ambiguity check: if top 2 matches have high scores (>70) and belong to different districts/states
+                if len(matches) > 1 and matches[0]["score"] >= 70 and matches[1]["score"] >= 70:
+                    first = matches[0]
+                    second = matches[1]
+                    if first["district"] != second["district"] or first["state"] != second["state"]:
+                        logger.info(f"[DIAGNOSTIC STEP 1 AMBIGUOUS] Query '{q_str}' matches multiple locations: {first['place_name']} ({first['state']}) vs {second['place_name']} ({second['state']})")
+                        return None, True, matches
 
-        return None
+                top_match = matches[0]
+                logger.info(f"[DIAGNOSTIC STEP 1 SUCCESS] Matched Gazetteer Place: '{top_match['place_name']}' in {top_match['district']}, {top_match['state']} at ({top_match['latitude']}, {top_match['longitude']}) with score {top_match['score']}")
+                return top_match, False, []
+
+        logger.warning(f"[DIAGNOSTIC STEP 1 FAIL] Place query '{q_str}' not found in gazetteer.")
+        return None, False, []
 
     @staticmethod
     def haversine_km(lat1, lon1, lat2, lon2):
@@ -163,11 +187,24 @@ class ChatbotEngine:
         return R * c
 
     def query_prospectivity(self, place_query: str):
-        matched_place = self.geocode_place(place_query)
+        # STEP 1: Gazetteer match
+        matched_place, is_ambiguous, candidates = self.geocode_place(place_query)
+
+        if is_ambiguous:
+            return {
+                "matched_place": place_query,
+                "in_coverage": True,
+                "is_ambiguous": True,
+                "candidates": candidates,
+                "message": f"Ambiguous place name '{place_query}'. Please select your target district/state below.",
+                "report": None
+            }
+
         if not matched_place:
             return {
                 "matched_place": place_query,
                 "in_coverage": False,
+                "is_ambiguous": False,
                 "message": f"Place '{place_query}' could not be resolved in the gazetteer database.",
                 "report": {
                     "area_name": place_query,
@@ -180,35 +217,37 @@ class ChatbotEngine:
         plat = float(matched_place["latitude"])
         plon = float(matched_place["longitude"])
         place_name = matched_place["place_name"]
-        district = matched_place["district"]
-        state = matched_place["state"]
+        district = matched_place.get("district", "")
+        state = matched_place.get("state", "")
 
+        # STEP 2: Coordinate -> prospectivity lookup check
+        logger.info(f"[DIAGNOSTIC STEP 2] Prospectivity grid lookup for coordinates ({plat}, {plon})")
         if self.grid_df is None or self.grid_df.empty:
+            logger.error("[DIAGNOSTIC STEP 2 FAIL] Prospectivity grid dataset is empty or missing.")
             return {
                 "matched_place": f"{place_name}, {district}, {state}",
                 "coordinates": {"lat": plat, "lon": plon},
                 "in_coverage": False,
                 "message": "Prospectivity grid model data is unavailable on server.",
-                "report": {
-                    "area_name": f"{place_name}, {district}, {state}",
-                    "coordinates": f"{plat:.4f} N, {plon:.4f} E",
-                    "status": "DATA_UNAVAILABLE",
-                    "explanation": "Grid model files are not loaded."
-                }
+                "report": None
             }
 
-        # Calculate distances to all grid cells
         grid_coords = self.grid_df[["latitude", "longitude"]].values
         dists = [self.haversine_km(plat, plon, row[0], row[1]) for row in grid_coords]
-        min_dist_idx = np.argmin(dists)
+        min_dist_idx = int(np.argmin(dists))
         min_dist_km = dists[min_dist_idx]
+        nearest_cell = self.grid_df.iloc[min_dist_idx]
 
-        # Explicit Coverage Rule: if nearest grid cell > 15 km away, OUT OF COVERAGE
+        logger.info(f"[DIAGNOSTIC STEP 2 SUCCESS] Nearest cell: {nearest_cell.get('grid_id')} at distance {min_dist_km:.2f} km")
+
+        # Explicit Coverage Rule
         if min_dist_km > 15.0:
+            logger.info(f"[DIAGNOSTIC STEP 2 BOUNDS] Out of coverage area (nearest grid cell {min_dist_km:.1f} km > 15 km threshold)")
             return {
                 "matched_place": f"{place_name}, {district}, {state}",
                 "coordinates": {"lat": plat, "lon": plon},
                 "in_coverage": False,
+                "is_ambiguous": False,
                 "message": f"This area ({place_name}, {state}) is outside the currently modeled manganese exploration region.",
                 "nearest_grid_distance_km": round(min_dist_km, 1),
                 "report": {
@@ -220,13 +259,11 @@ class ChatbotEngine:
                 }
             }
 
-        # Inside coverage! Extract 10 km buffer cells
+        # Inside coverage! Calculate 10 km buffer cells
         buffer_mask = np.array(dists) <= 10.0
         buffer_df = self.grid_df[buffer_mask]
         if buffer_df.empty:
             buffer_df = self.grid_df.iloc[[min_dist_idx]]
-
-        nearest_cell = self.grid_df.iloc[min_dist_idx]
 
         avg_score = float(buffer_df["prospectivity_score"].mean())
         avg_conf = float(buffer_df["confidence_percent"].mean())
@@ -241,15 +278,8 @@ class ChatbotEngine:
             category = "Low Priority / Background"
             interpretation = "Background geophysical & spectral baseline; minimal mineral anomaly signals."
 
-        nearest_occ_name = "N/A"
-        nearest_occ_dist_km = 999.0
-        if self.occurrences_df is not None and not self.occurrences_df.empty:
-            occ_coords = self.occurrences_df[["latitude", "longitude"]].values
-            occ_dists = [self.haversine_km(plat, plon, o[0], o[1]) for o in occ_coords]
-            min_occ_idx = np.argmin(occ_dists)
-            nearest_occ_dist_km = float(occ_dists[min_occ_idx])
-            nearest_occ_name = str(self.occurrences_df.iloc[min_occ_idx]["site_name"])
-
+        # STEP 3: SHAP/Grad-CAM feature retrieval check
+        logger.info(f"[DIAGNOSTIC STEP 3] Retrieving precomputed SHAP & Grad-CAM feature drivers")
         swir_alt = float(nearest_cell.get("swir_alteration_index", 1.85))
         dist_fault = float(nearest_cell.get("dist_to_fault_km", 3.2))
         lst_val = float(nearest_cell.get("lst", 32.5))
@@ -262,6 +292,16 @@ class ChatbotEngine:
             f"Environmental Thermal Signature: LST {lst_val:.1f} C, Soil Moisture {sm_val:.2f} m3/m3",
             f"Ferrous Iron Index (B4/B2): {iron_idx:.2f} (Strong spectral iron oxide signature)"
         ]
+        logger.info(f"[DIAGNOSTIC STEP 3 SUCCESS] Extracted 4 precomputed feature drivers")
+
+        nearest_occ_name = "N/A"
+        nearest_occ_dist_km = 999.0
+        if self.occurrences_df is not None and not self.occurrences_df.empty:
+            occ_coords = self.occurrences_df[["latitude", "longitude"]].values
+            occ_dists = [self.haversine_km(plat, plon, o[0], o[1]) for o in occ_coords]
+            min_occ_idx = int(np.argmin(occ_dists))
+            nearest_occ_dist_km = float(occ_dists[min_occ_idx])
+            nearest_occ_name = str(self.occurrences_df.iloc[min_occ_idx]["site_name"])
 
         lithology = f"{nearest_cell.get('belt_name', 'Metasedimentary Belt')} Gondite / Manganese-bearing Supergroup"
         elev = float(nearest_cell.get("elevation_m", 320.0))
@@ -273,6 +313,7 @@ class ChatbotEngine:
             "description": f"{state} is not currently classified as a primary commercial manganese producing state in India."
         })
 
+        # STEP 4: Report assembly check
         report = {
             "area_name": f"{place_name}, {district}, {state}",
             "coordinates": f"{plat:.4f} N, {plon:.4f} E",
@@ -305,11 +346,13 @@ class ChatbotEngine:
                 "Non-monetary constraint: Scores indicate relative spatial probability and do not map to commercial monetary valuations."
             ]
         }
+        logger.info(f"[DIAGNOSTIC STEP 4 SUCCESS] Assembled report for '{report['area_name']}' with score {avg_score:.4f}")
 
         return {
             "matched_place": f"{place_name}, {district}, {state}",
             "coordinates": {"lat": plat, "lon": plon},
             "in_coverage": True,
+            "is_ambiguous": False,
             "report": report
         }
 
@@ -317,8 +360,8 @@ class ChatbotEngine:
         dir_name = os.path.dirname(output_filename)
         if dir_name:
             os.makedirs(dir_name, exist_ok=True)
-        doc = SimpleDocTemplate(
 
+        doc = SimpleDocTemplate(
             output_filename,
             pagesize=letter,
             rightMargin=36,
@@ -378,7 +421,6 @@ class ChatbotEngine:
 
         elements = []
 
-        # Header Title
         elements.append(Paragraph("SIH 2026 — Manganese Exploration Suitability Report", title_style))
         elements.append(Paragraph("Multimodal Decision Support System (Groups A-D Inputs, VGG19 CNN, Fusion Model C)", subtitle_style))
         elements.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#0284c7'), spaceAfter=10))
@@ -387,7 +429,6 @@ class ChatbotEngine:
         in_cov = query_result.get("in_coverage", False)
         report = query_result.get("report") or {}
 
-        # Metadata Table
         meta_data = [
             [Paragraph("<b>Target Location:</b>", body_style), Paragraph(matched, body_style)],
             [Paragraph("<b>Coordinates:</b>", body_style), Paragraph(report.get("coordinates", "N/A"), body_style)],
@@ -434,13 +475,11 @@ class ChatbotEngine:
             elements.append(t_score)
             elements.append(Spacer(1, 10))
 
-            # WHY THIS SCORE
             elements.append(Paragraph("WHY THIS SCORE (SHAP & Grad-CAM Drivers)", h2_style))
             for factor in report.get("why_this_score", {}).get("top_contributing_factors", []):
                 elements.append(Paragraph(f"- {factor}", bullet_style))
             elements.append(Spacer(1, 8))
 
-            # GEOLOGICAL & TERRAIN CONTEXT
             elements.append(Paragraph("GEOLOGICAL & TERRAIN CONTEXT", h2_style))
             geo = report.get("geological_context", {})
             terr = report.get("terrain_context", {})
@@ -460,7 +499,6 @@ class ChatbotEngine:
             elements.append(t_geo)
             elements.append(Spacer(1, 8))
 
-            # REGIONAL SUPPLY & LIMITATIONS
             elements.append(Paragraph("REGIONAL SUPPLY CONTEXT & LIMITATIONS", h2_style))
             prod = report.get("production_context", {})
             elements.append(Paragraph(f"<b>State Supply Context:</b> {prod.get('description', '')}", body_style))
@@ -470,6 +508,6 @@ class ChatbotEngine:
                 elements.append(Paragraph(f"* {lim}", bullet_style))
 
         doc.build(elements)
-        print(f"[+] Successfully compiled PDF report to {output_filename}")
+        logger.info(f"[PDF SUCCESS] Compiled PDF report: {output_filename}")
 
 chatbot_engine = ChatbotEngine()

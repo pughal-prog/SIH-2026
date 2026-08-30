@@ -288,6 +288,7 @@ function initRadiusAnalysisTool() {
 
 // AI Chatbot Assistant Module
 function initChatbotModule() {
+
   const trigger = document.getElementById("ai-chatbot-trigger");
   const drawer = document.getElementById("ai-chatbot-drawer");
   const closeBtn = document.getElementById("close-chatbot-drawer");
@@ -299,12 +300,18 @@ function initChatbotModule() {
   if (trigger && drawer) {
     trigger.addEventListener("click", () => {
       drawer.classList.toggle("active");
+      if (drawer.classList.contains("active")) {
+        trigger.classList.add("paused");
+      } else {
+        trigger.classList.remove("paused");
+      }
     });
   }
 
   if (closeBtn && drawer) {
     closeBtn.addEventListener("click", () => {
       drawer.classList.remove("active");
+      if (trigger) trigger.classList.remove("paused");
     });
   }
 
@@ -368,6 +375,7 @@ function initChatbotModule() {
       input.value = place;
       if (drawer && !drawer.classList.contains("active")) {
         drawer.classList.add("active");
+        if (trigger) trigger.classList.add("paused");
       }
       queryChatbot(place);
     });
@@ -381,12 +389,13 @@ async function queryChatbot(placeName) {
 
   container.innerHTML = `
     <div style="text-align: center; padding: 40px;">
-      <div style="font-size:18px; color:#0284c7; font-weight:700; margin-bottom:8px;">Analyzing Multimodal Features for "${placeName}"...</div>
+      <div style="font-size:16px; color:#0284c7; font-weight:700; margin-bottom:8px;">Analyzing Multimodal Features for "${placeName}"...</div>
       <p style="font-size:13px; color:#64748b;">Geocoding coordinates & querying Sentinel-2 spectral ratios, GSI geology, SRTM terrain, and MOIL production context...</p>
     </div>
   `;
 
   try {
+    console.log(`[DIAGNOSTIC STEP 6 FRONTEND] Sending query to /api/chatbot/query for: "${placeName}"`);
     const res = await fetch(`${API_BASE}/chatbot/query`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -394,13 +403,17 @@ async function queryChatbot(placeName) {
     });
     const data = await res.json();
 
-    if (!data.in_coverage) {
+    console.log("[DIAGNOSTIC STEP 6 FRONTEND] Received backend response:", data);
+
+    if (data.is_ambiguous) {
+      renderAmbiguousReport(data, container);
+    } else if (!data.in_coverage) {
       renderOutofCoverageReport(data, container);
     } else {
       renderInCoverageReport(data, container);
     }
   } catch (err) {
-    console.error("Chatbot query error:", err);
+    console.error("[DIAGNOSTIC STEP 6 FRONTEND FAIL] Chatbot query error:", err);
     container.innerHTML = `
       <div style="background:#fee2e2; border:1px solid #fecaca; padding:20px; border-radius:12px; color:#b91c1c;">
         <b>Error processing query:</b> Failed to connect to server backend. Ensure FastAPI service is running.
@@ -409,7 +422,36 @@ async function queryChatbot(placeName) {
   }
 }
 
+function renderAmbiguousReport(data, container) {
+  const candidates = data.candidates || [];
+  container.innerHTML = `
+    <div class="chatbot-card" style="border-color:#fde68a; background:#fffbeb;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <h3 style="font-size:18px; color:#b45309; font-weight:800; margin:0;">Ambiguous Location Found</h3>
+          <div style="font-size:12px; color:#92400e; margin-top:4px;">${data.message}</div>
+        </div>
+        <span class="badge-status badge-mod">Disambiguation Needed</span>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+        <span style="font-size:12px; font-weight:700; color:#78350f;">Select your intended target location:</span>
+        ${candidates.map(c => `
+          <button onclick="queryChatbot('${c.place_name}, ${c.district}, ${c.state}')" style="background:#ffffff; border:1px solid #fcd34d; padding:12px; border-radius:10px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:background 0.2s;">
+            <div>
+              <b style="color:#0f172a; font-size:14px;">${c.place_name}</b>
+              <div style="font-size:12px; color:#64748b;">${c.district}, ${c.state}</div>
+            </div>
+            <span style="font-size:11px; background:#0284c7; color:white; padding:4px 8px; border-radius:6px; font-weight:600;">Select & Assess</span>
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function renderInCoverageReport(data, container) {
+
   const report = data.report;
   const pa = report.prospectivity_assessment;
   const geo = report.geological_context;

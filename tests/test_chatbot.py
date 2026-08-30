@@ -23,11 +23,31 @@ def test_in_coverage_prospectivity_query():
     assert "prospectivity_assessment" in res["report"]
     assert res["report"]["prospectivity_assessment"]["score"] >= 0.0
 
+def test_misspelled_prospectivity_query():
+    res = chatbot_engine.query_prospectivity("Keonjharr")
+    assert res["in_coverage"] is True
+    assert "Keonjhar" in res["matched_place"]
+
 def test_out_of_coverage_query():
-    res = chatbot_engine.query_prospectivity("Kochi")
+    res = chatbot_engine.query_prospectivity("Thiruvananthapuram")
     assert res["in_coverage"] is False
     assert "outside the currently modeled" in res["message"]
     assert res["report"]["status"] == "OUT_OF_COVERAGE"
+
+def test_ambiguous_query():
+    res = chatbot_engine.query_prospectivity("Kochi, Kerala")
+    assert res["is_ambiguous"] is True
+    assert len(res["candidates"]) > 0
+
+def test_coordinate_query():
+    res = chatbot_engine.query_prospectivity("21.6289, 85.5817")
+    assert res["in_coverage"] is True
+    assert res["report"]["status"] == "IN_COVERAGE"
+
+def test_zone_id_query():
+    res = chatbot_engine.query_prospectivity("MN-ZONE-024")
+    assert res["in_coverage"] is True
+    assert "MN-ZONE-024" in res["matched_place"]
 
 def test_api_search_endpoint():
     response = client.get("/api/areas/search?q=Balaghat")
@@ -49,3 +69,4 @@ def test_api_pdf_report_endpoint(tmp_path):
     assert response.status_code == 200
     assert response.headers["content-type"] == "application/pdf"
     assert len(response.content) > 1000
+
