@@ -7,11 +7,17 @@ let occurrenceLayerGroup = null;
 let zoneLayerGroup = null;
 let beltsLayerGroup = null;
 let rawZonesGeoJSON = null;
+let currentBufferCircle = null;
+let isRadiusToolActive = false;
+let mapPinMarker = null;
 
 // Initialize Application
 document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   initGISMap();
+  initMapSearchAutocomplete();
+  initRadiusAnalysisTool();
+  initChatbotModule();
   loadOverviewStats();
   loadMultimodalBenchmark();
   loadModelIntelligence();
@@ -85,16 +91,437 @@ function initGISMap() {
     filterZonesByScore(val);
   });
 
-  document.getElementById("search-gis")?.addEventListener("input", (e) => {
-    const query = e.target.value.trim().toLowerCase();
-    if (query.length > 2) {
-      searchAndZoom(query);
-    }
-  });
-
   document.getElementById("close-inspector")?.addEventListener("click", () => {
     document.getElementById("zone-inspector")?.classList.remove("active");
   });
+
+  document.getElementById("btn-export-zone-pdf")?.addEventListener("click", () => {
+    const state = document.getElementById("insp-state").textContent || "Keonjhar";
+    downloadPDFReport(state);
+  });
+}
+
+// Map Search & Autocomplete
+function initMapSearchAutocomplete() {
+  const input = document.getElementById("search-gis");
+  const dropdown = document.getElementById("map-autocomplete-list");
+  if (!input || !dropdown) return;
+
+  input.addEventListener("input", async (e) => {
+    const val = e.target.value.trim();
+    if (val.length < 2) {
+      dropdown.style.display = "none";
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_BASE}/areas/search?q=${encodeURIComponent(val)}`);
+      const places = await res.json();
+
+      if (!places || places.length === 0) {
+        dropdown.style.display = "none";
+        return;
+      }
+
+      dropdown.innerHTML = "";
+      places.forEach(p => {
+        const item = document.createElement("div");
+        item.className = "autocomplete-item";
+        item.innerHTML = `
+          <div>
+            <div class="place-name">${p.place_name}</div>
+            <div class="place-sub">${p.district}, ${p.state}</div>
+          </div>
+          <span style="font-size:10px; background:#0284c7; color:white; padding:2px 6px; border-radius:10px;">${p.place_type}</span>
+        `;
+        item.addEventListener("click", () => {
+          input.value = `${p.place_name}, ${p.district}, ${p.state}`;
+          dropdown.style.display = "none";
+          zoomToPlaceAndAssess(p);
+        });
+        dropdown.appendChild(item);
+      });
+      dropdown.style.display = "block";
+    } catch (err) {
+      console.error("Map search error:", err);
+    }
+  });
+
+  document.addEventListener("click", (evt) => {
+    if (!input.contains(evt.target) && !dropdown.contains(evt.target)) {
+      dropdown.style.display = "none";
+    }
+  });
+}
+
+async function zoomToPlaceAndAssess(place) {
+  const lat = place.latitude;
+  const lon = place.longitude;
+
+  map.flyTo([lat, lon], 10, { duration: 1.5 });
+
+  if (mapPinMarker) {
+    map.removeLayer(mapPinMarker);
+  }
+
+  mapPinMarker = L.marker([lat, lon], {
+    icon: L.divIcon({
+      className: 'custom-pin',
+      html: `<div style="background:#ff6b00; width:16px; height:16px; border-radius:50%; border:3px solid white; box-shadow:0 0 10px rgba(0,0,0,0.5);"></div>`,
+      iconSize: [16, 16]
+    })
+  }).addTo(map);
+
+  try {
+    const res = await fetch(`${API_BASE}/chatbot/query`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ area_name: `${place.place_name}, ${place.state}` })
+    });
+    const data = await res.json();
+
+    let popupContent = "";
+    if (data.in_coverage) {
+      const pa = data.report.prospectivity_assessment;
+      popupContent = `
+        <div style="font-family:sans-serif; width:220px;">
+          <b style="color:#0284c7; font-size:13px;">${data.matched_place}</b><br/>
+          <div style="margin-top:6px; background:#f0f9ff; padding:8px; border-radius:8px; border:1px solid #bae6fd;">
+            <span style="font-size:11px; color:#475569;">Prospectivity Score:</span><br/>
+            <b style="font-size:18px; color:#ff6b00;">${pa.score.toFixed(4)}</b> (${pa.category})<br/>
+            <span style="font-size:11px; color:#059669;">${pa.confidence_percent}% Confidence</span>
+          </div>
+          <button onclick="downloadPDFReport('${place.place_name}')" style="margin-top:8px; width:100%; background:#0284c7; color:white; border:none; padding:6px; border-radius:6px; font-weight:600; font-size:11px; cursor:pointer;">
+            📄 Download Report PDF
+          </button>
+        </div>
+      `;
+    } else {
+      popupContent = `
+        <div style="font-family:sans-serif; width:200px;">
+          <b style="color:#e11d48; font-size:12px;">OUT OF COVERAGE</b><br/>
+          <p style="font-size:11px; color:#475569; margin-top:4px;">${data.message}</p>
+        </div>
+      `;
+    }
+
+    mapPinMarker.bindPopup(popupContent).openPopup();
+  } catch (err) {
+    console.error("Place assessment popup error:", err);
+  }
+}
+
+// 10 km Buffer Radius Analysis Tool
+function initRadiusAnalysisTool() {
+  const btn = document.getElementById("btn-radius-tool");
+  const status = document.getElementById("radius-status");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    isRadiusToolActive = !isRadiusToolActive;
+    if (isRadiusToolActive) {
+      btn.style.background = "linear-gradient(135deg, #e11d48 0%, #be123c 100%)";
+      btn.innerHTML = "<span>❌ Disable Radius Analysis Tool</span>";
+      if (status) status.style.display = "block";
+    } else {
+      btn.style.background = "linear-gradient(135deg, #0284c7 0%, #0369a1 100%)";
+      btn.innerHTML = "<span>📍 Enable 10 km Radius Analysis Tool</span>";
+      if (status) status.style.display = "none";
+      if (currentBufferCircle) {
+        map.removeLayer(currentBufferCircle);
+        currentBufferCircle = null;
+      }
+    }
+  });
+
+  map.on("click", async (e) => {
+    if (!isRadiusToolActive) return;
+
+    const lat = e.latlng.lat;
+    const lon = e.latlng.lng;
+
+    if (currentBufferCircle) {
+      map.removeLayer(currentBufferCircle);
+    }
+
+    currentBufferCircle = L.circle([lat, lon], {
+      radius: 10000, // 10 km radius
+      fillColor: "#0284c7",
+      color: "#0369a1",
+      weight: 2,
+      dashArray: "4, 4",
+      fillOpacity: 0.25
+    }).addTo(map);
+
+    try {
+      const res = await fetch(`${API_BASE}/chatbot/query`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ area_name: `${lat.toFixed(4)}, ${lon.toFixed(4)}` })
+      });
+      const data = await res.json();
+
+      let popupText = "";
+      if (data.in_coverage && data.report) {
+        const pa = data.report.prospectivity_assessment;
+        popupText = `
+          <div style="font-family:sans-serif; width:220px;">
+            <b style="color:#0284c7;">10 km Radius Spatial Buffer Summary</b><br/>
+            <span style="font-size:11px; color:#64748b;">Center: ${lat.toFixed(3)}°N, ${lon.toFixed(3)}°E</span>
+            <div style="margin-top:6px; background:#f0f9ff; padding:8px; border-radius:8px;">
+              <b>Mean Score:</b> ${pa.score.toFixed(4)}<br/>
+              <b>Category:</b> ${pa.category}<br/>
+              <b>Model Confidence:</b> ${pa.confidence_percent}%
+            </div>
+          </div>
+        `;
+      } else {
+        popupText = `<b style="color:#e11d48;">Outside Modeled Manganese Belts</b>`;
+      }
+
+      currentBufferCircle.bindPopup(popupText).openPopup();
+    } catch (err) {
+      console.error("Radius query error:", err);
+    }
+  });
+}
+
+// AI Chatbot Assistant Module
+function initChatbotModule() {
+  const input = document.getElementById("chatbot-input");
+  const sendBtn = document.getElementById("btn-chatbot-send");
+  const dropdown = document.getElementById("chatbot-autocomplete-list");
+  const container = document.getElementById("chatbot-report-container");
+  if (!input || !sendBtn) return;
+
+  sendBtn.addEventListener("click", () => {
+    const val = input.value.trim();
+    if (val) queryChatbot(val);
+  });
+
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      const val = input.value.trim();
+      if (val) queryChatbot(val);
+    }
+  });
+
+  input.addEventListener("input", async (e) => {
+    const val = e.target.value.trim();
+    if (val.length < 2) {
+      dropdown.style.display = "none";
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_BASE}/areas/search?q=${encodeURIComponent(val)}`);
+      const places = await res.json();
+
+      if (!places || places.length === 0) {
+        dropdown.style.display = "none";
+        return;
+      }
+
+      dropdown.innerHTML = "";
+      places.forEach(p => {
+        const item = document.createElement("div");
+        item.className = "autocomplete-item";
+        item.innerHTML = `
+          <div>
+            <div class="place-name">${p.place_name}</div>
+            <div class="place-sub">${p.district}, ${p.state}</div>
+          </div>
+          <span style="font-size:10px; background:#0284c7; color:white; padding:2px 6px; border-radius:10px;">${p.place_type}</span>
+        `;
+        item.addEventListener("click", () => {
+          input.value = `${p.place_name}, ${p.state}`;
+          dropdown.style.display = "none";
+          queryChatbot(`${p.place_name}, ${p.state}`);
+        });
+        dropdown.appendChild(item);
+      });
+      dropdown.style.display = "block";
+    } catch (err) {
+      console.error("Chatbot autocomplete error:", err);
+    }
+  });
+
+  document.querySelectorAll(".pill-sample").forEach(pill => {
+    pill.addEventListener("click", () => {
+      const place = pill.dataset.place;
+      input.value = place;
+      queryChatbot(place);
+    });
+  });
+}
+
+async function queryChatbot(placeName) {
+  const container = document.getElementById("chatbot-report-container");
+  if (!container) return;
+
+  container.innerHTML = `
+    <div style="text-align: center; padding: 40px;">
+      <div style="font-size:18px; color:#0284c7; font-weight:700; margin-bottom:8px;">Analyzing Multimodal Features for "${placeName}"...</div>
+      <p style="font-size:13px; color:#64748b;">Geocoding coordinates & querying Sentinel-2 spectral ratios, GSI geology, SRTM terrain, and MOIL production context...</p>
+    </div>
+  `;
+
+  try {
+    const res = await fetch(`${API_BASE}/chatbot/query`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ area_name: placeName })
+    });
+    const data = await res.json();
+
+    if (!data.in_coverage) {
+      renderOutofCoverageReport(data, container);
+    } else {
+      renderInCoverageReport(data, container);
+    }
+  } catch (err) {
+    console.error("Chatbot query error:", err);
+    container.innerHTML = `
+      <div style="background:#fee2e2; border:1px solid #fecaca; padding:20px; border-radius:12px; color:#b91c1c;">
+        <b>Error processing query:</b> Failed to connect to server backend. Ensure FastAPI service is running.
+      </div>
+    `;
+  }
+}
+
+function renderInCoverageReport(data, container) {
+  const report = data.report;
+  const pa = report.prospectivity_assessment;
+  const geo = report.geological_context;
+  const terr = report.terrain_context;
+  const prod = report.production_context;
+
+  let badgeClass = "badge-mod";
+  if (pa.category.includes("High")) badgeClass = "badge-high";
+  else if (pa.category.includes("Low")) badgeClass = "badge-low";
+
+  container.innerHTML = `
+    <div class="chatbot-card">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:1px solid #e2e8f0; padding-bottom:16px;">
+        <div>
+          <div style="font-size:12px; text-transform:uppercase; color:#64748b; font-weight:700; letter-spacing:0.5px;">Target Area & Geocoded Coordinates</div>
+          <h2 style="font-size:24px; color:#0f172a; font-weight:800; margin:4px 0;">${report.area_name}</h2>
+          <div style="font-size:13px; color:#0284c7; font-weight:600;">📍 ${report.coordinates}</div>
+        </div>
+        <div style="text-align:right;">
+          <span class="badge-status ${badgeClass}">${pa.category}</span>
+          <div style="font-size:11px; color:#64748b; margin-top:4px;">10 km Buffer Aggregate</div>
+        </div>
+      </div>
+
+      <!-- Prospectivity Hero Box -->
+      <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 1px solid #bae6fd; border-radius: 16px; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <div style="font-size:12px; color:#0369a1; font-weight:700;">PROSPECTIVITY SCORE</div>
+          <div style="font-size:42px; font-weight:800; color:#0284c7; line-height:1.1;">${pa.score.toFixed(4)}</div>
+          <div style="font-size:12px; color:#475569; margin-top:4px;">Interpretation: <b>${pa.interpretation}</b></div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:22px; font-weight:800; color:#059669;">${pa.confidence_percent}%</div>
+          <div style="font-size:11px; color:#64748b;">Model Confidence</div>
+        </div>
+      </div>
+
+      <!-- SHAP & Grad-CAM Drivers -->
+      <div>
+        <h3 style="font-size:14px; color:#0f172a; font-weight:700; margin-bottom:10px;">WHY THIS SCORE (Top Multimodal SHAP & Grad-CAM Drivers)</h3>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          ${report.why_this_score.top_contributing_factors.map(f => `
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px 14px; border-radius:8px; font-size:13px; color:#334155; display:flex; align-items:center; gap:8px;">
+              <span style="color:#0284c7; font-weight:700;">•</span> ${f}
+            </div>
+          `).join("")}
+        </div>
+      </div>
+
+      <!-- Geological & Terrain Grid -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:16px; border-radius:12px;">
+          <div style="font-size:12px; color:#0284c7; font-weight:700; margin-bottom:8px;">GEOLOGICAL CONTEXT</div>
+          <div style="font-size:13px; color:#334155; line-height:1.6;">
+            <b>Lithology:</b> ${geo.lithology}<br/>
+            <b>Nearest Fault Proximity:</b> ${geo.dist_to_nearest_fault_km} km<br/>
+            <b>Nearest Known Deposit:</b> ${geo.nearest_known_occurrence} (${geo.distance_to_nearest_occurrence_km} km)
+          </div>
+        </div>
+
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:16px; border-radius:12px;">
+          <div style="font-size:12px; color:#059669; font-weight:700; margin-bottom:8px;">TERRAIN & REGIONAL SUPPLY</div>
+          <div style="font-size:13px; color:#334155; line-height:1.6;">
+            <b>Elevation / Slope:</b> ${terr.elevation_m} m | Slope ${terr.slope_deg}°<br/>
+            <b>State Capacity:</b> ${prod.share_pct}% National Share (${prod.reserves_kt})<br/>
+            <span style="font-size:11px; color:#64748b;">${prod.description}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scientific Limitations & Download Action -->
+      <div style="border-top:1px solid #e2e8f0; padding-top:16px; display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-size:11px; color:#64748b; max-width:650px;">
+          ⚠️ <b>Exploration Signal Disclaimer:</b> Reflects 30m grid cell spatial fusion likelihood. Not site-specific core drilling confirmation or reserve tonnage guarantee.
+        </div>
+
+        <button onclick="downloadPDFReport('${data.matched_place}')" style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color:white; border:none; padding:12px 20px; border-radius:10px; font-weight:700; font-size:13px; cursor:pointer; display:flex; align-items:center; gap:6px;">
+          📄 Export Formal PDF Report
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function renderOutofCoverageReport(data, container) {
+  container.innerHTML = `
+    <div class="chatbot-card" style="border-color:#fecaca;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <h2 style="font-size:22px; color:#b91c1c; font-weight:800; margin:0;">${data.matched_place}</h2>
+          <div style="font-size:13px; color:#64748b;">Coordinates: ${data.coordinates ? `${data.coordinates.lat}°N, ${data.coordinates.lon}°E` : 'N/A'}</div>
+        </div>
+        <span class="badge-status badge-out">OUT OF COVERAGE</span>
+      </div>
+
+      <div style="background:#fff1f2; border:1px solid #fecaca; padding:20px; border-radius:14px; color:#9f1239;">
+        <h3 style="font-size:15px; font-weight:700; margin-bottom:6px;">⚠️ Area Outside Modeled Manganese Exploration Region</h3>
+        <p style="font-size:13px; line-height:1.5; margin:0;">${data.message}</p>
+      </div>
+
+      <div style="font-size:12px; color:#475569; line-height:1.6;">
+        <b>Scientific Non-Extrapolation Mandate:</b> Under SIH 2026 guidelines, models are strictly prohibited from silently extrapolating scores to unmapped geographic regions. High-resolution Sentinel-2 spectral and GSI geological features are currently active only for India's primary manganese belts (Odisha, MP-MH, Karnataka, Andhra Pradesh).
+      </div>
+    </div>
+  `;
+}
+
+async function downloadPDFReport(areaName) {
+  try {
+    const res = await fetch(`${API_BASE}/reports/pdf`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ area_name: areaName })
+    });
+    
+    if (!res.ok) {
+      alert("Failed to generate PDF report from server.");
+      return;
+    }
+
+    const blob = await res.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `Manganese_Suitability_Report_${areaName.replace(/[^a-zA-Z0-9]/g, "_")}.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  } catch (err) {
+    console.error("PDF download error:", err);
+    alert("Error downloading PDF report.");
+  }
 }
 
 async function loadGroundTruthOccurrences() {
@@ -222,7 +649,6 @@ function openZoneInspector(props) {
   document.getElementById("insp-area").textContent = (props.area_sq_km || 28.5) + " km²";
   document.getElementById("insp-elev").textContent = (props.elevation_m || 340) + " m";
   document.getElementById("insp-slope").textContent = (props.slope_deg || 12.4) + "°";
-  document.getElementById("insp-swir").textContent = props.swir_alteration_index ? props.swir_alteration_index.toFixed(2) : "1.85";
   document.getElementById("insp-drivers").textContent = props.top_drivers || "SWIR Alteration (B11/B12), Fault Proximity, Land Surface Temp (LST), Soil Moisture";
 
   panel.classList.add("active");
@@ -358,3 +784,4 @@ async function loadDataExplorer() {
     console.error("Failed to load dataset explorer:", err);
   }
 }
+

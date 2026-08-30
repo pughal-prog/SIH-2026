@@ -184,3 +184,36 @@ def get_statistics():
         "model_pr_auc": 1.0000,
         "groups_active": ["Group A (Spectral)", "Group B (Geological)", "Group C (Terrain)", "Group D (Environmental: LST, SM, Rain)"]
     }
+
+from pydantic import BaseModel, Field
+from backend.chatbot_engine import chatbot_engine
+
+class ChatbotQueryRequest(BaseModel):
+    area_name: str = Field(..., example="Keonjhar")
+
+class PDFReportRequest(BaseModel):
+    area_name: str = Field(..., example="Keonjhar")
+
+@app.get("/api/areas/search")
+def search_areas(q: str = ""):
+    return chatbot_engine.search_autocomplete(query=q)
+
+@app.post("/api/chatbot/query")
+def chatbot_query(req: ChatbotQueryRequest):
+    if not req.area_name or not req.area_name.strip():
+        raise HTTPException(status_code=400, detail="Area name query cannot be empty")
+    return chatbot_engine.query_prospectivity(req.area_name)
+
+@app.post("/api/reports/pdf")
+def generate_pdf_report_endpoint(req: PDFReportRequest):
+    if not req.area_name or not req.area_name.strip():
+        raise HTTPException(status_code=400, detail="Area name query cannot be empty")
+    
+    query_result = chatbot_engine.query_prospectivity(req.area_name)
+    temp_pdf = os.path.join(OUTPUTS_DIR, f"report_{req.area_name.replace(' ', '_')}.pdf")
+    os.makedirs(OUTPUTS_DIR, exist_ok=True)
+    chatbot_engine.generate_pdf_report(query_result, temp_pdf)
+    
+    clean_filename = f"Manganese_Suitability_Report_{req.area_name.replace(' ', '_')}.pdf"
+    return FileResponse(path=temp_pdf, filename=clean_filename, media_type="application/pdf")
+

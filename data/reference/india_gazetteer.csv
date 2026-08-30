@@ -1,0 +1,42 @@
+place_name,alternate_names,place_type,latitude,longitude,state,district,source,source_id
+Keonjhar,"Kendujhar, Keonjhargarh",city/district_hq,21.6289,85.5817,Odisha,Keonjhar,GeoNames/Census,OD_001
+Joda,Joda Mining Circle,town/mining_center,22.015,85.432,Odisha,Keonjhar,GeoNames,OD_002
+Barbil,Burbil,town/mining_center,22.1167,85.3833,Odisha,Keonjhar,GeoNames,OD_003
+Sundargarh,Sundergarh,city/district_hq,22.12,84.03,Odisha,Sundargarh,GeoNames,OD_004
+Rourkela,Steel City Rourkela,city,22.2604,84.8536,Odisha,Sundargarh,GeoNames,OD_005
+Rayagada,Rayagada Town,city/district_hq,19.1717,83.4161,Odisha,Rayagada,GeoNames,OD_006
+Koraput,Koraput Town,city/district_hq,18.8135,82.7123,Odisha,Koraput,GeoNames,OD_007
+Bhubaneswar,Bhubaneswar Capital,capital/city,20.2961,85.8245,Odisha,Khurda,GeoNames,OD_008
+Balaghat,Balaghat City,city/district_hq,21.8042,80.1849,Madhya Pradesh,Balaghat,GeoNames,MP_001
+Bharweli,Bharweli Mine,village/mining_center,21.848,80.224,Madhya Pradesh,Balaghat,MOIL,MP_002
+Ukwa,Ukwa Manganese Mine,village/mining_center,21.968,80.478,Madhya Pradesh,Balaghat,MOIL,MP_003
+Katangi,Katangi Town,town,21.78,79.79,Madhya Pradesh,Balaghat,GeoNames,MP_004
+Chhindwara,Chhindwara City,city/district_hq,22.0574,78.9382,Madhya Pradesh,Chhindwara,GeoNames,MP_005
+Sausar,Sausar Town,town,21.645,78.791,Madhya Pradesh,Chhindwara,GeoNames,MP_006
+Bhandara,Bhandara City,city/district_hq,21.1685,79.6521,Maharashtra,Bhandara,GeoNames,MH_001
+Dongri Buzurg,Dongri Mine,town/mining_center,21.53,79.71,Maharashtra,Bhandara,MOIL,MH_002
+Mansar,Mansar Manganese Belt,town/mining_center,21.396,79.252,Maharashtra,Nagpur,MOIL,MH_003
+Nagpur,Nagpur City,city,21.1458,79.0882,Maharashtra,Nagpur,GeoNames,MH_004
+Tumsar,Tumsar Town,town,21.38,79.74,Maharashtra,Bhandara,GeoNames,MH_005
+Sandur,Sandroo,town/mining_center,15.0874,76.5475,Karnataka,Bellary,GeoNames,KA_001
+Bellary,Ballari,city/district_hq,15.1394,76.9214,Karnataka,Bellary,GeoNames,KA_002
+Hospet,Hosapete,city,15.2689,76.3909,Karnataka,Vijayanagara,GeoNames,KA_003
+Shimoga,Shivamogga,city/district_hq,13.9299,75.5681,Karnataka,Shimoga,GeoNames,KA_004
+Kumsi,Kumsi Manganese Deposit,village/mining_center,14.05,75.4,Karnataka,Shimoga,GeoNames,KA_005
+Uttara Kannada,Karwar District,district_hq,14.8,74.13,Karnataka,Uttara Kannada,GeoNames,KA_006
+Bengaluru,Bangalore,capital/city,12.9716,77.5946,Karnataka,Bengaluru Urban,GeoNames,KA_007
+Vizianagaram,Vizianagaram City,city/district_hq,18.1066,83.3956,Andhra Pradesh,Vizianagaram,GeoNames,AP_001
+Garividi,Garividi Manganese Belt,town/mining_center,18.2833,83.5333,Andhra Pradesh,Vizianagaram,GeoNames,AP_002
+Cheepurupalli,Chipurupalle,town/mining_center,18.3,83.5667,Andhra Pradesh,Vizianagaram,GeoNames,AP_003
+Srikakulam,Chicacole,city/district_hq,18.2969,83.8968,Andhra Pradesh,Srikakulam,GeoNames,AP_004
+Visakhapatnam,Vizag,city,17.6868,83.2185,Andhra Pradesh,Visakhapatnam,GeoNames,AP_005
+Vijayawada,Bezawada,city,16.5062,80.648,Andhra Pradesh,NTR,GeoNames,AP_006
+Kochi,Cochin,city,9.9312,76.2673,Kerala,Ernakulam,GeoNames,KL_001
+Thiruvananthapuram,Trivandrum,capital/city,8.5241,76.9366,Kerala,Thiruvananthapuram,GeoNames,KL_002
+Chennai,Madras,capital/city,13.0827,80.2707,Tamil Nadu,Chennai,GeoNames,TN_001
+Jaipur,Pink City,capital/city,26.9124,75.7873,Rajasthan,Jaipur,GeoNames,RJ_001
+Mumbai,Bombay,capital/city,19.076,72.8777,Maharashtra,Mumbai City,GeoNames,MH_010
+New Delhi,Delhi Capital,capital/city,28.6139,77.209,Delhi,New Delhi,GeoNames,DL_001
+Kolkata,Calcutta,capital/city,22.5726,88.3639,West Bengal,Kolkata,GeoNames,WB_001
+Guwahati,Gauhati,city,26.1445,91.7362,Assam,Kamrup Metropolitan,GeoNames,AS_001
+Hyderabad,Bhagyanagar,capital/city,17.385,78.4867,Telangana,Hyderabad,GeoNames,TG_001

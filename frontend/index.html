@@ -34,10 +34,12 @@
     <nav class="nav-links">
       <button class="nav-btn active" data-tab="overview-view">Overview</button>
       <button class="nav-btn" data-tab="map-view">Exploration Map</button>
+      <button class="nav-btn" data-tab="chatbot-view">AI Assistant & Reports</button>
       <button class="nav-btn" data-tab="ml-view">Multimodal Benchmarks</button>
       <button class="nav-btn" data-tab="shortfall-view">Supply & Shortfall</button>
       <button class="nav-btn" data-tab="data-view">Data Explorer</button>
     </nav>
+
   </header>
 
   <!-- Quick Ticker Bar -->
@@ -225,11 +227,14 @@
       <!-- Floating Controls Panel -->
       <div class="gis-control-panel" style="background: rgba(15, 23, 42, 0.92) !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; box-shadow: 0 20px 50px rgba(0,0,0,0.65) !important;">
         <div class="panel-header" style="color: #06b6d4 !important;">
-          <span>GIS Map Controls</span>
+          <span>GIS Map Controls & Search</span>
           <span style="font-size: 11px; color: #94a3b8;">EPSG:4326</span>
         </div>
 
-        <input type="text" id="search-gis" class="search-box" style="background: rgba(255, 255, 255, 0.05) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.1) !important;" placeholder="Search District / Zone ID (e.g. MN-ZONE-024)...">
+        <div style="position: relative; margin-bottom: 10px;">
+          <input type="text" id="search-gis" class="search-box" style="background: rgba(255, 255, 255, 0.05) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; width: 100%; box-sizing: border-box;" placeholder="Search Area / District (e.g. Keonjhar, Balaghat)...">
+          <div id="map-autocomplete-list" class="autocomplete-dropdown" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: #0f172a; border: 1px solid #334155; border-radius: 8px; z-index: 9999; max-height: 180px; overflow-y: auto;"></div>
+        </div>
 
         <div class="layer-item" style="color: #f8fafc !important;">
           <span>Known Deposits (MRDS India)</span>
@@ -250,6 +255,16 @@
             <b id="val-score-filter" style="color: #ff6b00 !important;">0.75</b>
           </label>
           <input type="range" id="slider-score" class="range-input" min="0.0" max="1.0" step="0.05" value="0.75">
+        </div>
+
+        <!-- Buffer Radius Tool Control -->
+        <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1);">
+          <button id="btn-radius-tool" class="action-btn" style="width: 100%; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; border: none; padding: 8px 12px; border-radius: 8px; font-weight: 600; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <span>📍 Enable 10 km Radius Analysis Tool</span>
+          </button>
+          <div id="radius-status" style="font-size: 11px; color: #38bdf8; margin-top: 4px; display: none; text-align: center;">
+            Click anywhere on the map to draw 10 km radius buffer
+          </div>
         </div>
       </div>
 
@@ -290,12 +305,59 @@
           </div>
         </div>
 
-        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 16px; border-radius: 12px;">
+        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 16px; border-radius: 12px; margin-bottom: 12px;">
           <div style="font-size: 12px; color: #06b6d4; font-weight: 700; margin-bottom: 8px;">Multimodal Feature Explanation (SHAP + Grad-CAM)</div>
           <p style="font-size: 13px; color: #94a3b8; line-height: 1.5;" id="insp-drivers">SWIR Alteration (B11/B12), Fault Proximity, Land Surface Temp (LST), Soil Moisture</p>
         </div>
+
+        <button id="btn-export-zone-pdf" style="width: 100%; background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; border: none; padding: 10px; border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer;">
+          📄 Download Formal PDF Suitability Report
+        </button>
       </div>
     </section>
+
+    <!-- 3. AI CHATBOT & SUITABILITY ASSISTANT VIEW -->
+    <section id="chatbot-view" class="view-section" style="background-color: #ffffff !important;">
+      <div class="dashboard-container" style="background-color: #ffffff !important; max-width: 1100px; margin: 0 auto;">
+        <div class="header-block">
+          <h1 style="color: #0f172a !important;">AI Exploration Assistant & Place Suitability Report</h1>
+          <p style="color: #475569 !important;">Query any area name in India to geocode coordinates, pull trained multimodal prospectivity outputs, and generate plain-language scientific reports.</p>
+        </div>
+
+        <!-- Chat Input Container -->
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 24px;">
+          <label style="font-size: 14px; font-weight: 700; color: #0f172a; display: block; margin-bottom: 8px;">
+            Search Area Name, City, Village, or District in India:
+          </label>
+
+          <div style="display: flex; gap: 12px; position: relative;">
+            <input type="text" id="chatbot-input" style="flex: 1; padding: 14px 18px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 15px; background: white; color: #0f172a;" placeholder="e.g. Keonjhar, Balaghat, Sandur, Garividi, Kochi..." />
+            <button id="btn-chatbot-send" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; border: none; padding: 0 28px; border-radius: 10px; font-weight: 700; font-size: 15px; cursor: pointer;">
+              Assess Area
+            </button>
+            <div id="chatbot-autocomplete-list" class="autocomplete-dropdown" style="display: none; position: absolute; top: 100%; left: 0; right: 120px; background: white; border: 1px solid #cbd5e1; border-radius: 8px; z-index: 9999; max-height: 200px; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.1);"></div>
+          </div>
+
+          <!-- Quick Suggestion Pills -->
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; align-items: center;">
+            <span style="font-size: 12px; font-weight: 600; color: #64748b;">Try Quick Samples:</span>
+            <button class="pill-sample" data-place="Keonjhar, Odisha" style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer;">Keonjhar (Odisha)</button>
+            <button class="pill-sample" data-place="Balaghat, Madhya Pradesh" style="background: #fef3c7; color: #d97706; border: 1px solid #fde68a; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer;">Balaghat (MP)</button>
+            <button class="pill-sample" data-place="Sandur, Karnataka" style="background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer;">Sandur (Karnataka)</button>
+            <button class="pill-sample" data-place="Garividi, Andhra Pradesh" style="background: #f3e8ff; color: #7e22ce; border: 1px solid #e9d5ff; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer;">Garividi (AP)</button>
+            <button class="pill-sample" data-place="Kochi, Kerala" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer;">Kochi (Outside Bounds)</button>
+          </div>
+        </div>
+
+        <!-- Chatbot Output Report Container -->
+        <div id="chatbot-report-container">
+          <div style="text-align: center; padding: 40px; color: #94a3b8; border: 2px dashed #e2e8f0; border-radius: 16px;">
+            <p style="font-size: 16px; font-weight: 600;">🔍 Type an area name above or click a quick sample to view the Multimodal Scientific Report.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- 3. MODEL INTELLIGENCE VIEW -->
     <section id="ml-view" class="view-section" style="background-color: #ffffff !important;">
