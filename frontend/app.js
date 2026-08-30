@@ -288,10 +288,26 @@ function initRadiusAnalysisTool() {
 
 // AI Chatbot Assistant Module
 function initChatbotModule() {
+  const trigger = document.getElementById("ai-chatbot-trigger");
+  const drawer = document.getElementById("ai-chatbot-drawer");
+  const closeBtn = document.getElementById("close-chatbot-drawer");
   const input = document.getElementById("chatbot-input");
   const sendBtn = document.getElementById("btn-chatbot-send");
   const dropdown = document.getElementById("chatbot-autocomplete-list");
   const container = document.getElementById("chatbot-report-container");
+
+  if (trigger && drawer) {
+    trigger.addEventListener("click", () => {
+      drawer.classList.toggle("active");
+    });
+  }
+
+  if (closeBtn && drawer) {
+    closeBtn.addEventListener("click", () => {
+      drawer.classList.remove("active");
+    });
+  }
+
   if (!input || !sendBtn) return;
 
   sendBtn.addEventListener("click", () => {
@@ -328,8 +344,8 @@ function initChatbotModule() {
         item.className = "autocomplete-item";
         item.innerHTML = `
           <div>
-            <div class="place-name">${p.place_name}</div>
-            <div class="place-sub">${p.district}, ${p.state}</div>
+            <div class="place-name" style="color:#ffffff;">${p.place_name}</div>
+            <div class="place-sub" style="color:#94a3b8;">${p.district}, ${p.state}</div>
           </div>
           <span style="font-size:10px; background:#0284c7; color:white; padding:2px 6px; border-radius:10px;">${p.place_type}</span>
         `;
@@ -350,10 +366,14 @@ function initChatbotModule() {
     pill.addEventListener("click", () => {
       const place = pill.dataset.place;
       input.value = place;
+      if (drawer && !drawer.classList.contains("active")) {
+        drawer.classList.add("active");
+      }
       queryChatbot(place);
     });
   });
 }
+
 
 async function queryChatbot(placeName) {
   const container = document.getElementById("chatbot-report-container");

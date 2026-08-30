@@ -1,11 +1,12 @@
 import os
+import re
 import math
 import json
 import pandas as pd
 import numpy as np
 from rapidfuzz import process, fuzz
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable, KeepTogether
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
@@ -19,12 +20,11 @@ GAZETTEER_PATH = os.path.join(REF_DIR, "india_gazetteer.parquet")
 GRID_PATH = os.path.join(PREDICTIONS_DIR, "prospectivity_grid.csv")
 OCCURRENCES_PATH = os.path.join(VALIDATED_DIR, "manganese_occurrences.csv")
 
-# State Manganese Production Metadata
 STATE_PRODUCTION_CONTEXT = {
     "Odisha": {
         "share_pct": 44.0,
         "reserves_kt": "92,530 kt",
-        "description": "Odisha is India's largest manganese producing state, centered around the Keonjhar-Sundargarh-Rayagada belt with high-grade oxide and siliceous deposits."
+        "description": "Odisha is India's largest manganese producing state, centered around the Keonjhar-Sundargarh-Rayagada belt with high-grade oxide deposits."
     },
     "Madhya Pradesh": {
         "share_pct": 42.7,
@@ -34,17 +34,17 @@ STATE_PRODUCTION_CONTEXT = {
     "Maharashtra": {
         "share_pct": 42.7,
         "reserves_kt": "89,800 kt",
-        "description": "Maharashtra shares the MP-MH manganese corridor in Bhandara & Nagpur districts, featuring major underground and open-pit manganese operations."
+        "description": "Maharashtra shares the MP-MH manganese corridor in Bhandara & Nagpur districts, featuring major underground & surface operations."
     },
     "Karnataka": {
         "share_pct": 11.0,
         "reserves_kt": "23,200 kt",
-        "description": "Karnataka contains key manganese deposits in the Sandur schist belt (Bellary) and Shimoga districts associated with banded iron formations."
+        "description": "Karnataka contains key manganese deposits in the Sandur schist belt (Bellary) and Shimoga districts."
     },
     "Andhra Pradesh": {
         "share_pct": 2.3,
         "reserves_kt": "4,800 kt",
-        "description": "Andhra Pradesh manganese production is concentrated in Srikakulam and Vizianagaram districts (Kodurite & Gondite type ores)."
+        "description": "Andhra Pradesh manganese production is concentrated in Srikakulam and Vizianagaram districts."
     }
 }
 
@@ -104,19 +104,58 @@ class ChatbotEngine:
         return results[:limit]
 
     def geocode_place(self, place_query: str):
-        if self.gazetteer_df is None or self.gazetteer_df.empty:
+        if not place_query or not place_query.strip():
             return None
         
-        names_list = self.gazetteer_df["place_name"].tolist()
-        match = process.extractOne(place_query, names_list, scorer=fuzz.WRatio)
-        if match and match[1] > 50:
-            matched_row = self.gazetteer_df[self.gazetteer_df["place_name"] == match[0]].iloc[0]
-            return matched_row.to_dict()
+        q_str = place_query.strip()
+
+        # Check if coordinates input like "21.6289, 85.5817"
+        coord_match = re.match(r"^(-?\d+\.?\d*)\s*,\s*(-?\d+\.?\d*)$", q_str)
+        if coord_match:
+            lat = float(coord_match.group(1))
+            lon = float(coord_match.group(2))
+            return {
+                "place_name": f"Coordinate Location ({lat:.4f}, {lon:.4f})",
+                "district": "Custom Location",
+                "state": "Modeled Region",
+                "latitude": lat,
+                "longitude": lon,
+                "place_type": "coordinates"
+            }
+
+        # Check if Zone ID input like "MN-ZONE-024" or "GRID_0024"
+        zone_match = re.search(r"(?:MN-ZONE-|GRID_|ZONE-)?(\d+)", q_str, re.IGNORECASE)
+        if (q_str.lower().startswith("zone") or q_str.lower().startswith("mn-zone") or q_str.lower().startswith("grid")) and self.grid_df is not None:
+            zone_num = int(zone_match.group(1)) if zone_match else 1
+            grid_row = None
+            if f"GRID_{zone_num:04d}" in self.grid_df["grid_id"].values:
+                grid_row = self.grid_df[self.grid_df["grid_id"] == f"GRID_{zone_num:04d}"].iloc[0]
+            elif zone_num - 1 < len(self.grid_df):
+                grid_row = self.grid_df.iloc[zone_num - 1]
+
+            if grid_row is not None:
+                return {
+                    "place_name": f"Target Zone MN-ZONE-{zone_num:03d}",
+                    "district": str(grid_row.get("belt_name", "Manganese Belt")),
+                    "state": str(grid_row.get("state", "Odisha")),
+                    "latitude": float(grid_row["latitude"]),
+                    "longitude": float(grid_row["longitude"]),
+                    "place_type": "exploration_zone"
+                }
+
+        # Fuzzy string matching in gazetteer
+        if self.gazetteer_df is not None and not self.gazetteer_df.empty:
+            names_list = self.gazetteer_df["place_name"].tolist()
+            match = process.extractOne(q_str, names_list, scorer=fuzz.WRatio)
+            if match and match[1] > 40:
+                matched_row = self.gazetteer_df[self.gazetteer_df["place_name"] == match[0]].iloc[0]
+                return matched_row.to_dict()
+
         return None
 
     @staticmethod
     def haversine_km(lat1, lon1, lat2, lon2):
-        R = 6371.0  # Earth radius in km
+        R = 6371.0
         dlat = math.radians(lat2 - lat1)
         dlon = math.radians(lon2 - lon1)
         a = math.sin(dlat / 2)**2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlon / 2)**2
@@ -130,7 +169,12 @@ class ChatbotEngine:
                 "matched_place": place_query,
                 "in_coverage": False,
                 "message": f"Place '{place_query}' could not be resolved in the gazetteer database.",
-                "report": None
+                "report": {
+                    "area_name": place_query,
+                    "coordinates": "N/A",
+                    "status": "UNRESOLVED",
+                    "explanation": f"Place query '{place_query}' was not found in the gazetteer database."
+                }
             }
 
         plat = float(matched_place["latitude"])
@@ -145,7 +189,12 @@ class ChatbotEngine:
                 "coordinates": {"lat": plat, "lon": plon},
                 "in_coverage": False,
                 "message": "Prospectivity grid model data is unavailable on server.",
-                "report": None
+                "report": {
+                    "area_name": f"{place_name}, {district}, {state}",
+                    "coordinates": f"{plat:.4f} N, {plon:.4f} E",
+                    "status": "DATA_UNAVAILABLE",
+                    "explanation": "Grid model files are not loaded."
+                }
             }
 
         # Calculate distances to all grid cells
@@ -154,7 +203,7 @@ class ChatbotEngine:
         min_dist_idx = np.argmin(dists)
         min_dist_km = dists[min_dist_idx]
 
-        # Explicit Coverage Rule: if nearest grid cell is > 15 km away, mark as OUT OF COVERAGE
+        # Explicit Coverage Rule: if nearest grid cell > 15 km away, OUT OF COVERAGE
         if min_dist_km > 15.0:
             return {
                 "matched_place": f"{place_name}, {district}, {state}",
@@ -164,7 +213,7 @@ class ChatbotEngine:
                 "nearest_grid_distance_km": round(min_dist_km, 1),
                 "report": {
                     "area_name": f"{place_name}, {district}, {state}",
-                    "coordinates": f"{plat:.4f}°N, {plon:.4f}°E",
+                    "coordinates": f"{plat:.4f} N, {plon:.4f} E",
                     "status": "OUT_OF_COVERAGE",
                     "explanation": "This location falls outside the active high-resolution Sentinel-2 spectral and GSI geological mapping coverage bounds for India's primary manganese belts.",
                     "recommendation": "Submit a regional survey request to expand multimodal satellite feature extraction to this district."
@@ -179,12 +228,9 @@ class ChatbotEngine:
 
         nearest_cell = self.grid_df.iloc[min_dist_idx]
 
-        # Calculate aggregate scores
         avg_score = float(buffer_df["prospectivity_score"].mean())
         avg_conf = float(buffer_df["confidence_percent"].mean())
-        max_score = float(buffer_df["prospectivity_score"].max())
 
-        # Categories
         if avg_score >= 0.75:
             category = "High Priority"
             interpretation = "High spatial alignment with multimodal manganese spectral and fault signatures."
@@ -195,7 +241,6 @@ class ChatbotEngine:
             category = "Low Priority / Background"
             interpretation = "Background geophysical & spectral baseline; minimal mineral anomaly signals."
 
-        # Find nearest known occurrence
         nearest_occ_name = "N/A"
         nearest_occ_dist_km = 999.0
         if self.occurrences_df is not None and not self.occurrences_df.empty:
@@ -205,7 +250,6 @@ class ChatbotEngine:
             nearest_occ_dist_km = float(occ_dists[min_occ_idx])
             nearest_occ_name = str(self.occurrences_df.iloc[min_occ_idx]["site_name"])
 
-        # Contributing factors SHAP values
         swir_alt = float(nearest_cell.get("swir_alteration_index", 1.85))
         dist_fault = float(nearest_cell.get("dist_to_fault_km", 3.2))
         lst_val = float(nearest_cell.get("lst", 32.5))
@@ -215,11 +259,10 @@ class ChatbotEngine:
         top_drivers = [
             f"SWIR Alteration Ratio (B11/B12): {swir_alt:.2f} (Elevated clay/carbonate weathering signal)",
             f"Structural Fault Proximity: {dist_fault:.2f} km (Close proximity to regional fault shear zone)",
-            f"Environmental Thermal Signature: LST {lst_val:.1f}°C, Soil Moisture {sm_val:.2f} m³/m³",
+            f"Environmental Thermal Signature: LST {lst_val:.1f} C, Soil Moisture {sm_val:.2f} m3/m3",
             f"Ferrous Iron Index (B4/B2): {iron_idx:.2f} (Strong spectral iron oxide signature)"
         ]
 
-        # Geology & Terrain
         lithology = f"{nearest_cell.get('belt_name', 'Metasedimentary Belt')} Gondite / Manganese-bearing Supergroup"
         elev = float(nearest_cell.get("elevation_m", 320.0))
         slope = float(nearest_cell.get("slope_deg", 11.5))
@@ -232,7 +275,7 @@ class ChatbotEngine:
 
         report = {
             "area_name": f"{place_name}, {district}, {state}",
-            "coordinates": f"{plat:.4f}°N, {plon:.4f}°E",
+            "coordinates": f"{plat:.4f} N, {plon:.4f} E",
             "status": "IN_COVERAGE",
             "prospectivity_assessment": {
                 "score": round(avg_score, 4),
@@ -271,7 +314,11 @@ class ChatbotEngine:
         }
 
     def generate_pdf_report(self, query_result: dict, output_filename: str):
+        dir_name = os.path.dirname(output_filename)
+        if dir_name:
+            os.makedirs(dir_name, exist_ok=True)
         doc = SimpleDocTemplate(
+
             output_filename,
             pagesize=letter,
             rightMargin=36,
@@ -286,8 +333,8 @@ class ChatbotEngine:
             'DocTitle',
             parent=styles['Heading1'],
             fontName='Helvetica-Bold',
-            fontSize=20,
-            leading=24,
+            fontSize=18,
+            leading=22,
             textColor=colors.HexColor('#0f172a'),
             spaceAfter=4
         )
@@ -299,15 +346,15 @@ class ChatbotEngine:
             fontSize=10,
             leading=13,
             textColor=colors.HexColor('#475569'),
-            spaceAfter=15
+            spaceAfter=12
         )
 
         h2_style = ParagraphStyle(
             'SectionHeader',
             parent=styles['Heading2'],
             fontName='Helvetica-Bold',
-            fontSize=12,
-            leading=15,
+            fontSize=11,
+            leading=14,
             textColor=colors.HexColor('#0284c7'),
             spaceBefore=10,
             spaceAfter=6
@@ -317,16 +364,16 @@ class ChatbotEngine:
             'Body',
             parent=styles['Normal'],
             fontName='Helvetica',
-            fontSize=9.5,
-            leading=13,
+            fontSize=9,
+            leading=12,
             textColor=colors.HexColor('#1e293b')
         )
 
         bullet_style = ParagraphStyle(
             'Bullet',
             parent=body_style,
-            leftIndent=12,
-            spaceAfter=4
+            leftIndent=10,
+            spaceAfter=3
         )
 
         elements = []
@@ -334,11 +381,11 @@ class ChatbotEngine:
         # Header Title
         elements.append(Paragraph("SIH 2026 — Manganese Exploration Suitability Report", title_style))
         elements.append(Paragraph("Multimodal Decision Support System (Groups A-D Inputs, VGG19 CNN, Fusion Model C)", subtitle_style))
-        elements.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#0284c7'), spaceAfter=12))
+        elements.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#0284c7'), spaceAfter=10))
 
-        matched = query_result.get("matched_place", "Location")
+        matched = query_result.get("matched_place", "Target Location")
         in_cov = query_result.get("in_coverage", False)
-        report = query_result.get("report", {})
+        report = query_result.get("report") or {}
 
         # Metadata Table
         meta_data = [
@@ -351,48 +398,47 @@ class ChatbotEngine:
             ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#f8fafc')),
             ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#e2e8f0')),
             ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e2e8f0')),
-            ('TOPPADDING', (0,0), (-1,-1), 6),
-            ('BOTTOMPADDING', (0,0), (-1,-1), 6),
+            ('TOPPADDING', (0,0), (-1,-1), 5),
+            ('BOTTOMPADDING', (0,0), (-1,-1), 5),
             ('LEFTPADDING', (0,0), (-1,-1), 8),
             ('RIGHTPADDING', (0,0), (-1,-1), 8),
         ]))
         elements.append(t_meta)
-        elements.append(Spacer(1, 12))
+        elements.append(Spacer(1, 10))
 
-        if not in_cov:
+        if not in_cov or report.get("status") != "IN_COVERAGE":
             elements.append(Paragraph("OUT OF COVERAGE NOTICE", h2_style))
-            elements.append(Paragraph(f"<b>Warning:</b> {query_result.get('message', 'This location is outside the current study area.')}", body_style))
-            elements.append(Spacer(1, 10))
-            elements.append(Paragraph("Silent extrapolation is prohibited under SIH 2026 scientific guidelines. Submit a regional mapping request for this state.", body_style))
+            elements.append(Paragraph(f"<b>Notice:</b> {query_result.get('message', 'This location is outside the current study area.')}", body_style))
+            elements.append(Spacer(1, 8))
+            elements.append(Paragraph("Under SIH 2026 guidelines, models do not extrapolate prospectivity scores to unmapped geographical regions.", body_style))
         else:
             pa = report.get("prospectivity_assessment", {})
             score = pa.get("score", 0.0)
             category = pa.get("category", "N/A")
             conf = pa.get("confidence_percent", 0.0)
 
-            # Score Hero Box Table
             score_data = [
                 [
-                    Paragraph(f"<font size=18 color='#0284c7'><b>Prospectivity Score: {score:.4f}</b></font><br/><font size=10 color='#475569'>Category: <b>{category}</b> | Model Confidence: <b>{conf}%</b></font>", body_style)
+                    Paragraph(f"<font size=16 color='#0284c7'><b>Prospectivity Score: {score:.4f}</b></font><br/><font size=9 color='#475569'>Category: <b>{category}</b> | Model Confidence: <b>{conf}%</b></font>", body_style)
                 ]
             ]
             t_score = Table(score_data, colWidths=[540])
             t_score.setStyle(TableStyle([
                 ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#f0f9ff')),
                 ('BOX', (0,0), (-1,-1), 1.5, colors.HexColor('#0284c7')),
-                ('TOPPADDING', (0,0), (-1,-1), 10),
-                ('BOTTOMPADDING', (0,0), (-1,-1), 10),
-                ('LEFTPADDING', (0,0), (-1,-1), 12),
-                ('RIGHTPADDING', (0,0), (-1,-1), 12),
+                ('TOPPADDING', (0,0), (-1,-1), 8),
+                ('BOTTOMPADDING', (0,0), (-1,-1), 8),
+                ('LEFTPADDING', (0,0), (-1,-1), 10),
+                ('RIGHTPADDING', (0,0), (-1,-1), 10),
             ]))
             elements.append(t_score)
-            elements.append(Spacer(1, 12))
+            elements.append(Spacer(1, 10))
 
             # WHY THIS SCORE
             elements.append(Paragraph("WHY THIS SCORE (SHAP & Grad-CAM Drivers)", h2_style))
             for factor in report.get("why_this_score", {}).get("top_contributing_factors", []):
-                elements.append(Paragraph(f"• {factor}", bullet_style))
-            elements.append(Spacer(1, 10))
+                elements.append(Paragraph(f"- {factor}", bullet_style))
+            elements.append(Spacer(1, 8))
 
             # GEOLOGICAL & TERRAIN CONTEXT
             elements.append(Paragraph("GEOLOGICAL & TERRAIN CONTEXT", h2_style))
@@ -402,26 +448,26 @@ class ChatbotEngine:
                 [Paragraph("<b>Lithology / Belt:</b>", body_style), Paragraph(geo.get("lithology", "N/A"), body_style)],
                 [Paragraph("<b>Dist to Regional Fault:</b>", body_style), Paragraph(f"{geo.get('dist_to_nearest_fault_km', 'N/A')} km", body_style)],
                 [Paragraph("<b>Nearest Occurrence:</b>", body_style), Paragraph(f"{geo.get('nearest_known_occurrence', 'N/A')} ({geo.get('distance_to_nearest_occurrence_km', 'N/A')} km)", body_style)],
-                [Paragraph("<b>Elevation / Slope:</b>", body_style), Paragraph(f"{terr.get('elevation_m', 'N/A')} m | Slope {terr.get('slope_deg', 'N/A')}°", body_style)]
+                [Paragraph("<b>Elevation / Slope:</b>", body_style), Paragraph(f"{terr.get('elevation_m', 'N/A')} m | Slope {terr.get('slope_deg', 'N/A')} deg", body_style)]
             ]
             t_geo = Table(geo_data, colWidths=[150, 390])
             t_geo.setStyle(TableStyle([
                 ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#f8fafc')),
                 ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#e2e8f0')),
                 ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#e2e8f0')),
-                ('PADDING', (0,0), (-1,-1), 5),
+                ('PADDING', (0,0), (-1,-1), 4),
             ]))
             elements.append(t_geo)
-            elements.append(Spacer(1, 10))
+            elements.append(Spacer(1, 8))
 
             # REGIONAL SUPPLY & LIMITATIONS
             elements.append(Paragraph("REGIONAL SUPPLY CONTEXT & LIMITATIONS", h2_style))
             prod = report.get("production_context", {})
             elements.append(Paragraph(f"<b>State Supply Context:</b> {prod.get('description', '')}", body_style))
-            elements.append(Spacer(1, 6))
+            elements.append(Spacer(1, 4))
 
             for lim in report.get("limitations", []):
-                elements.append(Paragraph(f"⚠️ <i>{lim}</i>", bullet_style))
+                elements.append(Paragraph(f"* {lim}", bullet_style))
 
         doc.build(elements)
         print(f"[+] Successfully compiled PDF report to {output_filename}")
