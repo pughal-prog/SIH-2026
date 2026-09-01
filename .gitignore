@@ -11,6 +11,7 @@ env/
 models/*.pt
 models/*.onnx
 data/training/patches/*.npy
+data/predictions/thumbnails/
 
 # Large Raw Archives & Extracted Duplicates
 data/raw/usgs_mrds/mrds-tab.zip

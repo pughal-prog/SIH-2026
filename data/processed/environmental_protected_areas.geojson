@@ -1,0 +1,159 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "pa_id": "PA-001",
+        "name": "Similipal Tiger Reserve & Keonjhar Dense Forest",
+        "category": "Protected Area / Dense Forest",
+        "state": "Odisha",
+        "clearance_required": "Ministry of Environment, Forest and Climate Change (MoEFCC) Forest Clearance Stage II"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.7,
+              21.35
+            ],
+            [
+              86.5,
+              21.35
+            ],
+            [
+              86.5,
+              22.25
+            ],
+            [
+              85.7,
+              22.25
+            ],
+            [
+              85.7,
+              21.35
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "pa_id": "PA-002",
+        "name": "Kanha-Balaghat Forest Corridor & Reserved Forest",
+        "category": "Protected Area / Wildlife Corridor",
+        "state": "Madhya Pradesh",
+        "clearance_required": "National Board for Wildlife (NBWL) & MoEFCC Forest Clearance"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.15,
+              21.8
+            ],
+            [
+              80.85,
+              21.8
+            ],
+            [
+              80.85,
+              22.45
+            ],
+            [
+              80.15,
+              22.45
+            ],
+            [
+              80.15,
+              21.8
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "pa_id": "PA-003",
+        "name": "Sandur Reserved Forest & Wildlife Sanctuary",
+        "category": "Reserved Forest",
+        "state": "Karnataka",
+        "clearance_required": "Karnataka State Forest Dept Clearance & Supreme Court CEC Guidelines"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.35,
+              14.95
+            ],
+            [
+              76.85,
+              14.95
+            ],
+            [
+              76.85,
+              15.45
+            ],
+            [
+              76.35,
+              15.45
+            ],
+            [
+              76.35,
+              14.95
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "pa_id": "PA-004",
+        "name": "Eastern Ghats Reserve Forest (Vizianagaram)",
+        "category": "Dense Forest Reserve",
+        "state": "Andhra Pradesh",
+        "clearance_required": "AP Forest Dept Eco-Sensitive Zone Clearance"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              83.15,
+              18.25
+            ],
+            [
+              83.65,
+              18.25
+            ],
+            [
+              83.65,
+              18.75
+            ],
+            [
+              83.15,
+              18.75
+            ],
+            [
+              83.15,
+              18.25
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
